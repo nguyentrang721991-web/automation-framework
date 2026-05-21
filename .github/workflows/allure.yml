@@ -22,6 +22,11 @@ jobs:
         with:
           distribution: temurin
           java-version: "17"
+      - name: Setup Chrome
+        uses: browser-actions/setup-chrome@v1
+
+      - name: Setup ChromeDriver
+        uses: nanasess/setup-chromedriver@v2
 
       - name: Run tests
         run: mvn clean test
