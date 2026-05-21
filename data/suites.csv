@@ -1,0 +1,2 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Thu May 21 10:30:21 UTC 2026","Thu May 21 10:30:22 UTC 2026","437","Surefire suite","Surefire test","tests.LoginTest","tests.LoginTest","testLogin","testLogin",""
