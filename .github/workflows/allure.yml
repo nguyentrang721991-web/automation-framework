@@ -36,12 +36,11 @@ jobs:
         run: |
           ./allure-2.27.0/bin/allure generate allure-results --clean -o allure-report
 
-      - name: Check report
-        run: ls -R allure-report
-
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: allure-report
           publish_branch: gh-pages
+          force_orphan: true
+          commit_message: "Deploy Allure report"
