@@ -2,7 +2,9 @@ name: Run Tests + Allure Report
 
 on:
   push:
-    branches: ["main"]
+    branches:
+      - main
+      - master
 
 jobs:
   test:
