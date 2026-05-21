@@ -28,6 +28,12 @@ jobs:
       - name: Setup ChromeDriver
         uses: nanasess/setup-chromedriver@v2
 
+      - name: Clean workspace
+        run: |
+          rm -rf allure-results
+          rm -rf allure-report
+          rm -rf target
+
       - name: Run tests
         run: mvn clean test
 
