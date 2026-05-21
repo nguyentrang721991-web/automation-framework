@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
 
     permissions:
-      contents: write
+      contents: write   # 🔥 BẮT BUỘC
 
     steps:
       - name: Checkout code
@@ -24,16 +24,22 @@ jobs:
       - name: Run tests
         run: mvn clean test
 
-      - name: Install Allure CLI
+      - name: Check allure-results exists
+        run: ls -R allure-results
+
+      - name: Install Allure
         run: |
           wget https://github.com/allure-framework/allure2/releases/latest/download/allure-2.27.0.tgz
           tar -zxvf allure-2.27.0.tgz
 
-      - name: Generate Allure Report
+      - name: Generate report
         run: |
           ./allure-2.27.0/bin/allure generate allure-results --clean -o allure-report
 
-      - name: Deploy report to GitHub Pages
+      - name: Verify report folder
+        run: ls -R allure-report
+
+      - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
