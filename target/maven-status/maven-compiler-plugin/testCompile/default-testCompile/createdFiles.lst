@@ -1,0 +1,4 @@
+base\BaseTest.class
+tests\LoginTest.class
+utils\AllureListener.class
+utils\RetryAnalyzer.class
