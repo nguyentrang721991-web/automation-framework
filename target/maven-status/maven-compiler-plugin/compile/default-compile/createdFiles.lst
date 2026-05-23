@@ -1,5 +1,8 @@
 base\BasePage.class
-utils\ScreenshotUtils.class
+core\keywords\Actions.class
 pages\LoginPage.class
 utils\DriverFactory.class
+core\engine\DataEngine.class
+utils\ScreenshotUtils.class
+core\excel\ExcelReader.class
 utils\WaitUtils.class

@@ -6,7 +6,7 @@ import org.testng.annotations.BeforeMethod;
 import org.openqa.selenium.WebDriver;
 
 import utils.AllureListener;
-import utils.DriverFactory;
+import core.utils.DriverFactory;
 
 @Listeners(AllureListener.class)
 public class BaseTest {

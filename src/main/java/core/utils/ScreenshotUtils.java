@@ -1,4 +1,4 @@
-package utils;
+package core.utils;
 
 import org.openqa.selenium.*;
 import java.io.File;

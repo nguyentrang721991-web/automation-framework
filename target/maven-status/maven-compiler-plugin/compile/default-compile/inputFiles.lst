@@ -1,4 +1,7 @@
 D:\Automation\advanced_selenium_framework\src\main\java\base\BasePage.java
+D:\Automation\advanced_selenium_framework\src\main\java\core\engine\DataEngine.java
+D:\Automation\advanced_selenium_framework\src\main\java\core\excel\ExcelReader.java
+D:\Automation\advanced_selenium_framework\src\main\java\core\keywords\Actions.java
 D:\Automation\advanced_selenium_framework\src\main\java\pages\LoginPage.java
 D:\Automation\advanced_selenium_framework\src\main\java\utils\DriverFactory.java
 D:\Automation\advanced_selenium_framework\src\main\java\utils\ScreenshotUtils.java
