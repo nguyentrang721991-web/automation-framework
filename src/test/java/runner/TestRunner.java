@@ -68,7 +68,7 @@ public class TestRunner {
 
         List<Map<String, String>> steps = excel.getTestStepsForLoginTC(tcId);
         driver = DriverFactory.initDriver();
-        engine = new KeywordEngine(driver);
+        engine = new KeywordEngine(driver, excel.getObjectRepository());
         engine.executeSteps(steps, testData);
     }
 

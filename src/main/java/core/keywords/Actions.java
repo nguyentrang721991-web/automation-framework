@@ -52,8 +52,28 @@ public class Actions {
 
     public void input(By by, String value) {
         WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(by));
-        element.clear();
-        element.sendKeys(value == null ? "" : value);
+        try {
+            element.clear();
+            element.sendKeys(value == null ? "" : value);
+        } catch (Exception ignored) {
+            typeIntoEditor(element, value == null ? "" : value);
+        }
+    }
+
+    public void inputEditor(By by, String value) {
+        WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(by));
+        typeIntoEditor(element, value == null ? "" : value);
+    }
+
+    public void clickDeep(By by, int timeoutSeconds) {
+        WebElement element = findFirstVisibleAcross(timeoutSeconds, by);
+        if (element == null) {
+            throw new RuntimeException("Cannot find element to click: " + by);
+        }
+        scrollIntoView(element);
+        if (!clickElementDeep(element)) {
+            throw new RuntimeException("Cannot click element: " + by);
+        }
     }
 
     public void waitForSeconds(int seconds) {
@@ -177,12 +197,12 @@ public class Actions {
     }
 
     private boolean handleStaySignedInPrompt(String returnWindow) {
-        long deadline = System.currentTimeMillis() + 5_000L;
+        long deadline = System.currentTimeMillis() + ConfigReader.getInt("stay.signed.in.wait", 12) * 1000L;
         while (System.currentTimeMillis() < deadline) {
             for (String window : driver.getWindowHandles()) {
                 try {
                     driver.switchTo().window(window);
-                    if (clickStaySignedInYesIfPresent()) {
+                    if (clickStaySignedInYesIfPresent() || clickStaySignedInYesByScript()) {
                         switchBackIfPossible(returnWindow);
                         return true;
                     }
@@ -242,6 +262,33 @@ public class Actions {
         return false;
     }
 
+    private boolean clickStaySignedInYesByScript() {
+        try {
+            return (Boolean) ((JavascriptExecutor) driver).executeScript(
+                    "const visible = (el) => {"
+                            + " if (!el) return false;"
+                            + " const style = window.getComputedStyle(el);"
+                            + " const rect = el.getBoundingClientRect();"
+                            + " return style.display !== 'none' && style.visibility !== 'hidden' "
+                            + "   && Number(style.opacity || 1) > 0 && rect.width > 0 && rect.height > 0;"
+                            + "};"
+                            + "const bodyText = (document.body && document.body.innerText || '').toLowerCase();"
+                            + "if (!bodyText.includes('stay signed in') && !bodyText.includes('duy tri dang nhap') && !bodyText.includes('giữ đăng nhập')) return false;"
+                            + "const candidates = [...document.querySelectorAll('input,button,[role=\"button\"]')].filter(visible);"
+                            + "const target = candidates.find(el => {"
+                            + " const text = ((el.value || el.innerText || el.textContent || el.getAttribute('aria-label') || el.id || '') + '').trim().toLowerCase();"
+                            + " return el.id === 'idSIButton9' || el.id === 'acceptButton' || text === 'yes' || text === 'có' || text.includes('yes') || text.includes('có');"
+                            + "});"
+                            + "if (!target) return false;"
+                            + "target.scrollIntoView({block:'center', inline:'center'});"
+                            + "target.click();"
+                            + "return true;"
+            );
+        } catch (Exception ignored) {
+            return false;
+        }
+    }
+
     private void switchBackIfPossible(String mainWindow) {
         try {
             if (driver.getWindowHandles().contains(mainWindow)) {
@@ -258,7 +305,7 @@ public class Actions {
 
         String originalWindow = driver.getWindowHandle();
         if (!switchToWindowWithVisibleElement(otpInput, 5)) {
-            waitForAuthenticationToComplete(originalWindow, ConfigReader.getInt("auth.wait", 60));
+            waitForAuthenticationToCompleteOrFail(originalWindow, ConfigReader.getInt("auth.wait", 90));
             return;
         }
 
@@ -289,8 +336,7 @@ public class Actions {
                 return;
             }
             if (!switchToWindowWithVisibleElement(otpInput, 1)) {
-                waitForAuthenticationToComplete(returnWindow, 10);
-                if (isAppReady()) {
+                if (waitForAuthenticationToComplete(returnWindow, 10)) {
                     return;
                 }
             }
@@ -300,16 +346,28 @@ public class Actions {
                 + timeoutSeconds + " seconds");
     }
 
-    private void waitForAuthenticationToComplete(String returnWindow, int timeoutSeconds) {
+    private void waitForAuthenticationToCompleteOrFail(String returnWindow, int timeoutSeconds) {
+        if (waitForAuthenticationToComplete(returnWindow, timeoutSeconds)) {
+            return;
+        }
+
+        throw new RuntimeException("Authentication did not complete within " + timeoutSeconds
+                + " seconds. Current URL: " + currentUrl()
+                + ". Page text sample: " + textSample(getVisibleText()));
+    }
+
+    private boolean waitForAuthenticationToComplete(String returnWindow, int timeoutSeconds) {
         long deadline = System.currentTimeMillis() + timeoutSeconds * 1000L;
         while (System.currentTimeMillis() < deadline) {
             handleStaySignedInPrompt(returnWindow);
             switchBackIfPossible(returnWindow);
             if (isAppReady()) {
-                return;
+                return true;
             }
             waitForMilliseconds(500);
         }
+
+        return false;
     }
 
     public void enterAppPin(String pin) {
@@ -351,6 +409,8 @@ public class Actions {
     }
 
     public void openCreateGroupChat() {
+        ensureAppReadyBeforeAction("open create group chat");
+
         if (clickCreateGroupChatByScript()) {
             if (waitForCreateGroupChatOpened(8)) {
                 return;
@@ -415,6 +475,8 @@ public class Actions {
             throw new IllegalArgumentException("Account value is required");
         }
 
+        ensureAppReadyBeforeAction("search account");
+
         WebElement searchInput = findFirstVisibleAcross(5,
                 By.cssSelector("p[data-placeholder='Search']"),
                 By.xpath("//*[@data-placeholder='Search']"),
@@ -448,7 +510,8 @@ public class Actions {
         }
 
         if (searchInput == null) {
-            throw new RuntimeException("Cannot find account search input");
+            throw new RuntimeException("Cannot find account search input. Current URL: " + currentUrl()
+                    + ". Page text sample: " + textSample(getVisibleText()));
         }
 
         typeIntoEditor(searchInput, account);
@@ -460,6 +523,8 @@ public class Actions {
         if (isBlank(message)) {
             throw new IllegalArgumentException("Message value is required");
         }
+
+        ensureAppReadyBeforeAction("send chat message");
 
         WebElement messageBox = findFirstVisible(15,
                 By.cssSelector("p[data-placeholder='Message']"),
@@ -833,6 +898,23 @@ public class Actions {
         } catch (Exception ignored) {
             return false;
         }
+    }
+
+    private void ensureAppReadyBeforeAction(String actionName) {
+        String currentWindow = "";
+        try {
+            currentWindow = driver.getWindowHandle();
+        } catch (Exception ignored) {
+            // Continue with the active window.
+        }
+
+        if (handleStaySignedInPrompt(currentWindow) || waitForAppReady(ConfigReader.getInt("app.ready.wait", 30))) {
+            return;
+        }
+
+        throw new RuntimeException("App is not ready before action: " + actionName
+                + ". Current URL: " + currentUrl()
+                + ". Page text sample: " + textSample(getVisibleText()));
     }
 
     private boolean waitForAppReady(int timeoutSeconds) {

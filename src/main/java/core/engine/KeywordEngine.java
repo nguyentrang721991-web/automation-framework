@@ -4,6 +4,7 @@ import core.keywords.Actions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -11,9 +12,15 @@ import java.util.Map;
 public class KeywordEngine {
 
     private final Actions action;
+    private final Map<String, String> objectRepository;
 
     public KeywordEngine(WebDriver driver) {
+        this(driver, Collections.emptyMap());
+    }
+
+    public KeywordEngine(WebDriver driver, Map<String, String> objectRepository) {
         this.action = new Actions(driver);
+        this.objectRepository = objectRepository == null ? Collections.emptyMap() : objectRepository;
     }
 
     public void executeSteps(List<Map<String, String>> steps, Map<String, String> testData) {
@@ -23,7 +30,7 @@ public class KeywordEngine {
             Map<String, String> step = steps.get(i);
 
             String keyword = valueOf(step.get("keyword"));
-            String object = dataEngine.resolve(valueOf(step.get("object")));
+            String object = resolveObject(valueOf(step.get("object")), dataEngine);
             String value = dataEngine.resolve(valueOf(step.get("data")));
 
             if (keyword.isEmpty()) {
@@ -36,11 +43,21 @@ public class KeywordEngine {
             switch (normalizedKeyword) {
                 case "navigate":
                 case "open":
+                case "goto":
                     action.navigate(value);
+                    break;
+
+                case "openbrowser":
+                    // Driver lifecycle is controlled by TestRunner/DriverFactory. Keep this keyword for Template_TC compatibility.
                     break;
 
                 case "click":
                     action.click(toBy(object));
+                    break;
+
+                case "clickjs":
+                case "clickdeep":
+                    action.clickDeep(toBy(object), parseInt(value, 10));
                     break;
 
                 case "clickifvisible":
@@ -49,7 +66,16 @@ public class KeywordEngine {
 
                 case "input":
                 case "type":
+                    if (object.isEmpty() && (value.startsWith("http://") || value.startsWith("https://"))) {
+                        action.navigate(value);
+                        break;
+                    }
                     action.input(toBy(object), value);
+                    break;
+
+                case "inputeditor":
+                case "typeeditor":
+                    action.inputEditor(toBy(object), value);
                     break;
 
                 case "wait":
@@ -133,6 +159,16 @@ public class KeywordEngine {
                     throw new IllegalArgumentException("Unsupported keyword: " + keyword);
             }
         }
+    }
+
+    private String resolveObject(String rawObject, DataEngine dataEngine) {
+        String object = valueOf(rawObject);
+        if (object.isEmpty()) {
+            return "";
+        }
+
+        String referencedLocator = objectRepository.getOrDefault(object, object);
+        return dataEngine.resolve(referencedLocator);
     }
 
     private By toBy(String object) {

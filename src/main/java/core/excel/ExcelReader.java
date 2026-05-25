@@ -22,8 +22,10 @@ import java.util.Map;
 
 public class ExcelReader implements AutoCloseable {
 
+    private static final String TEST_CASES_SHEET = "TestCases";
     private static final String TEST_DATA_SHEET = "TestData";
     private static final String TEST_STEPS_SHEET = "TestSteps";
+    private static final String OBJECT_REPOSITORY_SHEET = "ObjectRepository";
 
     private final Workbook workbook;
     private final DataFormatter formatter;
@@ -77,8 +79,16 @@ public class ExcelReader implements AutoCloseable {
 
     public List<Map<String, String>> getLoginTestCases(String sheetName) {
         Sheet sheet = workbook.getSheet(sheetName);
+        if (sheet == null && workbook.getSheet(TEST_CASES_SHEET) != null) {
+            sheet = workbook.getSheet(TEST_CASES_SHEET);
+        }
         if (sheet == null) {
             throw new RuntimeException("Sheet not found: " + sheetName);
+        }
+
+        int templateHeaderRowIndex = findHeaderRow(sheet, "TestCaseID");
+        if (templateHeaderRowIndex >= 0) {
+            return readTemplateTestCases(sheet, templateHeaderRowIndex);
         }
 
         int headerRowIndex = findHeaderRow(sheet, "No");
@@ -114,6 +124,49 @@ public class ExcelReader implements AutoCloseable {
             tc.put("IOS", getCellValue(row.getCell(6)));
             tc.put("ISSUE", getCellValue(row.getCell(7)));
             tc.put("JIRA", getCellValue(row.getCell(8)));
+            tc.put("RUN", "");
+            tc.put("HAS_TEST_DATA", String.valueOf(hasTestData(tcId)));
+            tc.put("HAS_CUSTOM_STEPS", String.valueOf(hasCustomSteps(tcId)));
+            testCases.add(tc);
+        }
+        return testCases;
+    }
+
+    private List<Map<String, String>> readTemplateTestCases(Sheet sheet, int headerRowIndex) {
+        Map<String, Integer> columns = indexColumns(sheet.getRow(headerRowIndex));
+        Integer tcColumn = firstExisting(columns, "testcaseid", "tc_id", "tcid");
+        if (tcColumn == null) {
+            throw new RuntimeException("Cannot find TestCaseID column in sheet: " + sheet.getSheetName());
+        }
+
+        Integer descriptionColumn = firstExisting(columns, "description", "tcs", "tcslv2", "name");
+        Integer runColumn = firstExisting(columns, "run", "execute");
+        Integer expectedColumn = firstExisting(columns, "expected", "expect");
+        Integer webColumn = firstExisting(columns, "web");
+
+        List<Map<String, String>> testCases = new ArrayList<>();
+        for (int i = headerRowIndex + 1; i <= sheet.getLastRowNum(); i++) {
+            Row row = sheet.getRow(i);
+            if (row == null) {
+                continue;
+            }
+
+            String tcId = getCellValue(row.getCell(tcColumn));
+            if (tcId.isEmpty()) {
+                continue;
+            }
+
+            Map<String, String> tc = new LinkedHashMap<>();
+            tc.put("TC_ID", tcId);
+            tc.put("LV1", "");
+            tc.put("DESCRIPTION", descriptionColumn == null ? "" : getCellValue(row.getCell(descriptionColumn)));
+            tc.put("EXPECTED", expectedColumn == null ? "" : getCellValue(row.getCell(expectedColumn)));
+            tc.put("WEB", webColumn == null ? "" : getCellValue(row.getCell(webColumn)));
+            tc.put("ANDROID", "");
+            tc.put("IOS", "");
+            tc.put("ISSUE", "");
+            tc.put("JIRA", "");
+            tc.put("RUN", runColumn == null ? "Y" : getCellValue(row.getCell(runColumn)));
             tc.put("HAS_TEST_DATA", String.valueOf(hasTestData(tcId)));
             tc.put("HAS_CUSTOM_STEPS", String.valueOf(hasCustomSteps(tcId)));
             testCases.add(tc);
@@ -167,7 +220,12 @@ public class ExcelReader implements AutoCloseable {
 
     public String getAutomationSkipReason(Map<String, String> testCase) {
         String tcId = testCase.getOrDefault("TC_ID", "");
+        String run = testCase.getOrDefault("RUN", "");
         String webStatus = testCase.getOrDefault("WEB", "");
+
+        if (!run.isBlank() && !isYes(run)) {
+            return "Run is not Y in TestCases sheet";
+        }
 
         if ("not supported".equalsIgnoreCase(webStatus)) {
             return "Web status is Not Supported in manual sheet";
@@ -187,6 +245,11 @@ public class ExcelReader implements AutoCloseable {
     private boolean hasValue(Map<String, String> data, String key) {
         String value = data.get(key);
         return value != null && !value.trim().isEmpty();
+    }
+
+    private boolean isYes(String value) {
+        String normalized = value == null ? "" : value.trim().toLowerCase(Locale.ROOT);
+        return normalized.equals("y") || normalized.equals("yes") || normalized.equals("true") || normalized.equals("1");
     }
 
     private boolean hasTestData(String testCaseId) {
@@ -315,7 +378,8 @@ public class ExcelReader implements AutoCloseable {
 
     public List<String> getRunnableTestCases() {
         List<String> list = new ArrayList<>();
-        for (Map<String, String> testCase : getLoginTestCases("M2.Login - Encrypt update")) {
+        String sheetName = System.getProperty("login.sheet", TEST_CASES_SHEET);
+        for (Map<String, String> testCase : getLoginTestCases(sheetName)) {
             if (getAutomationSkipReason(testCase).isEmpty()) {
                 list.add(testCase.get("TC_ID"));
             }
@@ -325,6 +389,56 @@ public class ExcelReader implements AutoCloseable {
 
     public List<Map<String, String>> getTestSteps(String testCaseId) {
         return readCustomSteps(testCaseId);
+    }
+
+    public Map<String, String> getObjectRepository() {
+        Map<String, String> objects = new LinkedHashMap<>();
+        Sheet sheet = workbook.getSheet(OBJECT_REPOSITORY_SHEET);
+        if (sheet == null) {
+            return objects;
+        }
+
+        Row header = sheet.getRow(0);
+        if (header == null) {
+            return objects;
+        }
+
+        Map<String, Integer> columns = indexColumns(header);
+        Integer nameColumn = firstExisting(columns, "objectname", "object", "name");
+        Integer typeColumn = firstExisting(columns, "locatortype", "type", "by");
+        Integer valueColumn = firstExisting(columns, "locatorvalue", "value", "locator");
+
+        if (nameColumn == null || valueColumn == null) {
+            return objects;
+        }
+
+        for (int i = 1; i <= sheet.getLastRowNum(); i++) {
+            Row row = sheet.getRow(i);
+            if (row == null) {
+                continue;
+            }
+
+            String objectName = getCellValue(row.getCell(nameColumn));
+            String locatorValue = getCellValue(row.getCell(valueColumn));
+            if (objectName.isEmpty() || locatorValue.isEmpty()) {
+                continue;
+            }
+
+            String locatorType = typeColumn == null ? "" : getCellValue(row.getCell(typeColumn));
+            objects.put(objectName, toLocator(locatorType, locatorValue));
+        }
+        return objects;
+    }
+
+    private String toLocator(String locatorType, String locatorValue) {
+        String type = locatorType == null ? "" : locatorType.trim().toLowerCase(Locale.ROOT);
+        if (type.isEmpty()) {
+            return locatorValue;
+        }
+        if (locatorValue.startsWith(type + "=")) {
+            return locatorValue;
+        }
+        return type + "=" + locatorValue;
     }
 
     @Override
