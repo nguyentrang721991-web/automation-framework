@@ -1,12 +1,12 @@
 package base;
 
-import org.testng.annotations.Listeners;
+import core.utils.ConfigReader;
+import core.utils.DriverFactory;
+import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import org.openqa.selenium.WebDriver;
-
+import org.testng.annotations.Listeners;
 import utils.AllureListener;
-import core.utils.DriverFactory;
 
 @Listeners(AllureListener.class)
 public class BaseTest {
@@ -16,13 +16,11 @@ public class BaseTest {
     @BeforeMethod
     public void setUp() {
         driver = DriverFactory.initDriver();
-        driver.get("https://lms.scotsenglish.vn/");
+        driver.get(ConfigReader.getProperty("base.url"));
     }
 
     @AfterMethod
     public void tearDown() {
-        if (driver != null) {
-            driver.quit();
-        }
+        DriverFactory.quitDriver();
     }
 }
