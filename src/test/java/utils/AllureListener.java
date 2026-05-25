@@ -1,11 +1,14 @@
 package utils;
 
+import core.utils.DriverFactory;
 import io.qameta.allure.Attachment;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
+
+import java.lang.reflect.Field;
 
 public class AllureListener implements ITestListener {
 
@@ -16,14 +19,31 @@ public class AllureListener implements ITestListener {
 
     @Override
     public void onTestFailure(ITestResult result) {
-        Object testClass = result.getInstance();
         try {
-            WebDriver driver = (WebDriver) testClass.getClass()
-                    .getField("driver")
-                    .get(testClass);
-            saveScreenshot(driver);
+            WebDriver driver = DriverFactory.getDriver();
+            if (driver == null) {
+                driver = resolveDriverFromTestInstance(result.getInstance());
+            }
+            if (driver != null) {
+                saveScreenshot(driver);
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    private WebDriver resolveDriverFromTestInstance(Object testInstance) throws IllegalAccessException {
+        Class<?> type = testInstance.getClass();
+        while (type != null) {
+            try {
+                Field field = type.getDeclaredField("driver");
+                field.setAccessible(true);
+                Object value = field.get(testInstance);
+                return value instanceof WebDriver ? (WebDriver) value : null;
+            } catch (NoSuchFieldException ignored) {
+                type = type.getSuperclass();
+            }
+        }
+        return null;
     }
 }
