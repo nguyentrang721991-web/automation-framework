@@ -144,7 +144,7 @@ public class Actions {
 
         try {
             waitForPageStable(2);
-            if (isAppReady()) {
+            if (isAuthenticatedOrAppReady()) {
                 return;
             }
 
@@ -366,6 +366,7 @@ public class Actions {
         );
         handleStaySignedInPrompt(originalWindow);
         switchBackIfPossible(originalWindow);
+        waitForAuthenticationToCompleteOrFail(originalWindow, ConfigReader.getInt("auth.wait", 90));
     }
 
     private void waitForManualMicrosoftMfa(By otpInput, String returnWindow, int timeoutSeconds) {
@@ -375,7 +376,7 @@ public class Actions {
         while (System.currentTimeMillis() < deadline) {
             handleStaySignedInPrompt(returnWindow);
             switchBackIfPossible(returnWindow);
-            if (isAppReady()) {
+            if (isAuthenticatedOrAppReady()) {
                 return;
             }
             if (!switchToWindowWithVisibleElement(otpInput, 1)) {
@@ -404,7 +405,7 @@ public class Actions {
         while (System.currentTimeMillis() < deadline) {
             handleStaySignedInPrompt(returnWindow);
             switchBackIfPossible(returnWindow);
-            if (isAppReady()) {
+            if (isAuthenticatedOrAppReady()) {
                 return true;
             }
             waitForMilliseconds(500);
@@ -438,17 +439,56 @@ public class Actions {
                 By.xpath("//*[self::button or self::a or @role='button'][contains(normalize-space(.),'Skip')]")
         );
 
+        if (!clicked) {
+            clicked = clickSkipSecurityKeySetupByScript(5);
+        }
+
         if (clicked) {
-            waitForAppReady(ConfigReader.getInt("app.ready.wait", 30));
+            waitUntilNotSecurityKeySetup(ConfigReader.getInt("app.ready.wait", 30));
             return true;
         }
 
-        if (isAppReady()) {
+        if (!isSecurityKeySetupPage() && isAppReady()) {
             return true;
         }
 
         throw new RuntimeException("Cannot find security key setup skip button and app is not ready. Current URL: "
                 + currentUrl() + ". Page text sample: " + textSample(getVisibleText()));
+    }
+
+    private boolean clickSkipSecurityKeySetupByScript(int timeoutSeconds) {
+        try {
+            WebDriverWait shortWait = new WebDriverWait(driver, Duration.ofSeconds(timeoutSeconds));
+            return shortWait.until(driver -> (Boolean) ((JavascriptExecutor) driver).executeScript(
+                    "const visible = (el) => {"
+                            + " if (!el) return false;"
+                            + " const style = window.getComputedStyle(el);"
+                            + " const rect = el.getBoundingClientRect();"
+                            + " return style.display !== 'none' && style.visibility !== 'hidden'"
+                            + "   && Number(style.opacity || 1) > 0 && rect.width > 0 && rect.height > 0;"
+                            + "};"
+                            + "const candidates = [...document.querySelectorAll('button,a,[role=\"button\"]')].filter(visible);"
+                            + "const target = candidates.find(el => {"
+                            + " const text = (el.innerText || el.textContent || '').trim().toLowerCase();"
+                            + " return text === 'bỏ qua' || text === 'bo qua' || text.includes('skip');"
+                            + "});"
+                            + "if (!target) return false;"
+                            + "target.scrollIntoView({block:'center', inline:'center'});"
+                            + "target.click();"
+                            + "return true;"
+            ));
+        } catch (Exception ignored) {
+            return false;
+        }
+    }
+
+    private boolean waitUntilNotSecurityKeySetup(int timeoutSeconds) {
+        try {
+            WebDriverWait shortWait = new WebDriverWait(driver, Duration.ofSeconds(timeoutSeconds));
+            return shortWait.until(driver -> !isSecurityKeySetupPage() && isAppReady());
+        } catch (Exception ignored) {
+            return false;
+        }
     }
 
     public void openCreateGroupChat() {
@@ -969,12 +1009,29 @@ public class Actions {
 
     private boolean isAppReady() {
         try {
+            if (isSecurityKeySetupPage()) {
+                return false;
+            }
             return !driver.findElements(By.cssSelector(".create-room, p[data-placeholder='Search'], button.send-btn, span.slider.round")).isEmpty()
-                    || pageContainsAny("B\u1ecf qua", "C\u00e0i \u0111\u1eb7t", "M\u00e3 b\u1ea3o m\u1eadt",
-                    "Chats", "Search", "Message", "H\u1ed9i tho\u1ea1i", "Tin nh\u1eafn");
+                    || pageContainsAny("Chats", "Search", "Message", "H\u1ed9i tho\u1ea1i", "Tin nh\u1eafn");
         } catch (Exception ignored) {
             return false;
         }
+    }
+
+    private boolean isSecurityKeySetupPage() {
+        try {
+            String url = currentUrl();
+            return url.contains("/auth/key/passphrase")
+                    || url.contains("/auth/key/setup")
+                    || pageContainsAny("Kh\u00f3a m\u00e3 h\u00f3a", "T\u1ea1o m\u00e3 v\u00e0 sao l\u01b0u", "B\u1ecf qua");
+        } catch (Exception ignored) {
+            return false;
+        }
+    }
+
+    private boolean isAuthenticatedOrAppReady() {
+        return isSecurityKeySetupPage() || isAppReady();
     }
 
     private void ensureAppReadyBeforeAction(String actionName) {
@@ -985,7 +1042,9 @@ public class Actions {
             // Continue with the active window.
         }
 
-        if (handleStaySignedInPrompt(currentWindow) || waitForAppReady(ConfigReader.getInt("app.ready.wait", 30))) {
+        handleStaySignedInPrompt(currentWindow);
+
+        if (waitForAppReadyAcross(ConfigReader.getInt("app.ready.wait", 30))) {
             return;
         }
 
@@ -1001,6 +1060,38 @@ public class Actions {
         } catch (Exception ignored) {
             return false;
         }
+    }
+
+    private boolean waitForAppReadyAcross(int timeoutSeconds) {
+        long deadline = System.currentTimeMillis() + timeoutSeconds * 1000L;
+        String originalWindow = "";
+        try {
+            originalWindow = driver.getWindowHandle();
+        } catch (Exception ignored) {
+            // Continue with the active window.
+        }
+
+        while (System.currentTimeMillis() < deadline) {
+            try {
+                handleStaySignedInPrompt(originalWindow);
+                for (String window : driver.getWindowHandles()) {
+                    try {
+                        driver.switchTo().window(window);
+                        if (isAppReady()) {
+                            return true;
+                        }
+                    } catch (Exception ignored) {
+                        // Windows can close while Microsoft redirects back to the app.
+                    }
+                }
+            } catch (Exception ignored) {
+                // Retry until the timeout expires.
+            }
+            waitForMilliseconds(500);
+        }
+
+        switchBackIfPossible(originalWindow);
+        return false;
     }
 
     private void scrollIntoView(WebElement element) {
