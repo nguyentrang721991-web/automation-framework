@@ -78,6 +78,12 @@ public class KeywordEngine {
                     action.inputEditor(toBy(object), value);
                     break;
 
+                case "uploadfile":
+                case "upload":
+                case "choosefile":
+                    action.uploadFile(toBy(object), value);
+                    break;
+
                 case "wait":
                 case "sleep":
                     action.waitForSeconds(parseInt(value, 1));

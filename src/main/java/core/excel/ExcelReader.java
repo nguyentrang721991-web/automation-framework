@@ -19,6 +19,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Set;
 
 public class ExcelReader implements AutoCloseable {
 
@@ -26,6 +27,7 @@ public class ExcelReader implements AutoCloseable {
     private static final String TEST_DATA_SHEET = "TestData";
     private static final String TEST_STEPS_SHEET = "TestSteps";
     private static final String OBJECT_REPOSITORY_SHEET = "ObjectRepository";
+    private static final Set<String> GLOBAL_TEST_DATA_IDS = Set.of("GLOBAL", "COMMON", "DEFAULT", "ALL", "*");
 
     private final Workbook workbook;
     private final DataFormatter formatter;
@@ -194,13 +196,21 @@ public class ExcelReader implements AutoCloseable {
             return data;
         }
 
+        readTestDataRows(sheet, data, testCaseId, true);
+        readTestDataRows(sheet, data, testCaseId, false);
+        return data;
+    }
+
+    private void readTestDataRows(Sheet sheet, Map<String, String> data, String testCaseId, boolean globalRows) {
         for (Row row : sheet) {
             if (row == null || row.getRowNum() == 0) {
                 continue;
             }
 
             String tcId = getCellValue(row.getCell(0));
-            if (!tcId.equalsIgnoreCase(testCaseId)) {
+            boolean matchesGlobal = isGlobalTestDataId(tcId);
+            boolean matchesTestCase = tcId.equalsIgnoreCase(testCaseId);
+            if (globalRows != matchesGlobal || (!matchesGlobal && !matchesTestCase)) {
                 continue;
             }
 
@@ -210,7 +220,6 @@ public class ExcelReader implements AutoCloseable {
                 data.put(key, value);
             }
         }
-        return data;
     }
 
     public boolean hasRequiredLoginData(String testCaseId) {
@@ -250,6 +259,10 @@ public class ExcelReader implements AutoCloseable {
     private boolean isYes(String value) {
         String normalized = value == null ? "" : value.trim().toLowerCase(Locale.ROOT);
         return normalized.equals("y") || normalized.equals("yes") || normalized.equals("true") || normalized.equals("1");
+    }
+
+    private boolean isGlobalTestDataId(String value) {
+        return value != null && GLOBAL_TEST_DATA_IDS.contains(value.trim().toUpperCase(Locale.ROOT));
     }
 
     private boolean hasTestData(String testCaseId) {

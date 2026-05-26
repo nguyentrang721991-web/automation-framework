@@ -147,7 +147,7 @@ public class TestRunner {
         }
 
         Path directory = Paths.get(ConfigReader.getProperty("excel.dir", "src/test/resources"));
-        String pattern = ConfigReader.getProperty("excel.pattern", "*_TC.xlsx");
+        String pattern = ConfigReader.getProperty("excel.pattern", "*.xlsx");
         PathMatcher matcher = FileSystems.getDefault().getPathMatcher("glob:" + pattern);
         Set<String> excludedFiles = csvSet(ConfigReader.getProperty("excel.exclude", "Template_TC.xlsx"));
 

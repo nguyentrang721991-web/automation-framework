@@ -11,6 +11,9 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.Console;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.text.Normalizer;
 import java.time.Duration;
 import java.util.Arrays;
@@ -74,6 +77,46 @@ public class Actions {
         if (!clickElementDeep(element)) {
             throw new RuntimeException("Cannot click element: " + by);
         }
+    }
+
+    public void uploadFile(By triggerOrInput, String filePath) {
+        if (isBlank(filePath)) {
+            throw new IllegalArgumentException("File path is required for uploadfile keyword");
+        }
+
+        Path path = Paths.get(filePath);
+        if (!path.isAbsolute()) {
+            path = Paths.get(System.getProperty("user.dir")).resolve(path).normalize();
+        }
+        if (!Files.exists(path)) {
+            throw new RuntimeException("Upload file does not exist: " + path);
+        }
+
+        WebElement input = findUploadInput(triggerOrInput, 5);
+        if (input == null) {
+            clickIfVisible(triggerOrInput, 5);
+            input = findUploadInput(triggerOrInput, 10);
+        }
+        if (input == null) {
+            throw new RuntimeException("Cannot find file input for upload. Trigger: " + triggerOrInput
+                    + ". Current URL: " + currentUrl()
+                    + ". Page text sample: " + textSample(getVisibleText()));
+        }
+
+        try {
+            ((JavascriptExecutor) driver).executeScript(
+                    "arguments[0].style.display='block';"
+                            + "arguments[0].style.visibility='visible';"
+                            + "arguments[0].style.opacity='1';"
+                            + "arguments[0].style.height='1px';"
+                            + "arguments[0].style.width='1px';"
+                            + "arguments[0].value='';",
+                    input);
+        } catch (Exception ignored) {
+            // Some browsers only allow clearing file input through sendKeys replacement.
+        }
+
+        input.sendKeys(path.toString());
     }
 
     public void waitForSeconds(int seconds) {
@@ -714,6 +757,40 @@ public class Actions {
                         // Try the next candidate locator in the same poll cycle.
                     }
                 }
+                return null;
+            });
+        } catch (Exception ignored) {
+            return null;
+        }
+    }
+
+    private WebElement findUploadInput(By triggerOrInput, int timeoutSeconds) {
+        try {
+            WebDriverWait shortWait = new WebDriverWait(driver, Duration.ofSeconds(timeoutSeconds));
+            return shortWait.until(currentDriver -> {
+                try {
+                    for (WebElement element : currentDriver.findElements(triggerOrInput)) {
+                        if ("input".equalsIgnoreCase(element.getTagName())
+                                && "file".equalsIgnoreCase(element.getAttribute("type"))) {
+                            return element;
+                        }
+                        for (WebElement nestedInput : element.findElements(By.cssSelector("input[type='file']"))) {
+                            return nestedInput;
+                        }
+                    }
+                } catch (Exception ignored) {
+                    // Fall back to global file inputs below.
+                }
+
+                try {
+                    List<WebElement> inputs = currentDriver.findElements(By.cssSelector("input[type='file']"));
+                    if (!inputs.isEmpty()) {
+                        return inputs.get(inputs.size() - 1);
+                    }
+                } catch (Exception ignored) {
+                    // Keep polling until timeout.
+                }
+
                 return null;
             });
         } catch (Exception ignored) {

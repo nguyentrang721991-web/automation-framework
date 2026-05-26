@@ -7,6 +7,7 @@ import java.util.regex.Pattern;
 public class DataEngine {
 
     private static final Pattern PLACEHOLDER_PATTERN = Pattern.compile("\\$\\{([^}]+)}");
+    private static final int MAX_RESOLVE_DEPTH = 5;
 
     private final Map<String, String> testData;
 
@@ -19,6 +20,18 @@ public class DataEngine {
             return null;
         }
 
+        String resolvedValue = value;
+        for (int i = 0; i < MAX_RESOLVE_DEPTH; i++) {
+            String nextValue = resolveOnce(resolvedValue);
+            if (nextValue.equals(resolvedValue)) {
+                return unescapeUnicode(nextValue);
+            }
+            resolvedValue = nextValue;
+        }
+        return unescapeUnicode(resolvedValue);
+    }
+
+    private String resolveOnce(String value) {
         Matcher matcher = PLACEHOLDER_PATTERN.matcher(value);
         StringBuffer resolved = new StringBuffer();
         while (matcher.find()) {
@@ -27,7 +40,7 @@ public class DataEngine {
             matcher.appendReplacement(resolved, Matcher.quoteReplacement(replacement));
         }
         matcher.appendTail(resolved);
-        return unescapeUnicode(resolved.toString());
+        return resolved.toString();
     }
 
     private String unescapeUnicode(String value) {
