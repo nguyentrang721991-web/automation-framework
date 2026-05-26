@@ -8,14 +8,20 @@ import org.openqa.selenium.WebDriver;
 import org.testng.SkipException;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import utils.AllureListener;
 
 import java.io.IOException;
+import java.nio.file.FileSystems;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.PathMatcher;
+import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.LinkedHashSet;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -26,62 +32,67 @@ import java.util.stream.Collectors;
 @Listeners(AllureListener.class)
 public class TestRunner {
 
-    private ExcelReader excel;
     private WebDriver driver;
     private KeywordEngine engine;
 
-    @BeforeClass(alwaysRun = true)
-    public void loadExcel() {
-        String excelPath = ConfigReader.getProperty("excel.path", "src/test/resources/Login_TC.xlsx");
-        excel = new ExcelReader(excelPath);
-    }
-
     @DataProvider(name = "loginCases")
     public Object[][] loginCases() {
-        String sheetName = ConfigReader.getProperty("login.sheet", "M2.Login - Encrypt update");
-        List<Map<String, String>> testCases = excel.getLoginTestCases(sheetName);
+        String sheetName = ConfigReader.getProperty("login.sheet", "TestCases");
+        List<Object[]> rows = new ArrayList<>();
 
-        Object[][] data = new Object[testCases.size()][1];
-        for (int i = 0; i < testCases.size(); i++) {
-            data[i][0] = testCases.get(i);
+        for (Path excelPath : discoverExcelFiles()) {
+            try (ExcelReader excel = new ExcelReader(excelPath.toString())) {
+                List<Map<String, String>> testCases = excel.getLoginTestCases(sheetName);
+                for (Map<String, String> testCase : testCases) {
+                    rows.add(new Object[]{new ExcelTestCase(excelPath.toString(), excelPath.getFileName().toString(), testCase)});
+                }
+            } catch (IOException e) {
+                throw new RuntimeException("Cannot close Excel file: " + excelPath, e);
+            } catch (Exception e) {
+                throw new RuntimeException("Cannot load test cases from Excel file: " + excelPath, e);
+            }
         }
-        return data;
+
+        if (rows.isEmpty()) {
+            throw new RuntimeException("No Excel test cases found. Check excel.dir/excel.pattern or excel.files config.");
+        }
+        return rows.toArray(new Object[0][]);
     }
 
     @Test(dataProvider = "loginCases")
-    public void runLoginTestCase(Map<String, String> testCase) {
+    public void runLoginTestCase(ExcelTestCase context) {
+        Map<String, String> testCase = context.testCase();
         String tcId = testCase.get("TC_ID");
         String description = testCase.getOrDefault("DESCRIPTION", "");
-        System.out.println("\n=== RUNNING " + tcId + " - " + description + " ===");
+        System.out.println("\n=== RUNNING " + context.excelFile() + " :: " + tcId + " - " + description + " ===");
 
         if (!isSelectedForRun(tcId)) {
             throw new SkipException("Testcase is not selected for this run");
         }
 
-        String skipReason = excel.getAutomationSkipReason(testCase);
-        if (!skipReason.isEmpty()) {
-            throw new SkipException(skipReason);
+        try (ExcelReader excel = new ExcelReader(context.excelPath())) {
+            String skipReason = excel.getAutomationSkipReason(testCase);
+            if (!skipReason.isEmpty()) {
+                throw new SkipException(skipReason);
+            }
+
+            Map<String, String> testData = new LinkedHashMap<>(excel.getTestData(tcId));
+            testData.putIfAbsent("base.url", ConfigReader.getProperty("base.url"));
+            testData.putIfAbsent("excel.file", context.excelFile());
+            testData.putIfAbsent("testcase.id", tcId);
+
+            List<Map<String, String>> steps = excel.getTestStepsForLoginTC(tcId);
+            driver = DriverFactory.initDriver();
+            engine = new KeywordEngine(driver, excel.getObjectRepository());
+            engine.executeSteps(steps, testData);
+        } catch (IOException e) {
+            throw new RuntimeException("Cannot close Excel file: " + context.excelPath(), e);
         }
-
-        Map<String, String> testData = new LinkedHashMap<>(excel.getTestData(tcId));
-        testData.putIfAbsent("base.url", ConfigReader.getProperty("base.url"));
-
-        List<Map<String, String>> steps = excel.getTestStepsForLoginTC(tcId);
-        driver = DriverFactory.initDriver();
-        engine = new KeywordEngine(driver);
-        engine.executeSteps(steps, testData);
     }
 
     @AfterMethod(alwaysRun = true)
     public void tearDownDriver() {
         DriverFactory.quitDriver();
-    }
-
-    @AfterClass(alwaysRun = true)
-    public void closeExcel() throws IOException {
-        if (excel != null) {
-            excel.close();
-        }
     }
 
     private boolean isSelectedForRun(String tcId) {
@@ -124,5 +135,72 @@ public class TestRunner {
         }
 
         return Set.of(normalized);
+    }
+
+    private List<Path> discoverExcelFiles() {
+        if (!ConfigReader.getBoolean("excel.autodiscover", true)) {
+            List<Path> configuredFiles = configuredExcelFiles();
+            if (configuredFiles.isEmpty()) {
+                throw new RuntimeException("excel.autodiscover=false but excel.files/excel.path is empty");
+            }
+            return configuredFiles;
+        }
+
+        Path directory = Paths.get(ConfigReader.getProperty("excel.dir", "src/test/resources"));
+        String pattern = ConfigReader.getProperty("excel.pattern", "*.xlsx");
+        PathMatcher matcher = FileSystems.getDefault().getPathMatcher("glob:" + pattern);
+        Set<String> excludedFiles = csvSet(ConfigReader.getProperty("excel.exclude", "Template_TC.xlsx"));
+
+        try {
+            if (!Files.isDirectory(directory)) {
+                throw new RuntimeException("Excel directory does not exist: " + directory.toAbsolutePath());
+            }
+
+            try (var stream = Files.list(directory)) {
+                return stream
+                        .filter(Files::isRegularFile)
+                        .filter(path -> matcher.matches(path.getFileName()))
+                        .filter(path -> !path.getFileName().toString().startsWith("~$"))
+                        .filter(path -> !excludedFiles.contains(path.getFileName().toString().toLowerCase()))
+                        .sorted(Comparator.comparing(path -> path.getFileName().toString()))
+                        .toList();
+            }
+        } catch (IOException e) {
+            throw new RuntimeException("Cannot scan Excel directory: " + directory.toAbsolutePath(), e);
+        }
+    }
+
+    private List<Path> configuredExcelFiles() {
+        List<Path> paths = new ArrayList<>();
+        String excelFiles = ConfigReader.getProperty("excel.files", "");
+        if (!excelFiles.isBlank()) {
+            Arrays.stream(excelFiles.split(","))
+                    .map(String::trim)
+                    .filter(value -> !value.isEmpty())
+                    .map(Paths::get)
+                    .forEach(paths::add);
+            return paths;
+        }
+
+        String excelPath = ConfigReader.getProperty("excel.path", "");
+        if (!excelPath.isBlank()) {
+            paths.add(Paths.get(excelPath));
+        }
+        return paths;
+    }
+
+    private Set<String> csvSet(String value) {
+        return Arrays.stream(value.split(","))
+                .map(String::trim)
+                .filter(item -> !item.isEmpty())
+                .map(item -> item.toLowerCase())
+                .collect(Collectors.toCollection(LinkedHashSet::new));
+    }
+
+    private record ExcelTestCase(String excelPath, String excelFile, Map<String, String> testCase) {
+        @Override
+        public String toString() {
+            return excelFile + " :: " + testCase.getOrDefault("TC_ID", "");
+        }
     }
 }
