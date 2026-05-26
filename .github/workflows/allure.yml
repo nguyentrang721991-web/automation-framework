@@ -5,6 +5,11 @@ on:
     branches:
       - main
 
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -20,7 +25,7 @@ jobs:
           java-version: '17'
 
       - name: Run tests
-        run: mvn clean test
+        run: mvn clean test -Dheadless=true
 
       - name: Install Allure
         run: |

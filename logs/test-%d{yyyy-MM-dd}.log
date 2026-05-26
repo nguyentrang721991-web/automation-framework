@@ -19,3 +19,10 @@
 2026-05-26 15:23:22,077 INFO  io.github.bonigarcia.wdm.WebDriverManager - Exporting webdriver.chrome.driver as C:\Users\PC\.cache\selenium\chromedriver\win64\148.0.7778.178\chromedriver.exe
 2026-05-26 15:24:05,485 INFO  io.github.bonigarcia.wdm.WebDriverManager - Using chromedriver 148.0.7778.178 (resolved driver for Chrome 148)
 2026-05-26 15:24:05,496 INFO  io.github.bonigarcia.wdm.WebDriverManager - Exporting webdriver.chrome.driver as C:\Users\PC\.cache\selenium\chromedriver\win64\148.0.7778.178\chromedriver.exe
+2026-05-26 15:32:55,857 INFO  org.testng.internal.Utils - [TestNG] Running:
+  C:\Users\PC\AppData\Local\JetBrains\IntelliJIdea2026.1\temp-testng-customsuite.xml
+
+2026-05-26 15:32:57,523 INFO  io.github.bonigarcia.wdm.WebDriverManager - Using chromedriver 148.0.7778.178 (resolved driver for Chrome 148)
+2026-05-26 15:32:57,540 INFO  io.github.bonigarcia.wdm.WebDriverManager - Exporting webdriver.chrome.driver as C:\Users\PC\.cache\selenium\chromedriver\win64\148.0.7778.178\chromedriver.exe
+2026-05-26 15:34:35,243 INFO  io.github.bonigarcia.wdm.WebDriverManager - Using chromedriver 148.0.7778.178 (resolved driver for Chrome 148)
+2026-05-26 15:34:35,296 INFO  io.github.bonigarcia.wdm.WebDriverManager - Exporting webdriver.chrome.driver as C:\Users\PC\.cache\selenium\chromedriver\win64\148.0.7778.178\chromedriver.exe
