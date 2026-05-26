@@ -2,12 +2,12 @@
 <testng-results ignored="0" total="49" passed="0" failed="2" skipped="47">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-05-26T15:13:31 ICT" name="Automation Suite" finished-at="2026-05-26T15:15:47 ICT" duration-ms="136442">
+  <suite started-at="2026-05-26T15:23:20 ICT" name="Automation Suite" finished-at="2026-05-26T15:25:14 ICT" duration-ms="113794">
     <groups>
     </groups>
-    <test started-at="2026-05-26T15:13:31 ICT" name="Test Execution" finished-at="2026-05-26T15:15:47 ICT" duration-ms="136442">
+    <test started-at="2026-05-26T15:23:20 ICT" name="Test Execution" finished-at="2026-05-26T15:25:14 ICT" duration-ms="113794">
       <class name="runner.TestRunner">
-        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:13:32 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:13:32 ICT" duration-ms="104" status="SKIP">
+        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:23:21 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:23:21 ICT" duration-ms="117" status="SKIP">
           <params>
             <param index="0">
               <value>
@@ -60,11 +60,11 @@ at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runLoginTestCase -->
-        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:13:32 ICT" name="tearDownDriver" finished-at="2026-05-26T15:13:32 ICT" duration-ms="7" status="PASS">
+        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:23:21 ICT" name="tearDownDriver" finished-at="2026-05-26T15:23:21 ICT" duration-ms="6" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownDriver -->
-        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:13:32 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:13:32 ICT" duration-ms="52" status="SKIP">
+        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:23:21 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:23:21 ICT" duration-ms="52" status="SKIP">
           <params>
             <param index="0">
               <value>
@@ -117,11 +117,11 @@ at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runLoginTestCase -->
-        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:13:32 ICT" name="tearDownDriver" finished-at="2026-05-26T15:13:32 ICT" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:23:21 ICT" name="tearDownDriver" finished-at="2026-05-26T15:23:21 ICT" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownDriver -->
-        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:13:32 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:13:32 ICT" duration-ms="51" status="SKIP">
+        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:23:21 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:23:21 ICT" duration-ms="55" status="SKIP">
           <params>
             <param index="0">
               <value>
@@ -174,11 +174,11 @@ at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runLoginTestCase -->
-        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:13:32 ICT" name="tearDownDriver" finished-at="2026-05-26T15:13:32 ICT" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:23:21 ICT" name="tearDownDriver" finished-at="2026-05-26T15:23:21 ICT" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownDriver -->
-        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:13:32 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:13:32 ICT" duration-ms="55" status="SKIP">
+        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:23:21 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:23:21 ICT" duration-ms="44" status="SKIP">
           <params>
             <param index="0">
               <value>
@@ -231,11 +231,11 @@ at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runLoginTestCase -->
-        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:13:32 ICT" name="tearDownDriver" finished-at="2026-05-26T15:13:32 ICT" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:23:21 ICT" name="tearDownDriver" finished-at="2026-05-26T15:23:21 ICT" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownDriver -->
-        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:13:32 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:13:32 ICT" duration-ms="52" status="SKIP">
+        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:23:21 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:23:21 ICT" duration-ms="47" status="SKIP">
           <params>
             <param index="0">
               <value>
@@ -288,11 +288,11 @@ at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runLoginTestCase -->
-        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:13:32 ICT" name="tearDownDriver" finished-at="2026-05-26T15:13:32 ICT" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:23:21 ICT" name="tearDownDriver" finished-at="2026-05-26T15:23:21 ICT" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownDriver -->
-        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:13:32 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:13:32 ICT" duration-ms="45" status="SKIP">
+        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:23:21 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:23:21 ICT" duration-ms="42" status="SKIP">
           <params>
             <param index="0">
               <value>
@@ -345,11 +345,11 @@ at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runLoginTestCase -->
-        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:13:32 ICT" name="tearDownDriver" finished-at="2026-05-26T15:13:32 ICT" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:23:21 ICT" name="tearDownDriver" finished-at="2026-05-26T15:23:21 ICT" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownDriver -->
-        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:13:32 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:13:32 ICT" duration-ms="46" status="SKIP">
+        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:23:21 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:23:21 ICT" duration-ms="47" status="SKIP">
           <params>
             <param index="0">
               <value>
@@ -402,11 +402,11 @@ at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runLoginTestCase -->
-        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:13:32 ICT" name="tearDownDriver" finished-at="2026-05-26T15:13:32 ICT" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:23:21 ICT" name="tearDownDriver" finished-at="2026-05-26T15:23:21 ICT" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownDriver -->
-        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:13:32 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:14:22 ICT" duration-ms="49838" status="FAIL">
+        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:23:21 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:24:05 ICT" duration-ms="43453" status="FAIL">
           <params>
             <param index="0">
               <value>
@@ -422,9 +422,9 @@ from disconnected: not connected to DevTools
 Build info: version: '4.21.0', revision: '79ed462ef4'
 System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.19'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [e23d9bf654d1d9a8897a3148c055ee1b, getWindowHandles {}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 148.0.7778.179, chrome: {chromedriverVersion: 148.0.7778.178 (d096af1c9e9..., userDataDir: C:\Users\PC\AppData\Local\T...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:65359}, goog:processID: 13140, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:65359/devtoo..., se:cdpVersion: 148.0.7778.179, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: e23d9bf654d1d9a8897a3148c055ee1b]]>
+Command: [54f2b9c940113618911126413ca5bab0, getWindowHandles {}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 148.0.7778.179, chrome: {chromedriverVersion: 148.0.7778.178 (d096af1c9e9..., userDataDir: C:\Users\PC\AppData\Local\T...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:60855}, goog:processID: 20464, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:60855/devtoo..., se:cdpVersion: 148.0.7778.179, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 54f2b9c940113618911126413ca5bab0]]>
             </message>
             <full-stacktrace>
               <![CDATA[org.openqa.selenium.NoSuchSessionException: invalid session id: session deleted as the browser has closed the connection
@@ -433,9 +433,9 @@ from disconnected: not connected to DevTools
 Build info: version: '4.21.0', revision: '79ed462ef4'
 System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.19'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [e23d9bf654d1d9a8897a3148c055ee1b, getWindowHandles {}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 148.0.7778.179, chrome: {chromedriverVersion: 148.0.7778.178 (d096af1c9e9..., userDataDir: C:\Users\PC\AppData\Local\T...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:65359}, goog:processID: 13140, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:65359/devtoo..., se:cdpVersion: 148.0.7778.179, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: e23d9bf654d1d9a8897a3148c055ee1b
+Command: [54f2b9c940113618911126413ca5bab0, getWindowHandles {}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 148.0.7778.179, chrome: {chromedriverVersion: 148.0.7778.178 (d096af1c9e9..., userDataDir: C:\Users\PC\AppData\Local\T...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:60855}, goog:processID: 20464, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:60855/devtoo..., se:cdpVersion: 148.0.7778.179, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 54f2b9c940113618911126413ca5bab0
 at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
 at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -495,11 +495,11 @@ at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runLoginTestCase -->
-        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:14:22 ICT" name="tearDownDriver" finished-at="2026-05-26T15:14:22 ICT" duration-ms="23" status="PASS">
+        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:24:05 ICT" name="tearDownDriver" finished-at="2026-05-26T15:24:05 ICT" duration-ms="42" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownDriver -->
-        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:14:22 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:14:22 ICT" duration-ms="67" status="SKIP">
+        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:24:05 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:24:05 ICT" duration-ms="58" status="SKIP">
           <params>
             <param index="0">
               <value>
@@ -552,11 +552,11 @@ at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runLoginTestCase -->
-        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:14:22 ICT" name="tearDownDriver" finished-at="2026-05-26T15:14:22 ICT" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:24:05 ICT" name="tearDownDriver" finished-at="2026-05-26T15:24:05 ICT" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownDriver -->
-        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:14:22 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:14:22 ICT" duration-ms="37" status="SKIP">
+        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:24:05 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:24:05 ICT" duration-ms="48" status="SKIP">
           <params>
             <param index="0">
               <value>
@@ -609,11 +609,11 @@ at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runLoginTestCase -->
-        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:14:22 ICT" name="tearDownDriver" finished-at="2026-05-26T15:14:22 ICT" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:24:05 ICT" name="tearDownDriver" finished-at="2026-05-26T15:24:05 ICT" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownDriver -->
-        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:14:22 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:15:46 ICT" duration-ms="83933" status="FAIL">
+        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:24:05 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:25:12 ICT" duration-ms="66827" status="FAIL">
           <params>
             <param index="0">
               <value>
@@ -621,48 +621,26 @@ at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
               </value>
             </param>
           </params>
-          <exception class="org.openqa.selenium.NoSuchSessionException">
+          <exception class="org.openqa.selenium.TimeoutException">
             <message>
-              <![CDATA[invalid session id: session deleted as the browser has closed the connection
-from disconnected: not connected to DevTools
-  (Session info: chrome=148.0.7778.179)
+              <![CDATA[Expected condition failed: waiting for visibility of element located by By.xpath: //*[@id="root"]//input (tried for 15 second(s) with 500 milliseconds interval)
 Build info: version: '4.21.0', revision: '79ed462ef4'
 System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.19'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [33e66fdd2883e1bca7a19650a23a839a, getWindowHandles {}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 148.0.7778.179, chrome: {chromedriverVersion: 148.0.7778.178 (d096af1c9e9..., userDataDir: C:\Users\PC\AppData\Local\T...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:61837}, goog:processID: 1864, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:61837/devtoo..., se:cdpVersion: 148.0.7778.179, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 33e66fdd2883e1bca7a19650a23a839a]]>
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 148.0.7778.179, chrome: {chromedriverVersion: 148.0.7778.178 (d096af1c9e9..., userDataDir: C:\Users\PC\AppData\Local\T...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55978}, goog:processID: 16648, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:55978/devtoo..., se:cdpVersion: 148.0.7778.179, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 2d6d4815c46ff0fa298935bb572edb9c]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.NoSuchSessionException: invalid session id: session deleted as the browser has closed the connection
-from disconnected: not connected to DevTools
-  (Session info: chrome=148.0.7778.179)
+              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //*[@id="root"]//input (tried for 15 second(s) with 500 milliseconds interval)
 Build info: version: '4.21.0', revision: '79ed462ef4'
 System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.19'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [33e66fdd2883e1bca7a19650a23a839a, getWindowHandles {}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 148.0.7778.179, chrome: {chromedriverVersion: 148.0.7778.178 (d096af1c9e9..., userDataDir: C:\Users\PC\AppData\Local\T...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:61837}, goog:processID: 1864, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:61837/devtoo..., se:cdpVersion: 148.0.7778.179, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 33e66fdd2883e1bca7a19650a23a839a
-at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
-at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
-at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
-at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
-at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:518)
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:591)
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:595)
-at org.openqa.selenium.remote.RemoteWebDriver.getWindowHandles(RemoteWebDriver.java:442)
-at core.keywords.Actions.handleStaySignedInPrompt(Actions.java:245)
-at core.keywords.Actions.waitForAuthenticationToComplete(Actions.java:405)
-at core.keywords.Actions.waitForAuthenticationToCompleteOrFail(Actions.java:393)
-at core.keywords.Actions.enterMicrosoftOtp(Actions.java:351)
-at core.engine.KeywordEngine.executeSteps(KeywordEngine.java:103)
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 148.0.7778.179, chrome: {chromedriverVersion: 148.0.7778.178 (d096af1c9e9..., userDataDir: C:\Users\PC\AppData\Local\T...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55978}, goog:processID: 16648, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:55978/devtoo..., se:cdpVersion: 148.0.7778.179, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 2d6d4815c46ff0fa298935bb572edb9c
+at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
+at core.keywords.Actions.input(Actions.java:57)
+at core.engine.KeywordEngine.executeSteps(KeywordEngine.java:73)
 at runner.TestRunner.runLoginTestCase(TestRunner.java:87)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
@@ -698,15 +676,15 @@ at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
 at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
 ]]>
             </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.NoSuchSessionException -->
+          </exception> <!-- org.openqa.selenium.TimeoutException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runLoginTestCase -->
-        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:15:46 ICT" name="tearDownDriver" finished-at="2026-05-26T15:15:46 ICT" duration-ms="16" status="PASS">
+        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:25:12 ICT" name="tearDownDriver" finished-at="2026-05-26T15:25:12 ICT" duration-ms="266" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownDriver -->
-        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:15:46 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:15:46 ICT" duration-ms="45" status="SKIP">
+        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:25:12 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:25:12 ICT" duration-ms="32" status="SKIP">
           <params>
             <param index="0">
               <value>
@@ -759,11 +737,11 @@ at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runLoginTestCase -->
-        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:15:46 ICT" name="tearDownDriver" finished-at="2026-05-26T15:15:46 ICT" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:25:12 ICT" name="tearDownDriver" finished-at="2026-05-26T15:25:12 ICT" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownDriver -->
-        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:15:46 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:15:46 ICT" duration-ms="38" status="SKIP">
+        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:25:12 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:25:12 ICT" duration-ms="33" status="SKIP">
           <params>
             <param index="0">
               <value>
@@ -816,11 +794,11 @@ at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runLoginTestCase -->
-        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:15:46 ICT" name="tearDownDriver" finished-at="2026-05-26T15:15:46 ICT" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:25:12 ICT" name="tearDownDriver" finished-at="2026-05-26T15:25:12 ICT" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownDriver -->
-        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:15:46 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:15:46 ICT" duration-ms="36" status="SKIP">
+        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:25:12 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:25:12 ICT" duration-ms="42" status="SKIP">
           <params>
             <param index="0">
               <value>
@@ -873,11 +851,11 @@ at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runLoginTestCase -->
-        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:15:46 ICT" name="tearDownDriver" finished-at="2026-05-26T15:15:46 ICT" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:25:12 ICT" name="tearDownDriver" finished-at="2026-05-26T15:25:12 ICT" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownDriver -->
-        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:15:46 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:15:46 ICT" duration-ms="44" status="SKIP">
+        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:25:12 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:25:13 ICT" duration-ms="42" status="SKIP">
           <params>
             <param index="0">
               <value>
@@ -930,11 +908,11 @@ at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runLoginTestCase -->
-        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:15:46 ICT" name="tearDownDriver" finished-at="2026-05-26T15:15:46 ICT" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:25:13 ICT" name="tearDownDriver" finished-at="2026-05-26T15:25:13 ICT" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownDriver -->
-        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:15:46 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:15:46 ICT" duration-ms="27" status="SKIP">
+        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:25:13 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:25:13 ICT" duration-ms="34" status="SKIP">
           <params>
             <param index="0">
               <value>
@@ -987,11 +965,11 @@ at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runLoginTestCase -->
-        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:15:46 ICT" name="tearDownDriver" finished-at="2026-05-26T15:15:46 ICT" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:25:13 ICT" name="tearDownDriver" finished-at="2026-05-26T15:25:13 ICT" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownDriver -->
-        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:15:46 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:15:47 ICT" duration-ms="31" status="SKIP">
+        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:25:13 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:25:13 ICT" duration-ms="26" status="SKIP">
           <params>
             <param index="0">
               <value>
@@ -1043,11 +1021,11 @@ at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runLoginTestCase -->
-        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:15:47 ICT" name="tearDownDriver" finished-at="2026-05-26T15:15:47 ICT" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:25:13 ICT" name="tearDownDriver" finished-at="2026-05-26T15:25:13 ICT" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownDriver -->
-        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:15:47 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:15:47 ICT" duration-ms="27" status="SKIP">
+        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:25:13 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:25:13 ICT" duration-ms="26" status="SKIP">
           <params>
             <param index="0">
               <value>
@@ -1099,11 +1077,11 @@ at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runLoginTestCase -->
-        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:15:47 ICT" name="tearDownDriver" finished-at="2026-05-26T15:15:47 ICT" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:25:13 ICT" name="tearDownDriver" finished-at="2026-05-26T15:25:13 ICT" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownDriver -->
-        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:15:47 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:15:47 ICT" duration-ms="23" status="SKIP">
+        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:25:13 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:25:13 ICT" duration-ms="41" status="SKIP">
           <params>
             <param index="0">
               <value>
@@ -1155,11 +1133,11 @@ at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runLoginTestCase -->
-        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:15:47 ICT" name="tearDownDriver" finished-at="2026-05-26T15:15:47 ICT" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:25:13 ICT" name="tearDownDriver" finished-at="2026-05-26T15:25:13 ICT" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownDriver -->
-        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:15:47 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:15:47 ICT" duration-ms="29" status="SKIP">
+        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:25:13 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:25:13 ICT" duration-ms="36" status="SKIP">
           <params>
             <param index="0">
               <value>
@@ -1211,11 +1189,11 @@ at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runLoginTestCase -->
-        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:15:47 ICT" name="tearDownDriver" finished-at="2026-05-26T15:15:47 ICT" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:25:13 ICT" name="tearDownDriver" finished-at="2026-05-26T15:25:13 ICT" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownDriver -->
-        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:15:47 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:15:47 ICT" duration-ms="26" status="SKIP">
+        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:25:13 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:25:13 ICT" duration-ms="38" status="SKIP">
           <params>
             <param index="0">
               <value>
@@ -1267,11 +1245,11 @@ at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runLoginTestCase -->
-        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:15:47 ICT" name="tearDownDriver" finished-at="2026-05-26T15:15:47 ICT" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:25:13 ICT" name="tearDownDriver" finished-at="2026-05-26T15:25:13 ICT" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownDriver -->
-        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:15:47 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:15:47 ICT" duration-ms="26" status="SKIP">
+        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:25:13 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:25:13 ICT" duration-ms="19" status="SKIP">
           <params>
             <param index="0">
               <value>
@@ -1323,11 +1301,11 @@ at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runLoginTestCase -->
-        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:15:47 ICT" name="tearDownDriver" finished-at="2026-05-26T15:15:47 ICT" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:25:13 ICT" name="tearDownDriver" finished-at="2026-05-26T15:25:13 ICT" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownDriver -->
-        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:15:47 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:15:47 ICT" duration-ms="26" status="SKIP">
+        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:25:13 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:25:13 ICT" duration-ms="28" status="SKIP">
           <params>
             <param index="0">
               <value>
@@ -1379,11 +1357,11 @@ at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runLoginTestCase -->
-        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:15:47 ICT" name="tearDownDriver" finished-at="2026-05-26T15:15:47 ICT" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:25:13 ICT" name="tearDownDriver" finished-at="2026-05-26T15:25:13 ICT" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownDriver -->
-        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:15:47 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:15:47 ICT" duration-ms="28" status="SKIP">
+        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:25:13 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:25:13 ICT" duration-ms="46" status="SKIP">
           <params>
             <param index="0">
               <value>
@@ -1435,11 +1413,11 @@ at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runLoginTestCase -->
-        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:15:47 ICT" name="tearDownDriver" finished-at="2026-05-26T15:15:47 ICT" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:25:13 ICT" name="tearDownDriver" finished-at="2026-05-26T15:25:13 ICT" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownDriver -->
-        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:15:47 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:15:47 ICT" duration-ms="29" status="SKIP">
+        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:25:13 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:25:13 ICT" duration-ms="32" status="SKIP">
           <params>
             <param index="0">
               <value>
@@ -1491,11 +1469,11 @@ at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runLoginTestCase -->
-        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:15:47 ICT" name="tearDownDriver" finished-at="2026-05-26T15:15:47 ICT" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:25:13 ICT" name="tearDownDriver" finished-at="2026-05-26T15:25:13 ICT" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownDriver -->
-        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:15:47 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:15:47 ICT" duration-ms="27" status="SKIP">
+        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:25:13 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:25:13 ICT" duration-ms="35" status="SKIP">
           <params>
             <param index="0">
               <value>
@@ -1547,11 +1525,11 @@ at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runLoginTestCase -->
-        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:15:47 ICT" name="tearDownDriver" finished-at="2026-05-26T15:15:47 ICT" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:25:13 ICT" name="tearDownDriver" finished-at="2026-05-26T15:25:13 ICT" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownDriver -->
-        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:15:47 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:15:47 ICT" duration-ms="27" status="SKIP">
+        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:25:13 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:25:13 ICT" duration-ms="37" status="SKIP">
           <params>
             <param index="0">
               <value>
@@ -1603,11 +1581,11 @@ at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runLoginTestCase -->
-        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:15:47 ICT" name="tearDownDriver" finished-at="2026-05-26T15:15:47 ICT" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:25:13 ICT" name="tearDownDriver" finished-at="2026-05-26T15:25:13 ICT" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownDriver -->
-        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:15:47 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:15:47 ICT" duration-ms="24" status="SKIP">
+        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:25:13 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:25:13 ICT" duration-ms="33" status="SKIP">
           <params>
             <param index="0">
               <value>
@@ -1659,11 +1637,11 @@ at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runLoginTestCase -->
-        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:15:47 ICT" name="tearDownDriver" finished-at="2026-05-26T15:15:47 ICT" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:25:13 ICT" name="tearDownDriver" finished-at="2026-05-26T15:25:13 ICT" duration-ms="2" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownDriver -->
-        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:15:47 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:15:47 ICT" duration-ms="22" status="SKIP">
+        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:25:13 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:25:13 ICT" duration-ms="41" status="SKIP">
           <params>
             <param index="0">
               <value>
@@ -1715,11 +1693,11 @@ at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runLoginTestCase -->
-        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:15:47 ICT" name="tearDownDriver" finished-at="2026-05-26T15:15:47 ICT" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:25:13 ICT" name="tearDownDriver" finished-at="2026-05-26T15:25:13 ICT" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownDriver -->
-        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:15:47 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:15:47 ICT" duration-ms="26" status="SKIP">
+        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:25:13 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:25:13 ICT" duration-ms="36" status="SKIP">
           <params>
             <param index="0">
               <value>
@@ -1771,11 +1749,11 @@ at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runLoginTestCase -->
-        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:15:47 ICT" name="tearDownDriver" finished-at="2026-05-26T15:15:47 ICT" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:25:13 ICT" name="tearDownDriver" finished-at="2026-05-26T15:25:13 ICT" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownDriver -->
-        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:15:47 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:15:47 ICT" duration-ms="27" status="SKIP">
+        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:25:13 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:25:13 ICT" duration-ms="36" status="SKIP">
           <params>
             <param index="0">
               <value>
@@ -1827,11 +1805,11 @@ at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runLoginTestCase -->
-        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:15:47 ICT" name="tearDownDriver" finished-at="2026-05-26T15:15:47 ICT" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:25:13 ICT" name="tearDownDriver" finished-at="2026-05-26T15:25:13 ICT" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownDriver -->
-        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:15:47 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:15:47 ICT" duration-ms="25" status="SKIP">
+        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:25:13 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:25:13 ICT" duration-ms="31" status="SKIP">
           <params>
             <param index="0">
               <value>
@@ -1883,11 +1861,11 @@ at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runLoginTestCase -->
-        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:15:47 ICT" name="tearDownDriver" finished-at="2026-05-26T15:15:47 ICT" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:25:13 ICT" name="tearDownDriver" finished-at="2026-05-26T15:25:13 ICT" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownDriver -->
-        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:15:47 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:15:47 ICT" duration-ms="23" status="SKIP">
+        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:25:13 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:25:13 ICT" duration-ms="33" status="SKIP">
           <params>
             <param index="0">
               <value>
@@ -1939,11 +1917,11 @@ at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runLoginTestCase -->
-        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:15:47 ICT" name="tearDownDriver" finished-at="2026-05-26T15:15:47 ICT" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:25:13 ICT" name="tearDownDriver" finished-at="2026-05-26T15:25:13 ICT" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownDriver -->
-        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:15:47 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:15:47 ICT" duration-ms="23" status="SKIP">
+        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:25:13 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:25:13 ICT" duration-ms="32" status="SKIP">
           <params>
             <param index="0">
               <value>
@@ -1995,11 +1973,11 @@ at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runLoginTestCase -->
-        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:15:47 ICT" name="tearDownDriver" finished-at="2026-05-26T15:15:47 ICT" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:25:13 ICT" name="tearDownDriver" finished-at="2026-05-26T15:25:13 ICT" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownDriver -->
-        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:15:47 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:15:47 ICT" duration-ms="28" status="SKIP">
+        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:25:13 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:25:13 ICT" duration-ms="32" status="SKIP">
           <params>
             <param index="0">
               <value>
@@ -2051,11 +2029,11 @@ at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runLoginTestCase -->
-        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:15:47 ICT" name="tearDownDriver" finished-at="2026-05-26T15:15:47 ICT" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:25:13 ICT" name="tearDownDriver" finished-at="2026-05-26T15:25:13 ICT" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownDriver -->
-        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:15:47 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:15:47 ICT" duration-ms="22" status="SKIP">
+        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:25:13 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:25:13 ICT" duration-ms="28" status="SKIP">
           <params>
             <param index="0">
               <value>
@@ -2107,11 +2085,11 @@ at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runLoginTestCase -->
-        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:15:47 ICT" name="tearDownDriver" finished-at="2026-05-26T15:15:47 ICT" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:25:13 ICT" name="tearDownDriver" finished-at="2026-05-26T15:25:13 ICT" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownDriver -->
-        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:15:47 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:15:47 ICT" duration-ms="21" status="SKIP">
+        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:25:13 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:25:13 ICT" duration-ms="27" status="SKIP">
           <params>
             <param index="0">
               <value>
@@ -2163,11 +2141,11 @@ at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runLoginTestCase -->
-        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:15:47 ICT" name="tearDownDriver" finished-at="2026-05-26T15:15:47 ICT" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:25:13 ICT" name="tearDownDriver" finished-at="2026-05-26T15:25:13 ICT" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownDriver -->
-        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:15:47 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:15:47 ICT" duration-ms="24" status="SKIP">
+        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:25:13 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:25:13 ICT" duration-ms="36" status="SKIP">
           <params>
             <param index="0">
               <value>
@@ -2219,11 +2197,11 @@ at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runLoginTestCase -->
-        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:15:47 ICT" name="tearDownDriver" finished-at="2026-05-26T15:15:47 ICT" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:25:13 ICT" name="tearDownDriver" finished-at="2026-05-26T15:25:13 ICT" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownDriver -->
-        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:15:47 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:15:47 ICT" duration-ms="22" status="SKIP">
+        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:25:13 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:25:13 ICT" duration-ms="41" status="SKIP">
           <params>
             <param index="0">
               <value>
@@ -2275,11 +2253,11 @@ at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runLoginTestCase -->
-        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:15:47 ICT" name="tearDownDriver" finished-at="2026-05-26T15:15:47 ICT" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:25:13 ICT" name="tearDownDriver" finished-at="2026-05-26T15:25:13 ICT" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownDriver -->
-        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:15:47 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:15:47 ICT" duration-ms="23" status="SKIP">
+        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:25:13 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:25:13 ICT" duration-ms="34" status="SKIP">
           <params>
             <param index="0">
               <value>
@@ -2331,11 +2309,11 @@ at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runLoginTestCase -->
-        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:15:47 ICT" name="tearDownDriver" finished-at="2026-05-26T15:15:47 ICT" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:25:13 ICT" name="tearDownDriver" finished-at="2026-05-26T15:25:13 ICT" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownDriver -->
-        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:15:47 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:15:47 ICT" duration-ms="27" status="SKIP">
+        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:25:13 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:25:14 ICT" duration-ms="28" status="SKIP">
           <params>
             <param index="0">
               <value>
@@ -2387,11 +2365,11 @@ at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runLoginTestCase -->
-        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:15:47 ICT" name="tearDownDriver" finished-at="2026-05-26T15:15:47 ICT" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:25:14 ICT" name="tearDownDriver" finished-at="2026-05-26T15:25:14 ICT" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownDriver -->
-        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:15:47 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:15:47 ICT" duration-ms="20" status="SKIP">
+        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:25:14 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:25:14 ICT" duration-ms="34" status="SKIP">
           <params>
             <param index="0">
               <value>
@@ -2443,11 +2421,11 @@ at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runLoginTestCase -->
-        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:15:47 ICT" name="tearDownDriver" finished-at="2026-05-26T15:15:47 ICT" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:25:14 ICT" name="tearDownDriver" finished-at="2026-05-26T15:25:14 ICT" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownDriver -->
-        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:15:47 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:15:47 ICT" duration-ms="26" status="SKIP">
+        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:25:14 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:25:14 ICT" duration-ms="29" status="SKIP">
           <params>
             <param index="0">
               <value>
@@ -2499,11 +2477,11 @@ at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runLoginTestCase -->
-        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:15:47 ICT" name="tearDownDriver" finished-at="2026-05-26T15:15:47 ICT" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:25:14 ICT" name="tearDownDriver" finished-at="2026-05-26T15:25:14 ICT" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownDriver -->
-        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:15:47 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:15:47 ICT" duration-ms="31" status="SKIP">
+        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:25:14 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:25:14 ICT" duration-ms="24" status="SKIP">
           <params>
             <param index="0">
               <value>
@@ -2555,11 +2533,11 @@ at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runLoginTestCase -->
-        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:15:47 ICT" name="tearDownDriver" finished-at="2026-05-26T15:15:47 ICT" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:25:14 ICT" name="tearDownDriver" finished-at="2026-05-26T15:25:14 ICT" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownDriver -->
-        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:15:47 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:15:47 ICT" duration-ms="19" status="SKIP">
+        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:25:14 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:25:14 ICT" duration-ms="26" status="SKIP">
           <params>
             <param index="0">
               <value>
@@ -2611,11 +2589,11 @@ at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runLoginTestCase -->
-        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:15:47 ICT" name="tearDownDriver" finished-at="2026-05-26T15:15:47 ICT" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:25:14 ICT" name="tearDownDriver" finished-at="2026-05-26T15:25:14 ICT" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownDriver -->
-        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:15:47 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:15:47 ICT" duration-ms="21" status="SKIP">
+        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:25:14 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:25:14 ICT" duration-ms="27" status="SKIP">
           <params>
             <param index="0">
               <value>
@@ -2667,11 +2645,11 @@ at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runLoginTestCase -->
-        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:15:47 ICT" name="tearDownDriver" finished-at="2026-05-26T15:15:47 ICT" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:25:14 ICT" name="tearDownDriver" finished-at="2026-05-26T15:25:14 ICT" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownDriver -->
-        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:15:47 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:15:47 ICT" duration-ms="19" status="SKIP">
+        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:25:14 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:25:14 ICT" duration-ms="28" status="SKIP">
           <params>
             <param index="0">
               <value>
@@ -2723,11 +2701,11 @@ at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runLoginTestCase -->
-        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:15:47 ICT" name="tearDownDriver" finished-at="2026-05-26T15:15:47 ICT" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:25:14 ICT" name="tearDownDriver" finished-at="2026-05-26T15:25:14 ICT" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownDriver -->
-        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:15:47 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:15:47 ICT" duration-ms="21" status="SKIP">
+        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:25:14 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:25:14 ICT" duration-ms="22" status="SKIP">
           <params>
             <param index="0">
               <value>
@@ -2779,11 +2757,11 @@ at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runLoginTestCase -->
-        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:15:47 ICT" name="tearDownDriver" finished-at="2026-05-26T15:15:47 ICT" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:25:14 ICT" name="tearDownDriver" finished-at="2026-05-26T15:25:14 ICT" duration-ms="2" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownDriver -->
-        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:15:47 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:15:47 ICT" duration-ms="20" status="SKIP">
+        <test-method signature="runLoginTestCase(runner.TestRunner$ExcelTestCase)[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:25:14 ICT" name="runLoginTestCase" data-provider="loginCases" finished-at="2026-05-26T15:25:14 ICT" duration-ms="23" status="SKIP">
           <params>
             <param index="0">
               <value>
@@ -2835,7 +2813,7 @@ at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runLoginTestCase -->
-        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:15:47 ICT" name="tearDownDriver" finished-at="2026-05-26T15:15:47 ICT" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:runner.TestRunner@1d9bec4d]" started-at="2026-05-26T15:25:14 ICT" name="tearDownDriver" finished-at="2026-05-26T15:25:14 ICT" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownDriver -->
