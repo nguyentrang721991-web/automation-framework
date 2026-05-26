@@ -1,74 +1,613 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="TestSuite" time="6.882" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="TestSuite" time="137.514" tests="49" errors="0" skipped="47" failures="2">
   <properties>
-    <property name="java.specification.version" value="25"/>
+    <property name="java.specification.version" value="17"/>
     <property name="webdriver.chrome.driver" value="C:\Users\PC\.cache\selenium\chromedriver\win64\148.0.7778.178\chromedriver.exe"/>
     <property name="sun.cpu.isalist" value="amd64"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
-    <property name="java.class.path" value="D:\Automation\advanced_selenium_framework\target\test-classes;D:\Automation\advanced_selenium_framework\target\classes;C:\Users\PC\.m2\repository\org\seleniumhq\selenium\selenium-java\4.21.0\selenium-java-4.21.0.jar;C:\Users\PC\.m2\repository\org\seleniumhq\selenium\selenium-api\4.21.0\selenium-api-4.21.0.jar;C:\Users\PC\.m2\repository\org\seleniumhq\selenium\selenium-chrome-driver\4.21.0\selenium-chrome-driver-4.21.0.jar;C:\Users\PC\.m2\repository\com\google\auto\service\auto-service-annotations\1.1.1\auto-service-annotations-1.1.1.jar;C:\Users\PC\.m2\repository\org\seleniumhq\selenium\selenium-chromium-driver\4.21.0\selenium-chromium-driver-4.21.0.jar;C:\Users\PC\.m2\repository\org\seleniumhq\selenium\selenium-json\4.21.0\selenium-json-4.21.0.jar;C:\Users\PC\.m2\repository\org\seleniumhq\selenium\selenium-manager\4.21.0\selenium-manager-4.21.0.jar;C:\Users\PC\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v123\4.21.0\selenium-devtools-v123-4.21.0.jar;C:\Users\PC\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v124\4.21.0\selenium-devtools-v124-4.21.0.jar;C:\Users\PC\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v125\4.21.0\selenium-devtools-v125-4.21.0.jar;C:\Users\PC\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v85\4.21.0\selenium-devtools-v85-4.21.0.jar;C:\Users\PC\.m2\repository\org\seleniumhq\selenium\selenium-edge-driver\4.21.0\selenium-edge-driver-4.21.0.jar;C:\Users\PC\.m2\repository\org\seleniumhq\selenium\selenium-firefox-driver\4.21.0\selenium-firefox-driver-4.21.0.jar;C:\Users\PC\.m2\repository\org\seleniumhq\selenium\selenium-http\4.21.0\selenium-http-4.21.0.jar;C:\Users\PC\.m2\repository\dev\failsafe\failsafe\3.3.2\failsafe-3.3.2.jar;C:\Users\PC\.m2\repository\org\seleniumhq\selenium\selenium-ie-driver\4.21.0\selenium-ie-driver-4.21.0.jar;C:\Users\PC\.m2\repository\org\seleniumhq\selenium\selenium-remote-driver\4.21.0\selenium-remote-driver-4.21.0.jar;C:\Users\PC\.m2\repository\com\google\guava\guava\33.2.0-jre\guava-33.2.0-jre.jar;C:\Users\PC\.m2\repository\com\google\guava\failureaccess\1.0.2\failureaccess-1.0.2.jar;C:\Users\PC\.m2\repository\com\google\guava\listenablefuture\9999.0-empty-to-avoid-conflict-with-guava\listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar;C:\Users\PC\.m2\repository\com\google\code\findbugs\jsr305\3.0.2\jsr305-3.0.2.jar;C:\Users\PC\.m2\repository\org\checkerframework\checker-qual\3.42.0\checker-qual-3.42.0.jar;C:\Users\PC\.m2\repository\com\google\errorprone\error_prone_annotations\2.26.1\error_prone_annotations-2.26.1.jar;C:\Users\PC\.m2\repository\com\google\j2objc\j2objc-annotations\3.0.0\j2objc-annotations-3.0.0.jar;C:\Users\PC\.m2\repository\io\opentelemetry\semconv\opentelemetry-semconv\1.25.0-alpha\opentelemetry-semconv-1.25.0-alpha.jar;C:\Users\PC\.m2\repository\io\opentelemetry\opentelemetry-api\1.38.0\opentelemetry-api-1.38.0.jar;C:\Users\PC\.m2\repository\io\opentelemetry\opentelemetry-context\1.38.0\opentelemetry-context-1.38.0.jar;C:\Users\PC\.m2\repository\io\opentelemetry\opentelemetry-exporter-logging\1.38.0\opentelemetry-exporter-logging-1.38.0.jar;C:\Users\PC\.m2\repository\io\opentelemetry\opentelemetry-sdk-common\1.38.0\opentelemetry-sdk-common-1.38.0.jar;C:\Users\PC\.m2\repository\io\opentelemetry\opentelemetry-sdk-extension-autoconfigure-spi\1.38.0\opentelemetry-sdk-extension-autoconfigure-spi-1.38.0.jar;C:\Users\PC\.m2\repository\io\opentelemetry\opentelemetry-sdk-extension-autoconfigure\1.38.0\opentelemetry-sdk-extension-autoconfigure-1.38.0.jar;C:\Users\PC\.m2\repository\io\opentelemetry\opentelemetry-api-incubator\1.38.0-alpha\opentelemetry-api-incubator-1.38.0-alpha.jar;C:\Users\PC\.m2\repository\io\opentelemetry\opentelemetry-sdk-trace\1.38.0\opentelemetry-sdk-trace-1.38.0.jar;C:\Users\PC\.m2\repository\io\opentelemetry\opentelemetry-sdk\1.38.0\opentelemetry-sdk-1.38.0.jar;C:\Users\PC\.m2\repository\io\opentelemetry\opentelemetry-sdk-metrics\1.38.0\opentelemetry-sdk-metrics-1.38.0.jar;C:\Users\PC\.m2\repository\io\opentelemetry\opentelemetry-sdk-logs\1.38.0\opentelemetry-sdk-logs-1.38.0.jar;C:\Users\PC\.m2\repository\net\bytebuddy\byte-buddy\1.14.15\byte-buddy-1.14.15.jar;C:\Users\PC\.m2\repository\org\seleniumhq\selenium\selenium-os\4.21.0\selenium-os-4.21.0.jar;C:\Users\PC\.m2\repository\org\apache\commons\commons-exec\1.4.0\commons-exec-1.4.0.jar;C:\Users\PC\.m2\repository\org\seleniumhq\selenium\selenium-safari-driver\4.21.0\selenium-safari-driver-4.21.0.jar;C:\Users\PC\.m2\repository\org\seleniumhq\selenium\selenium-support\4.21.0\selenium-support-4.21.0.jar;C:\Users\PC\.m2\repository\org\testng\testng\7.10.2\testng-7.10.2.jar;C:\Users\PC\.m2\repository\org\slf4j\slf4j-api\1.7.36\slf4j-api-1.7.36.jar;C:\Users\PC\.m2\repository\com\beust\jcommander\1.82\jcommander-1.82.jar;C:\Users\PC\.m2\repository\org\webjars\jquery\3.7.1\jquery-3.7.1.jar;C:\Users\PC\.m2\repository\org\apache\poi\poi-ooxml\5.2.5\poi-ooxml-5.2.5.jar;C:\Users\PC\.m2\repository\org\apache\poi\poi\5.2.5\poi-5.2.5.jar;C:\Users\PC\.m2\repository\commons-codec\commons-codec\1.16.0\commons-codec-1.16.0.jar;C:\Users\PC\.m2\repository\org\apache\commons\commons-math3\3.6.1\commons-math3-3.6.1.jar;C:\Users\PC\.m2\repository\com\zaxxer\SparseBitSet\1.3\SparseBitSet-1.3.jar;C:\Users\PC\.m2\repository\org\apache\poi\poi-ooxml-lite\5.2.5\poi-ooxml-lite-5.2.5.jar;C:\Users\PC\.m2\repository\org\apache\xmlbeans\xmlbeans\5.2.0\xmlbeans-5.2.0.jar;C:\Users\PC\.m2\repository\org\apache\commons\commons-compress\1.25.0\commons-compress-1.25.0.jar;C:\Users\PC\.m2\repository\commons-io\commons-io\2.15.0\commons-io-2.15.0.jar;C:\Users\PC\.m2\repository\com\github\virtuald\curvesapi\1.08\curvesapi-1.08.jar;C:\Users\PC\.m2\repository\org\apache\logging\log4j\log4j-api\2.21.1\log4j-api-2.21.1.jar;C:\Users\PC\.m2\repository\org\apache\commons\commons-collections4\4.4\commons-collections4-4.4.jar;C:\Users\PC\.m2\repository\io\github\bonigarcia\webdrivermanager\5.8.0\webdrivermanager-5.8.0.jar;C:\Users\PC\.m2\repository\com\google\code\gson\gson\2.10.1\gson-2.10.1.jar;C:\Users\PC\.m2\repository\com\github\docker-java\docker-java\3.3.6\docker-java-3.3.6.jar;C:\Users\PC\.m2\repository\com\github\docker-java\docker-java-core\3.3.6\docker-java-core-3.3.6.jar;C:\Users\PC\.m2\repository\com\github\docker-java\docker-java-api\3.3.6\docker-java-api-3.3.6.jar;C:\Users\PC\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.10.3\jackson-annotations-2.10.3.jar;C:\Users\PC\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.10.3\jackson-databind-2.10.3.jar;C:\Users\PC\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.10.3\jackson-core-2.10.3.jar;C:\Users\PC\.m2\repository\org\bouncycastle\bcpkix-jdk18on\1.76\bcpkix-jdk18on-1.76.jar;C:\Users\PC\.m2\repository\org\bouncycastle\bcprov-jdk18on\1.76\bcprov-jdk18on-1.76.jar;C:\Users\PC\.m2\repository\org\bouncycastle\bcutil-jdk18on\1.76\bcutil-jdk18on-1.76.jar;C:\Users\PC\.m2\repository\org\slf4j\jcl-over-slf4j\1.7.30\jcl-over-slf4j-1.7.30.jar;C:\Users\PC\.m2\repository\com\github\docker-java\docker-java-transport-httpclient5\3.3.6\docker-java-transport-httpclient5-3.3.6.jar;C:\Users\PC\.m2\repository\com\github\docker-java\docker-java-transport\3.3.6\docker-java-transport-3.3.6.jar;C:\Users\PC\.m2\repository\net\java\dev\jna\jna\5.13.0\jna-5.13.0.jar;C:\Users\PC\.m2\repository\org\brotli\dec\0.1.2\dec-0.1.2.jar;C:\Users\PC\.m2\repository\org\apache\commons\commons-lang3\3.14.0\commons-lang3-3.14.0.jar;C:\Users\PC\.m2\repository\org\apache\httpcomponents\client5\httpclient5\5.2.1\httpclient5-5.2.1.jar;C:\Users\PC\.m2\repository\org\apache\httpcomponents\core5\httpcore5\5.2\httpcore5-5.2.jar;C:\Users\PC\.m2\repository\org\apache\httpcomponents\core5\httpcore5-h2\5.2\httpcore5-h2-5.2.jar;C:\Users\PC\.m2\repository\io\qameta\allure\allure-testng\2.25.0\allure-testng-2.25.0.jar;C:\Users\PC\.m2\repository\io\qameta\allure\allure-java-commons\2.25.0\allure-java-commons-2.25.0.jar;C:\Users\PC\.m2\repository\io\qameta\allure\allure-model\2.25.0\allure-model-2.25.0.jar;C:\Users\PC\.m2\repository\io\qameta\allure\allure-test-filter\2.25.0\allure-test-filter-2.25.0.jar;"/>
-    <property name="java.vm.vendor" value="Eclipse Adoptium"/>
+    <property name="java.class.path" value="D:\Automation\advanced_selenium_framework\target\test-classes;D:\Automation\advanced_selenium_framework\target\classes;C:\Users\PC\.m2\repository\org\seleniumhq\selenium\selenium-java\4.21.0\selenium-java-4.21.0.jar;C:\Users\PC\.m2\repository\org\seleniumhq\selenium\selenium-api\4.21.0\selenium-api-4.21.0.jar;C:\Users\PC\.m2\repository\org\seleniumhq\selenium\selenium-chrome-driver\4.21.0\selenium-chrome-driver-4.21.0.jar;C:\Users\PC\.m2\repository\com\google\auto\service\auto-service-annotations\1.1.1\auto-service-annotations-1.1.1.jar;C:\Users\PC\.m2\repository\org\seleniumhq\selenium\selenium-chromium-driver\4.21.0\selenium-chromium-driver-4.21.0.jar;C:\Users\PC\.m2\repository\org\seleniumhq\selenium\selenium-json\4.21.0\selenium-json-4.21.0.jar;C:\Users\PC\.m2\repository\org\seleniumhq\selenium\selenium-manager\4.21.0\selenium-manager-4.21.0.jar;C:\Users\PC\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v123\4.21.0\selenium-devtools-v123-4.21.0.jar;C:\Users\PC\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v124\4.21.0\selenium-devtools-v124-4.21.0.jar;C:\Users\PC\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v125\4.21.0\selenium-devtools-v125-4.21.0.jar;C:\Users\PC\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v85\4.21.0\selenium-devtools-v85-4.21.0.jar;C:\Users\PC\.m2\repository\org\seleniumhq\selenium\selenium-edge-driver\4.21.0\selenium-edge-driver-4.21.0.jar;C:\Users\PC\.m2\repository\org\seleniumhq\selenium\selenium-firefox-driver\4.21.0\selenium-firefox-driver-4.21.0.jar;C:\Users\PC\.m2\repository\org\seleniumhq\selenium\selenium-http\4.21.0\selenium-http-4.21.0.jar;C:\Users\PC\.m2\repository\dev\failsafe\failsafe\3.3.2\failsafe-3.3.2.jar;C:\Users\PC\.m2\repository\org\seleniumhq\selenium\selenium-ie-driver\4.21.0\selenium-ie-driver-4.21.0.jar;C:\Users\PC\.m2\repository\org\seleniumhq\selenium\selenium-remote-driver\4.21.0\selenium-remote-driver-4.21.0.jar;C:\Users\PC\.m2\repository\com\google\guava\guava\33.2.0-jre\guava-33.2.0-jre.jar;C:\Users\PC\.m2\repository\com\google\guava\failureaccess\1.0.2\failureaccess-1.0.2.jar;C:\Users\PC\.m2\repository\com\google\guava\listenablefuture\9999.0-empty-to-avoid-conflict-with-guava\listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar;C:\Users\PC\.m2\repository\com\google\code\findbugs\jsr305\3.0.2\jsr305-3.0.2.jar;C:\Users\PC\.m2\repository\org\checkerframework\checker-qual\3.42.0\checker-qual-3.42.0.jar;C:\Users\PC\.m2\repository\com\google\errorprone\error_prone_annotations\2.26.1\error_prone_annotations-2.26.1.jar;C:\Users\PC\.m2\repository\com\google\j2objc\j2objc-annotations\3.0.0\j2objc-annotations-3.0.0.jar;C:\Users\PC\.m2\repository\io\opentelemetry\semconv\opentelemetry-semconv\1.25.0-alpha\opentelemetry-semconv-1.25.0-alpha.jar;C:\Users\PC\.m2\repository\io\opentelemetry\opentelemetry-api\1.38.0\opentelemetry-api-1.38.0.jar;C:\Users\PC\.m2\repository\io\opentelemetry\opentelemetry-context\1.38.0\opentelemetry-context-1.38.0.jar;C:\Users\PC\.m2\repository\io\opentelemetry\opentelemetry-exporter-logging\1.38.0\opentelemetry-exporter-logging-1.38.0.jar;C:\Users\PC\.m2\repository\io\opentelemetry\opentelemetry-sdk-common\1.38.0\opentelemetry-sdk-common-1.38.0.jar;C:\Users\PC\.m2\repository\io\opentelemetry\opentelemetry-sdk-extension-autoconfigure-spi\1.38.0\opentelemetry-sdk-extension-autoconfigure-spi-1.38.0.jar;C:\Users\PC\.m2\repository\io\opentelemetry\opentelemetry-sdk-extension-autoconfigure\1.38.0\opentelemetry-sdk-extension-autoconfigure-1.38.0.jar;C:\Users\PC\.m2\repository\io\opentelemetry\opentelemetry-api-incubator\1.38.0-alpha\opentelemetry-api-incubator-1.38.0-alpha.jar;C:\Users\PC\.m2\repository\io\opentelemetry\opentelemetry-sdk-trace\1.38.0\opentelemetry-sdk-trace-1.38.0.jar;C:\Users\PC\.m2\repository\io\opentelemetry\opentelemetry-sdk\1.38.0\opentelemetry-sdk-1.38.0.jar;C:\Users\PC\.m2\repository\io\opentelemetry\opentelemetry-sdk-metrics\1.38.0\opentelemetry-sdk-metrics-1.38.0.jar;C:\Users\PC\.m2\repository\io\opentelemetry\opentelemetry-sdk-logs\1.38.0\opentelemetry-sdk-logs-1.38.0.jar;C:\Users\PC\.m2\repository\net\bytebuddy\byte-buddy\1.14.15\byte-buddy-1.14.15.jar;C:\Users\PC\.m2\repository\org\seleniumhq\selenium\selenium-os\4.21.0\selenium-os-4.21.0.jar;C:\Users\PC\.m2\repository\org\apache\commons\commons-exec\1.4.0\commons-exec-1.4.0.jar;C:\Users\PC\.m2\repository\org\seleniumhq\selenium\selenium-safari-driver\4.21.0\selenium-safari-driver-4.21.0.jar;C:\Users\PC\.m2\repository\org\seleniumhq\selenium\selenium-support\4.21.0\selenium-support-4.21.0.jar;C:\Users\PC\.m2\repository\org\testng\testng\7.10.2\testng-7.10.2.jar;C:\Users\PC\.m2\repository\org\slf4j\slf4j-api\1.7.36\slf4j-api-1.7.36.jar;C:\Users\PC\.m2\repository\com\beust\jcommander\1.82\jcommander-1.82.jar;C:\Users\PC\.m2\repository\org\webjars\jquery\3.7.1\jquery-3.7.1.jar;C:\Users\PC\.m2\repository\org\apache\poi\poi-ooxml\5.2.5\poi-ooxml-5.2.5.jar;C:\Users\PC\.m2\repository\org\apache\poi\poi\5.2.5\poi-5.2.5.jar;C:\Users\PC\.m2\repository\commons-codec\commons-codec\1.16.0\commons-codec-1.16.0.jar;C:\Users\PC\.m2\repository\org\apache\commons\commons-math3\3.6.1\commons-math3-3.6.1.jar;C:\Users\PC\.m2\repository\com\zaxxer\SparseBitSet\1.3\SparseBitSet-1.3.jar;C:\Users\PC\.m2\repository\org\apache\poi\poi-ooxml-lite\5.2.5\poi-ooxml-lite-5.2.5.jar;C:\Users\PC\.m2\repository\org\apache\xmlbeans\xmlbeans\5.2.0\xmlbeans-5.2.0.jar;C:\Users\PC\.m2\repository\org\apache\commons\commons-compress\1.25.0\commons-compress-1.25.0.jar;C:\Users\PC\.m2\repository\commons-io\commons-io\2.15.0\commons-io-2.15.0.jar;C:\Users\PC\.m2\repository\com\github\virtuald\curvesapi\1.08\curvesapi-1.08.jar;C:\Users\PC\.m2\repository\org\apache\commons\commons-collections4\4.4\commons-collections4-4.4.jar;C:\Users\PC\.m2\repository\io\github\bonigarcia\webdrivermanager\5.8.0\webdrivermanager-5.8.0.jar;C:\Users\PC\.m2\repository\com\google\code\gson\gson\2.10.1\gson-2.10.1.jar;C:\Users\PC\.m2\repository\com\github\docker-java\docker-java\3.3.6\docker-java-3.3.6.jar;C:\Users\PC\.m2\repository\com\github\docker-java\docker-java-core\3.3.6\docker-java-core-3.3.6.jar;C:\Users\PC\.m2\repository\com\github\docker-java\docker-java-api\3.3.6\docker-java-api-3.3.6.jar;C:\Users\PC\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.10.3\jackson-annotations-2.10.3.jar;C:\Users\PC\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.10.3\jackson-databind-2.10.3.jar;C:\Users\PC\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.10.3\jackson-core-2.10.3.jar;C:\Users\PC\.m2\repository\org\bouncycastle\bcpkix-jdk18on\1.76\bcpkix-jdk18on-1.76.jar;C:\Users\PC\.m2\repository\org\bouncycastle\bcprov-jdk18on\1.76\bcprov-jdk18on-1.76.jar;C:\Users\PC\.m2\repository\org\bouncycastle\bcutil-jdk18on\1.76\bcutil-jdk18on-1.76.jar;C:\Users\PC\.m2\repository\org\slf4j\jcl-over-slf4j\1.7.30\jcl-over-slf4j-1.7.30.jar;C:\Users\PC\.m2\repository\com\github\docker-java\docker-java-transport-httpclient5\3.3.6\docker-java-transport-httpclient5-3.3.6.jar;C:\Users\PC\.m2\repository\com\github\docker-java\docker-java-transport\3.3.6\docker-java-transport-3.3.6.jar;C:\Users\PC\.m2\repository\net\java\dev\jna\jna\5.13.0\jna-5.13.0.jar;C:\Users\PC\.m2\repository\org\brotli\dec\0.1.2\dec-0.1.2.jar;C:\Users\PC\.m2\repository\org\apache\commons\commons-lang3\3.14.0\commons-lang3-3.14.0.jar;C:\Users\PC\.m2\repository\org\apache\httpcomponents\client5\httpclient5\5.2.1\httpclient5-5.2.1.jar;C:\Users\PC\.m2\repository\org\apache\httpcomponents\core5\httpcore5\5.2\httpcore5-5.2.jar;C:\Users\PC\.m2\repository\org\apache\httpcomponents\core5\httpcore5-h2\5.2\httpcore5-h2-5.2.jar;C:\Users\PC\.m2\repository\io\qameta\allure\allure-testng\2.25.0\allure-testng-2.25.0.jar;C:\Users\PC\.m2\repository\io\qameta\allure\allure-java-commons\2.25.0\allure-java-commons-2.25.0.jar;C:\Users\PC\.m2\repository\io\qameta\allure\allure-model\2.25.0\allure-model-2.25.0.jar;C:\Users\PC\.m2\repository\io\qameta\allure\allure-test-filter\2.25.0\allure-test-filter-2.25.0.jar;C:\Users\PC\.m2\repository\org\apache\logging\log4j\log4j-core\2.23.1\log4j-core-2.23.1.jar;C:\Users\PC\.m2\repository\org\apache\logging\log4j\log4j-api\2.23.1\log4j-api-2.23.1.jar;C:\Users\PC\.m2\repository\org\apache\logging\log4j\log4j-slf4j-impl\2.23.1\log4j-slf4j-impl-2.23.1.jar;"/>
+    <property name="java.vm.vendor" value="Microsoft"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="user.variant" value=""/>
-    <property name="java.vendor.url" value="https://adoptium.net/"/>
+    <property name="java.vendor.url" value="https://www.microsoft.com"/>
     <property name="user.timezone" value="Asia/Saigon"/>
     <property name="os.name" value="Windows 11"/>
-    <property name="java.vm.specification.version" value="25"/>
+    <property name="java.vm.specification.version" value="17"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="US"/>
-    <property name="sun.boot.library.path" value="C:\Users\PC\AppData\Local\Programs\Eclipse Adoptium\jdk-25.0.3.9-hotspot\bin"/>
-    <property name="sun.java.command" value="C:\Users\PC\AppData\Local\Temp\surefire385858293545039859\surefirebooter-20260522152448956_3.jar C:\Users\PC\AppData\Local\Temp\surefire385858293545039859 2026-05-22T15-24-48_576-jvmRun1 surefire-20260522152448956_1tmp surefire_0-20260522152448956_2tmp"/>
+    <property name="sun.boot.library.path" value="C:\Users\PC\.jdks\ms-17.0.19\bin"/>
+    <property name="sun.java.command" value="C:\Users\PC\AppData\Local\Temp\surefire18081585013485647574\surefirebooter-20260526151330348_3.jar C:\Users\PC\AppData\Local\Temp\surefire18081585013485647574 2026-05-26T15-13-29_726-jvmRun1 surefire-20260526151330348_1tmp surefire_0-20260526151330348_2tmp"/>
     <property name="jdk.debug" value="release"/>
-    <property name="surefire.test.class.path" value="D:\Automation\advanced_selenium_framework\target\test-classes;D:\Automation\advanced_selenium_framework\target\classes;C:\Users\PC\.m2\repository\org\seleniumhq\selenium\selenium-java\4.21.0\selenium-java-4.21.0.jar;C:\Users\PC\.m2\repository\org\seleniumhq\selenium\selenium-api\4.21.0\selenium-api-4.21.0.jar;C:\Users\PC\.m2\repository\org\seleniumhq\selenium\selenium-chrome-driver\4.21.0\selenium-chrome-driver-4.21.0.jar;C:\Users\PC\.m2\repository\com\google\auto\service\auto-service-annotations\1.1.1\auto-service-annotations-1.1.1.jar;C:\Users\PC\.m2\repository\org\seleniumhq\selenium\selenium-chromium-driver\4.21.0\selenium-chromium-driver-4.21.0.jar;C:\Users\PC\.m2\repository\org\seleniumhq\selenium\selenium-json\4.21.0\selenium-json-4.21.0.jar;C:\Users\PC\.m2\repository\org\seleniumhq\selenium\selenium-manager\4.21.0\selenium-manager-4.21.0.jar;C:\Users\PC\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v123\4.21.0\selenium-devtools-v123-4.21.0.jar;C:\Users\PC\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v124\4.21.0\selenium-devtools-v124-4.21.0.jar;C:\Users\PC\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v125\4.21.0\selenium-devtools-v125-4.21.0.jar;C:\Users\PC\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v85\4.21.0\selenium-devtools-v85-4.21.0.jar;C:\Users\PC\.m2\repository\org\seleniumhq\selenium\selenium-edge-driver\4.21.0\selenium-edge-driver-4.21.0.jar;C:\Users\PC\.m2\repository\org\seleniumhq\selenium\selenium-firefox-driver\4.21.0\selenium-firefox-driver-4.21.0.jar;C:\Users\PC\.m2\repository\org\seleniumhq\selenium\selenium-http\4.21.0\selenium-http-4.21.0.jar;C:\Users\PC\.m2\repository\dev\failsafe\failsafe\3.3.2\failsafe-3.3.2.jar;C:\Users\PC\.m2\repository\org\seleniumhq\selenium\selenium-ie-driver\4.21.0\selenium-ie-driver-4.21.0.jar;C:\Users\PC\.m2\repository\org\seleniumhq\selenium\selenium-remote-driver\4.21.0\selenium-remote-driver-4.21.0.jar;C:\Users\PC\.m2\repository\com\google\guava\guava\33.2.0-jre\guava-33.2.0-jre.jar;C:\Users\PC\.m2\repository\com\google\guava\failureaccess\1.0.2\failureaccess-1.0.2.jar;C:\Users\PC\.m2\repository\com\google\guava\listenablefuture\9999.0-empty-to-avoid-conflict-with-guava\listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar;C:\Users\PC\.m2\repository\com\google\code\findbugs\jsr305\3.0.2\jsr305-3.0.2.jar;C:\Users\PC\.m2\repository\org\checkerframework\checker-qual\3.42.0\checker-qual-3.42.0.jar;C:\Users\PC\.m2\repository\com\google\errorprone\error_prone_annotations\2.26.1\error_prone_annotations-2.26.1.jar;C:\Users\PC\.m2\repository\com\google\j2objc\j2objc-annotations\3.0.0\j2objc-annotations-3.0.0.jar;C:\Users\PC\.m2\repository\io\opentelemetry\semconv\opentelemetry-semconv\1.25.0-alpha\opentelemetry-semconv-1.25.0-alpha.jar;C:\Users\PC\.m2\repository\io\opentelemetry\opentelemetry-api\1.38.0\opentelemetry-api-1.38.0.jar;C:\Users\PC\.m2\repository\io\opentelemetry\opentelemetry-context\1.38.0\opentelemetry-context-1.38.0.jar;C:\Users\PC\.m2\repository\io\opentelemetry\opentelemetry-exporter-logging\1.38.0\opentelemetry-exporter-logging-1.38.0.jar;C:\Users\PC\.m2\repository\io\opentelemetry\opentelemetry-sdk-common\1.38.0\opentelemetry-sdk-common-1.38.0.jar;C:\Users\PC\.m2\repository\io\opentelemetry\opentelemetry-sdk-extension-autoconfigure-spi\1.38.0\opentelemetry-sdk-extension-autoconfigure-spi-1.38.0.jar;C:\Users\PC\.m2\repository\io\opentelemetry\opentelemetry-sdk-extension-autoconfigure\1.38.0\opentelemetry-sdk-extension-autoconfigure-1.38.0.jar;C:\Users\PC\.m2\repository\io\opentelemetry\opentelemetry-api-incubator\1.38.0-alpha\opentelemetry-api-incubator-1.38.0-alpha.jar;C:\Users\PC\.m2\repository\io\opentelemetry\opentelemetry-sdk-trace\1.38.0\opentelemetry-sdk-trace-1.38.0.jar;C:\Users\PC\.m2\repository\io\opentelemetry\opentelemetry-sdk\1.38.0\opentelemetry-sdk-1.38.0.jar;C:\Users\PC\.m2\repository\io\opentelemetry\opentelemetry-sdk-metrics\1.38.0\opentelemetry-sdk-metrics-1.38.0.jar;C:\Users\PC\.m2\repository\io\opentelemetry\opentelemetry-sdk-logs\1.38.0\opentelemetry-sdk-logs-1.38.0.jar;C:\Users\PC\.m2\repository\net\bytebuddy\byte-buddy\1.14.15\byte-buddy-1.14.15.jar;C:\Users\PC\.m2\repository\org\seleniumhq\selenium\selenium-os\4.21.0\selenium-os-4.21.0.jar;C:\Users\PC\.m2\repository\org\apache\commons\commons-exec\1.4.0\commons-exec-1.4.0.jar;C:\Users\PC\.m2\repository\org\seleniumhq\selenium\selenium-safari-driver\4.21.0\selenium-safari-driver-4.21.0.jar;C:\Users\PC\.m2\repository\org\seleniumhq\selenium\selenium-support\4.21.0\selenium-support-4.21.0.jar;C:\Users\PC\.m2\repository\org\testng\testng\7.10.2\testng-7.10.2.jar;C:\Users\PC\.m2\repository\org\slf4j\slf4j-api\1.7.36\slf4j-api-1.7.36.jar;C:\Users\PC\.m2\repository\com\beust\jcommander\1.82\jcommander-1.82.jar;C:\Users\PC\.m2\repository\org\webjars\jquery\3.7.1\jquery-3.7.1.jar;C:\Users\PC\.m2\repository\org\apache\poi\poi-ooxml\5.2.5\poi-ooxml-5.2.5.jar;C:\Users\PC\.m2\repository\org\apache\poi\poi\5.2.5\poi-5.2.5.jar;C:\Users\PC\.m2\repository\commons-codec\commons-codec\1.16.0\commons-codec-1.16.0.jar;C:\Users\PC\.m2\repository\org\apache\commons\commons-math3\3.6.1\commons-math3-3.6.1.jar;C:\Users\PC\.m2\repository\com\zaxxer\SparseBitSet\1.3\SparseBitSet-1.3.jar;C:\Users\PC\.m2\repository\org\apache\poi\poi-ooxml-lite\5.2.5\poi-ooxml-lite-5.2.5.jar;C:\Users\PC\.m2\repository\org\apache\xmlbeans\xmlbeans\5.2.0\xmlbeans-5.2.0.jar;C:\Users\PC\.m2\repository\org\apache\commons\commons-compress\1.25.0\commons-compress-1.25.0.jar;C:\Users\PC\.m2\repository\commons-io\commons-io\2.15.0\commons-io-2.15.0.jar;C:\Users\PC\.m2\repository\com\github\virtuald\curvesapi\1.08\curvesapi-1.08.jar;C:\Users\PC\.m2\repository\org\apache\logging\log4j\log4j-api\2.21.1\log4j-api-2.21.1.jar;C:\Users\PC\.m2\repository\org\apache\commons\commons-collections4\4.4\commons-collections4-4.4.jar;C:\Users\PC\.m2\repository\io\github\bonigarcia\webdrivermanager\5.8.0\webdrivermanager-5.8.0.jar;C:\Users\PC\.m2\repository\com\google\code\gson\gson\2.10.1\gson-2.10.1.jar;C:\Users\PC\.m2\repository\com\github\docker-java\docker-java\3.3.6\docker-java-3.3.6.jar;C:\Users\PC\.m2\repository\com\github\docker-java\docker-java-core\3.3.6\docker-java-core-3.3.6.jar;C:\Users\PC\.m2\repository\com\github\docker-java\docker-java-api\3.3.6\docker-java-api-3.3.6.jar;C:\Users\PC\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.10.3\jackson-annotations-2.10.3.jar;C:\Users\PC\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.10.3\jackson-databind-2.10.3.jar;C:\Users\PC\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.10.3\jackson-core-2.10.3.jar;C:\Users\PC\.m2\repository\org\bouncycastle\bcpkix-jdk18on\1.76\bcpkix-jdk18on-1.76.jar;C:\Users\PC\.m2\repository\org\bouncycastle\bcprov-jdk18on\1.76\bcprov-jdk18on-1.76.jar;C:\Users\PC\.m2\repository\org\bouncycastle\bcutil-jdk18on\1.76\bcutil-jdk18on-1.76.jar;C:\Users\PC\.m2\repository\org\slf4j\jcl-over-slf4j\1.7.30\jcl-over-slf4j-1.7.30.jar;C:\Users\PC\.m2\repository\com\github\docker-java\docker-java-transport-httpclient5\3.3.6\docker-java-transport-httpclient5-3.3.6.jar;C:\Users\PC\.m2\repository\com\github\docker-java\docker-java-transport\3.3.6\docker-java-transport-3.3.6.jar;C:\Users\PC\.m2\repository\net\java\dev\jna\jna\5.13.0\jna-5.13.0.jar;C:\Users\PC\.m2\repository\org\brotli\dec\0.1.2\dec-0.1.2.jar;C:\Users\PC\.m2\repository\org\apache\commons\commons-lang3\3.14.0\commons-lang3-3.14.0.jar;C:\Users\PC\.m2\repository\org\apache\httpcomponents\client5\httpclient5\5.2.1\httpclient5-5.2.1.jar;C:\Users\PC\.m2\repository\org\apache\httpcomponents\core5\httpcore5\5.2\httpcore5-5.2.jar;C:\Users\PC\.m2\repository\org\apache\httpcomponents\core5\httpcore5-h2\5.2\httpcore5-h2-5.2.jar;C:\Users\PC\.m2\repository\io\qameta\allure\allure-testng\2.25.0\allure-testng-2.25.0.jar;C:\Users\PC\.m2\repository\io\qameta\allure\allure-java-commons\2.25.0\allure-java-commons-2.25.0.jar;C:\Users\PC\.m2\repository\io\qameta\allure\allure-model\2.25.0\allure-model-2.25.0.jar;C:\Users\PC\.m2\repository\io\qameta\allure\allure-test-filter\2.25.0\allure-test-filter-2.25.0.jar;"/>
+    <property name="surefire.test.class.path" value="D:\Automation\advanced_selenium_framework\target\test-classes;D:\Automation\advanced_selenium_framework\target\classes;C:\Users\PC\.m2\repository\org\seleniumhq\selenium\selenium-java\4.21.0\selenium-java-4.21.0.jar;C:\Users\PC\.m2\repository\org\seleniumhq\selenium\selenium-api\4.21.0\selenium-api-4.21.0.jar;C:\Users\PC\.m2\repository\org\seleniumhq\selenium\selenium-chrome-driver\4.21.0\selenium-chrome-driver-4.21.0.jar;C:\Users\PC\.m2\repository\com\google\auto\service\auto-service-annotations\1.1.1\auto-service-annotations-1.1.1.jar;C:\Users\PC\.m2\repository\org\seleniumhq\selenium\selenium-chromium-driver\4.21.0\selenium-chromium-driver-4.21.0.jar;C:\Users\PC\.m2\repository\org\seleniumhq\selenium\selenium-json\4.21.0\selenium-json-4.21.0.jar;C:\Users\PC\.m2\repository\org\seleniumhq\selenium\selenium-manager\4.21.0\selenium-manager-4.21.0.jar;C:\Users\PC\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v123\4.21.0\selenium-devtools-v123-4.21.0.jar;C:\Users\PC\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v124\4.21.0\selenium-devtools-v124-4.21.0.jar;C:\Users\PC\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v125\4.21.0\selenium-devtools-v125-4.21.0.jar;C:\Users\PC\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v85\4.21.0\selenium-devtools-v85-4.21.0.jar;C:\Users\PC\.m2\repository\org\seleniumhq\selenium\selenium-edge-driver\4.21.0\selenium-edge-driver-4.21.0.jar;C:\Users\PC\.m2\repository\org\seleniumhq\selenium\selenium-firefox-driver\4.21.0\selenium-firefox-driver-4.21.0.jar;C:\Users\PC\.m2\repository\org\seleniumhq\selenium\selenium-http\4.21.0\selenium-http-4.21.0.jar;C:\Users\PC\.m2\repository\dev\failsafe\failsafe\3.3.2\failsafe-3.3.2.jar;C:\Users\PC\.m2\repository\org\seleniumhq\selenium\selenium-ie-driver\4.21.0\selenium-ie-driver-4.21.0.jar;C:\Users\PC\.m2\repository\org\seleniumhq\selenium\selenium-remote-driver\4.21.0\selenium-remote-driver-4.21.0.jar;C:\Users\PC\.m2\repository\com\google\guava\guava\33.2.0-jre\guava-33.2.0-jre.jar;C:\Users\PC\.m2\repository\com\google\guava\failureaccess\1.0.2\failureaccess-1.0.2.jar;C:\Users\PC\.m2\repository\com\google\guava\listenablefuture\9999.0-empty-to-avoid-conflict-with-guava\listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar;C:\Users\PC\.m2\repository\com\google\code\findbugs\jsr305\3.0.2\jsr305-3.0.2.jar;C:\Users\PC\.m2\repository\org\checkerframework\checker-qual\3.42.0\checker-qual-3.42.0.jar;C:\Users\PC\.m2\repository\com\google\errorprone\error_prone_annotations\2.26.1\error_prone_annotations-2.26.1.jar;C:\Users\PC\.m2\repository\com\google\j2objc\j2objc-annotations\3.0.0\j2objc-annotations-3.0.0.jar;C:\Users\PC\.m2\repository\io\opentelemetry\semconv\opentelemetry-semconv\1.25.0-alpha\opentelemetry-semconv-1.25.0-alpha.jar;C:\Users\PC\.m2\repository\io\opentelemetry\opentelemetry-api\1.38.0\opentelemetry-api-1.38.0.jar;C:\Users\PC\.m2\repository\io\opentelemetry\opentelemetry-context\1.38.0\opentelemetry-context-1.38.0.jar;C:\Users\PC\.m2\repository\io\opentelemetry\opentelemetry-exporter-logging\1.38.0\opentelemetry-exporter-logging-1.38.0.jar;C:\Users\PC\.m2\repository\io\opentelemetry\opentelemetry-sdk-common\1.38.0\opentelemetry-sdk-common-1.38.0.jar;C:\Users\PC\.m2\repository\io\opentelemetry\opentelemetry-sdk-extension-autoconfigure-spi\1.38.0\opentelemetry-sdk-extension-autoconfigure-spi-1.38.0.jar;C:\Users\PC\.m2\repository\io\opentelemetry\opentelemetry-sdk-extension-autoconfigure\1.38.0\opentelemetry-sdk-extension-autoconfigure-1.38.0.jar;C:\Users\PC\.m2\repository\io\opentelemetry\opentelemetry-api-incubator\1.38.0-alpha\opentelemetry-api-incubator-1.38.0-alpha.jar;C:\Users\PC\.m2\repository\io\opentelemetry\opentelemetry-sdk-trace\1.38.0\opentelemetry-sdk-trace-1.38.0.jar;C:\Users\PC\.m2\repository\io\opentelemetry\opentelemetry-sdk\1.38.0\opentelemetry-sdk-1.38.0.jar;C:\Users\PC\.m2\repository\io\opentelemetry\opentelemetry-sdk-metrics\1.38.0\opentelemetry-sdk-metrics-1.38.0.jar;C:\Users\PC\.m2\repository\io\opentelemetry\opentelemetry-sdk-logs\1.38.0\opentelemetry-sdk-logs-1.38.0.jar;C:\Users\PC\.m2\repository\net\bytebuddy\byte-buddy\1.14.15\byte-buddy-1.14.15.jar;C:\Users\PC\.m2\repository\org\seleniumhq\selenium\selenium-os\4.21.0\selenium-os-4.21.0.jar;C:\Users\PC\.m2\repository\org\apache\commons\commons-exec\1.4.0\commons-exec-1.4.0.jar;C:\Users\PC\.m2\repository\org\seleniumhq\selenium\selenium-safari-driver\4.21.0\selenium-safari-driver-4.21.0.jar;C:\Users\PC\.m2\repository\org\seleniumhq\selenium\selenium-support\4.21.0\selenium-support-4.21.0.jar;C:\Users\PC\.m2\repository\org\testng\testng\7.10.2\testng-7.10.2.jar;C:\Users\PC\.m2\repository\org\slf4j\slf4j-api\1.7.36\slf4j-api-1.7.36.jar;C:\Users\PC\.m2\repository\com\beust\jcommander\1.82\jcommander-1.82.jar;C:\Users\PC\.m2\repository\org\webjars\jquery\3.7.1\jquery-3.7.1.jar;C:\Users\PC\.m2\repository\org\apache\poi\poi-ooxml\5.2.5\poi-ooxml-5.2.5.jar;C:\Users\PC\.m2\repository\org\apache\poi\poi\5.2.5\poi-5.2.5.jar;C:\Users\PC\.m2\repository\commons-codec\commons-codec\1.16.0\commons-codec-1.16.0.jar;C:\Users\PC\.m2\repository\org\apache\commons\commons-math3\3.6.1\commons-math3-3.6.1.jar;C:\Users\PC\.m2\repository\com\zaxxer\SparseBitSet\1.3\SparseBitSet-1.3.jar;C:\Users\PC\.m2\repository\org\apache\poi\poi-ooxml-lite\5.2.5\poi-ooxml-lite-5.2.5.jar;C:\Users\PC\.m2\repository\org\apache\xmlbeans\xmlbeans\5.2.0\xmlbeans-5.2.0.jar;C:\Users\PC\.m2\repository\org\apache\commons\commons-compress\1.25.0\commons-compress-1.25.0.jar;C:\Users\PC\.m2\repository\commons-io\commons-io\2.15.0\commons-io-2.15.0.jar;C:\Users\PC\.m2\repository\com\github\virtuald\curvesapi\1.08\curvesapi-1.08.jar;C:\Users\PC\.m2\repository\org\apache\commons\commons-collections4\4.4\commons-collections4-4.4.jar;C:\Users\PC\.m2\repository\io\github\bonigarcia\webdrivermanager\5.8.0\webdrivermanager-5.8.0.jar;C:\Users\PC\.m2\repository\com\google\code\gson\gson\2.10.1\gson-2.10.1.jar;C:\Users\PC\.m2\repository\com\github\docker-java\docker-java\3.3.6\docker-java-3.3.6.jar;C:\Users\PC\.m2\repository\com\github\docker-java\docker-java-core\3.3.6\docker-java-core-3.3.6.jar;C:\Users\PC\.m2\repository\com\github\docker-java\docker-java-api\3.3.6\docker-java-api-3.3.6.jar;C:\Users\PC\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.10.3\jackson-annotations-2.10.3.jar;C:\Users\PC\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.10.3\jackson-databind-2.10.3.jar;C:\Users\PC\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.10.3\jackson-core-2.10.3.jar;C:\Users\PC\.m2\repository\org\bouncycastle\bcpkix-jdk18on\1.76\bcpkix-jdk18on-1.76.jar;C:\Users\PC\.m2\repository\org\bouncycastle\bcprov-jdk18on\1.76\bcprov-jdk18on-1.76.jar;C:\Users\PC\.m2\repository\org\bouncycastle\bcutil-jdk18on\1.76\bcutil-jdk18on-1.76.jar;C:\Users\PC\.m2\repository\org\slf4j\jcl-over-slf4j\1.7.30\jcl-over-slf4j-1.7.30.jar;C:\Users\PC\.m2\repository\com\github\docker-java\docker-java-transport-httpclient5\3.3.6\docker-java-transport-httpclient5-3.3.6.jar;C:\Users\PC\.m2\repository\com\github\docker-java\docker-java-transport\3.3.6\docker-java-transport-3.3.6.jar;C:\Users\PC\.m2\repository\net\java\dev\jna\jna\5.13.0\jna-5.13.0.jar;C:\Users\PC\.m2\repository\org\brotli\dec\0.1.2\dec-0.1.2.jar;C:\Users\PC\.m2\repository\org\apache\commons\commons-lang3\3.14.0\commons-lang3-3.14.0.jar;C:\Users\PC\.m2\repository\org\apache\httpcomponents\client5\httpclient5\5.2.1\httpclient5-5.2.1.jar;C:\Users\PC\.m2\repository\org\apache\httpcomponents\core5\httpcore5\5.2\httpcore5-5.2.jar;C:\Users\PC\.m2\repository\org\apache\httpcomponents\core5\httpcore5-h2\5.2\httpcore5-h2-5.2.jar;C:\Users\PC\.m2\repository\io\qameta\allure\allure-testng\2.25.0\allure-testng-2.25.0.jar;C:\Users\PC\.m2\repository\io\qameta\allure\allure-java-commons\2.25.0\allure-java-commons-2.25.0.jar;C:\Users\PC\.m2\repository\io\qameta\allure\allure-model\2.25.0\allure-model-2.25.0.jar;C:\Users\PC\.m2\repository\io\qameta\allure\allure-test-filter\2.25.0\allure-test-filter-2.25.0.jar;C:\Users\PC\.m2\repository\org\apache\logging\log4j\log4j-core\2.23.1\log4j-core-2.23.1.jar;C:\Users\PC\.m2\repository\org\apache\logging\log4j\log4j-api\2.23.1\log4j-api-2.23.1.jar;C:\Users\PC\.m2\repository\org\apache\logging\log4j\log4j-slf4j-impl\2.23.1\log4j-slf4j-impl-2.23.1.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="C:\Users\PC"/>
     <property name="user.language" value="en"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
     <property name="java.version.date" value="2026-04-21"/>
-    <property name="java.home" value="C:\Users\PC\AppData\Local\Programs\Eclipse Adoptium\jdk-25.0.3.9-hotspot"/>
+    <property name="java.home" value="C:\Users\PC\.jdks\ms-17.0.19"/>
     <property name="file.separator" value="\"/>
     <property name="basedir" value="D:\Automation\advanced_selenium_framework"/>
     <property name="java.vm.compressedOopsMode" value="Zero based"/>
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\PC\AppData\Local\Temp\surefire385858293545039859\surefirebooter-20260522152448956_3.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\PC\AppData\Local\Temp\surefire18081585013485647574\surefirebooter-20260526151330348_3.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
-    <property name="java.runtime.version" value="25.0.3+9-LTS"/>
+    <property name="java.runtime.version" value="17.0.19+10-LTS"/>
     <property name="user.name" value="PC"/>
-    <property name="stdout.encoding" value="Cp1252"/>
     <property name="path.separator" value=";"/>
     <property name="os.version" value="10.0"/>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
-    <property name="file.encoding" value="UTF-8"/>
+    <property name="file.encoding" value="Cp1252"/>
     <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
-    <property name="java.vendor.version" value="Temurin-25.0.3+9"/>
+    <property name="java.vendor.version" value="Microsoft-13877129"/>
     <property name="localRepository" value="C:\Users\PC\.m2\repository"/>
-    <property name="java.vendor.url.bug" value="https://github.com/adoptium/adoptium-support/issues"/>
+    <property name="java.vendor.url.bug" value="https://github.com/microsoft/openjdk/issues"/>
     <property name="java.io.tmpdir" value="C:\Users\PC\AppData\Local\Temp\"/>
-    <property name="java.version" value="25.0.3"/>
+    <property name="java.version" value="17.0.19"/>
     <property name="user.dir" value="D:\Automation\advanced_selenium_framework"/>
     <property name="os.arch" value="amd64"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
     <property name="sun.os.patch.level" value=""/>
     <property name="native.encoding" value="Cp1252"/>
-    <property name="java.library.path" value="C:\Users\PC\AppData\Local\Programs\Eclipse Adoptium\jdk-25.0.3.9-hotspot\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\dotnet\;C:\Program Files (x86)\NetSarang\Xftp 7\;C:\Program Files (x86)\NetSarang\Xshell 7\;C:\Program Files\nodejs\;C:\Program Files\Git\cmd;C:\Users\PC\scoop\shims;C:\Users\PC\AppData\Local\Programs\Eclipse Adoptium\jdk-25.0.3.9-hotspot\bin;C:\Users\PC\AppData\Local\Microsoft\WindowsApps;C:\Users\PC\AppData\Roaming\npm;C:\Users\PC\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\PC\AppData\Local\Programs\Antigravity\bin;D:\SETUP\apache-maven-3.9.16-bin\apache-maven-3.9.16\bin;;."/>
+    <property name="java.library.path" value="C:\Users\PC\.jdks\ms-17.0.19\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\dotnet\;C:\Program Files (x86)\NetSarang\Xftp 7\;C:\Program Files\nodejs\;C:\Program Files\Git\cmd;C:\Users\PC\scoop\shims;C:\Users\PC\AppData\Local\Programs\Eclipse Adoptium\jdk-25.0.3.9-hotspot\bin;C:\Users\PC\AppData\Local\Microsoft\WindowsApps;C:\Users\PC\AppData\Roaming\npm;C:\Users\PC\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\PC\AppData\Local\Programs\Antigravity\bin;D:\SETUP\apache-maven-3.9.16-bin\apache-maven-3.9.16\bin;C:\Users\PC\.jdks\ms-17.0.19\bin;;."/>
     <property name="java.vm.info" value="mixed mode, sharing"/>
-    <property name="stderr.encoding" value="Cp1252"/>
-    <property name="java.vendor" value="Eclipse Adoptium"/>
-    <property name="java.vm.version" value="25.0.3+9-LTS"/>
-    <property name="stdin.encoding" value="Cp1252"/>
+    <property name="java.vendor" value="Microsoft"/>
+    <property name="java.vm.version" value="17.0.19+10-LTS"/>
+    <property name="java.specification.maintenance.version" value="1"/>
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
-    <property name="java.class.version" value="69.0"/>
+    <property name="java.class.version" value="61.0"/>
   </properties>
-  <testcase name="testLogin" classname="tests.LoginTest" time="0.149">
-    <system-err><![CDATA[SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
-SLF4J: Defaulting to no-operation (NOP) logger implementation
-SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
-May 22, 2026 3:24:55 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+  <testcase name="runLoginTestCase[Login_TC.xlsx :: PK-001](1)" classname="runner.TestRunner" time="0.0">
+    <skipped message="Run is not Y in TestCases sheet"/>
+    <system-out><![CDATA[2026-05-26 15:13:31,352 [main] WARN : Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2026-05-26 15:13:31,355 [main] WARN : Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2026-05-26 15:13:31,355 [main] WARN : Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+
+=== RUNNING Login_TC.xlsx :: PK-001 - Đăng nhập tài khoản chưa có Mã Bảo mật - Đăng nhập bằng SSO thành công: User chưa cài đặt key ===
+]]></system-out>
+  </testcase>
+  <testcase name="runLoginTestCase[Login_TC.xlsx :: PK-002](2)" classname="runner.TestRunner" time="0.0">
+    <skipped message="Run is not Y in TestCases sheet"/>
+    <system-out><![CDATA[
+=== RUNNING Login_TC.xlsx :: PK-002 - Đăng nhập tài khoản chưa có Mã Bảo mật - Đăng nhập bằng SSO thành công - Bỏ qua cài đặt key: Login thành công ===
+]]></system-out>
+  </testcase>
+  <testcase name="runLoginTestCase[Login_TC.xlsx :: PK-003](3)" classname="runner.TestRunner" time="0.0">
+    <skipped message="Run is not Y in TestCases sheet"/>
+    <system-out><![CDATA[
+=== RUNNING Login_TC.xlsx :: PK-003 - Đăng nhập tài khoản chưa có Mã Bảo mật - Đăng nhập bằng SSO thành công - Bỏ qua cài đặt key: Kiểm tra tạo nhóm chat Bảo mật ===
+]]></system-out>
+  </testcase>
+  <testcase name="runLoginTestCase[Login_TC.xlsx :: PK-004](4)" classname="runner.TestRunner" time="0.0">
+    <skipped message="Run is not Y in TestCases sheet"/>
+    <system-out><![CDATA[
+=== RUNNING Login_TC.xlsx :: PK-004 - Đăng nhập tài khoản chưa có Mã Bảo mật - Đăng nhập bằng SSO thành công - Bỏ qua cài đặt key: Kiểm tra được thêm vào chat Bảo mật + add key ===
+]]></system-out>
+  </testcase>
+  <testcase name="runLoginTestCase[Login_TC.xlsx :: PK-005](5)" classname="runner.TestRunner" time="0.0">
+    <skipped message="Run is not Y in TestCases sheet"/>
+    <system-out><![CDATA[
+=== RUNNING Login_TC.xlsx :: PK-005 - Đăng nhập tài khoản chưa có Mã Bảo mật - Đăng nhập bằng SSO thành công - Bỏ qua cài đặt key: Nhận tin nhắn từ chat 1-1 ===
+]]></system-out>
+  </testcase>
+  <testcase name="runLoginTestCase[Login_TC.xlsx :: PK-006](6)" classname="runner.TestRunner" time="0.0">
+    <skipped message="Run is not Y in TestCases sheet"/>
+    <system-out><![CDATA[
+=== RUNNING Login_TC.xlsx :: PK-006 - Đăng nhập tài khoản chưa có Mã Bảo mật - Đăng nhập bằng SSO thành công - Bỏ qua cài đặt key: Kiểm tra được thêm vào chat Bảo mật + add key ===
+]]></system-out>
+  </testcase>
+  <testcase name="runLoginTestCase[Login_TC.xlsx :: PK-007](7)" classname="runner.TestRunner" time="0.0">
+    <skipped message="Run is not Y in TestCases sheet"/>
+    <system-out><![CDATA[
+=== RUNNING Login_TC.xlsx :: PK-007 - Đăng nhập tài khoản chưa có Mã Bảo mật - Đăng nhập bằng SSO thành công - Bỏ qua cài đặt key: Tạo key sau khi đã Gửi/Nhận tin nhắn từ nhóm chat không bảo mật, nhóm chat 1-1. ===
+]]></system-out>
+  </testcase>
+  <testcase name="runLoginTestCase[Login_TC.xlsx :: PK-008](8)" classname="runner.TestRunner" time="49.85">
+    <failure message="invalid session id: session deleted as the browser has closed the connection&#10;from disconnected: not connected to DevTools&#10;  (Session info: chrome=148.0.7778.179)&#10;Build info: version: &apos;4.21.0&apos;, revision: &apos;79ed462ef4&apos;&#10;System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.19&apos;&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Command: [e23d9bf654d1d9a8897a3148c055ee1b, getWindowHandles {}]&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 148.0.7778.179, chrome: {chromedriverVersion: 148.0.7778.178 (d096af1c9e9..., userDataDir: C:\Users\PC\AppData\Local\T...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:65359}, goog:processID: 13140, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:65359/devtoo..., se:cdpVersion: 148.0.7778.179, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}&#10;Session ID: e23d9bf654d1d9a8897a3148c055ee1b" type="org.openqa.selenium.NoSuchSessionException"><![CDATA[org.openqa.selenium.NoSuchSessionException: 
+invalid session id: session deleted as the browser has closed the connection
+from disconnected: not connected to DevTools
+  (Session info: chrome=148.0.7778.179)
+Build info: version: '4.21.0', revision: '79ed462ef4'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.19'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [e23d9bf654d1d9a8897a3148c055ee1b, getWindowHandles {}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 148.0.7778.179, chrome: {chromedriverVersion: 148.0.7778.178 (d096af1c9e9..., userDataDir: C:\Users\PC\AppData\Local\T...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:65359}, goog:processID: 13140, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:65359/devtoo..., se:cdpVersion: 148.0.7778.179, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: e23d9bf654d1d9a8897a3148c055ee1b
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:518)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:591)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:595)
+	at org.openqa.selenium.remote.RemoteWebDriver.getWindowHandles(RemoteWebDriver.java:442)
+	at core.keywords.Actions.handleStaySignedInPrompt(Actions.java:245)
+	at core.keywords.Actions.waitForAuthenticationToComplete(Actions.java:405)
+	at core.keywords.Actions.waitForAuthenticationToCompleteOrFail(Actions.java:393)
+	at core.keywords.Actions.enterMicrosoftOtp(Actions.java:351)
+	at core.engine.KeywordEngine.executeSteps(KeywordEngine.java:103)
+	at runner.TestRunner.runLoginTestCase(TestRunner.java:87)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:739)
+	at org.testng.TestRunner.run(TestRunner.java:614)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:308)
+	at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:71)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:113)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+]]></failure>
+    <system-out><![CDATA[
+=== RUNNING Login_TC.xlsx :: PK-008 - Đăng nhập tài khoản đã có Mã Bảo mật - Đăng nhập bằng SSO thành công ===
+2026-05-26 15:13:33,022 [main] INFO : Using chromedriver 148.0.7778.178 (resolved driver for Chrome 148)
+2026-05-26 15:13:33,044 [main] INFO : Exporting webdriver.chrome.driver as C:\Users\PC\.cache\selenium\chromedriver\win64\148.0.7778.178\chromedriver.exe
+Step 01: navigate |  | https://beatchat.ai/
+Step 02: loginwithmicrosoft |  | ***
+Step 03: entermicrosoftotp |  | ***
+]]></system-out>
+    <system-err><![CDATA[May 26, 2026 3:13:34 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 WARNING: Unable to find CDP implementation matching 148
-May 22, 2026 3:24:55 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
-WARNING: Unable to find version of CDP to use for 148.0.7778.168. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.21.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+May 26, 2026 3:13:34 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 148.0.7778.179. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.21.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
 ]]></system-err>
+  </testcase>
+  <testcase name="runLoginTestCase[Login_TC.xlsx :: PK-009](9)" classname="runner.TestRunner" time="0.0">
+    <skipped message="Run is not Y in TestCases sheet"/>
+    <system-out><![CDATA[
+=== RUNNING Login_TC.xlsx :: PK-009 - Đăng nhập tài khoản đã có Mã Bảo mật - Đăng nhập bằng SSO thất bại ===
+]]></system-out>
+    <system-err><![CDATA[org.openqa.selenium.NoSuchSessionException: invalid session id
+Build info: version: '4.21.0', revision: '79ed462ef4'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.19'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [e23d9bf654d1d9a8897a3148c055ee1b, screenshot {}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 148.0.7778.179, chrome: {chromedriverVersion: 148.0.7778.178 (d096af1c9e9..., userDataDir: C:\Users\PC\AppData\Local\T...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:65359}, goog:processID: 13140, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:65359/devtoo..., se:cdpVersion: 148.0.7778.179, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: e23d9bf654d1d9a8897a3148c055ee1b
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:518)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:591)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:595)
+	at org.openqa.selenium.remote.RemoteWebDriver.getScreenshotAs(RemoteWebDriver.java:321)
+	at utils.AllureListener.saveScreenshot(AllureListener.java:18)
+	at utils.AllureListener.onTestFailure(AllureListener.java:29)
+	at org.testng.internal.TestListenerHelper.runTestListeners(TestListenerHelper.java:115)
+	at org.testng.internal.invokers.TestInvoker.runTestResultListener(TestInvoker.java:285)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:774)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:739)
+	at org.testng.TestRunner.run(TestRunner.java:614)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:308)
+	at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:71)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:113)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+]]></system-err>
+  </testcase>
+  <testcase name="runLoginTestCase[Login_TC.xlsx :: PK-010](10)" classname="runner.TestRunner" time="0.0">
+    <skipped message="Run is not Y in TestCases sheet"/>
+    <system-out><![CDATA[
+=== RUNNING Login_TC.xlsx :: PK-010 - Đăng nhập tài khoản đã có Mã Bảo mật - Đăng nhập bằng SSO - Nhập mã PIN thành công ===
+]]></system-out>
+  </testcase>
+  <testcase name="runLoginTestCase[Login_TC.xlsx :: PK-011](11)" classname="runner.TestRunner" time="83.936">
+    <failure message="invalid session id: session deleted as the browser has closed the connection&#10;from disconnected: not connected to DevTools&#10;  (Session info: chrome=148.0.7778.179)&#10;Build info: version: &apos;4.21.0&apos;, revision: &apos;79ed462ef4&apos;&#10;System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.19&apos;&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Command: [33e66fdd2883e1bca7a19650a23a839a, getWindowHandles {}]&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 148.0.7778.179, chrome: {chromedriverVersion: 148.0.7778.178 (d096af1c9e9..., userDataDir: C:\Users\PC\AppData\Local\T...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:61837}, goog:processID: 1864, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:61837/devtoo..., se:cdpVersion: 148.0.7778.179, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}&#10;Session ID: 33e66fdd2883e1bca7a19650a23a839a" type="org.openqa.selenium.NoSuchSessionException"><![CDATA[org.openqa.selenium.NoSuchSessionException: 
+invalid session id: session deleted as the browser has closed the connection
+from disconnected: not connected to DevTools
+  (Session info: chrome=148.0.7778.179)
+Build info: version: '4.21.0', revision: '79ed462ef4'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.19'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [33e66fdd2883e1bca7a19650a23a839a, getWindowHandles {}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 148.0.7778.179, chrome: {chromedriverVersion: 148.0.7778.178 (d096af1c9e9..., userDataDir: C:\Users\PC\AppData\Local\T...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:61837}, goog:processID: 1864, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:61837/devtoo..., se:cdpVersion: 148.0.7778.179, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 33e66fdd2883e1bca7a19650a23a839a
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:518)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:591)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:595)
+	at org.openqa.selenium.remote.RemoteWebDriver.getWindowHandles(RemoteWebDriver.java:442)
+	at core.keywords.Actions.handleStaySignedInPrompt(Actions.java:245)
+	at core.keywords.Actions.waitForAuthenticationToComplete(Actions.java:405)
+	at core.keywords.Actions.waitForAuthenticationToCompleteOrFail(Actions.java:393)
+	at core.keywords.Actions.enterMicrosoftOtp(Actions.java:351)
+	at core.engine.KeywordEngine.executeSteps(KeywordEngine.java:103)
+	at runner.TestRunner.runLoginTestCase(TestRunner.java:87)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:739)
+	at org.testng.TestRunner.run(TestRunner.java:614)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:308)
+	at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:71)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:113)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+]]></failure>
+    <system-out><![CDATA[
+=== RUNNING Login_TC.xlsx :: PK-011 - Đăng nhập tài khoản đã có Mã Bảo mật - Đăng nhập bằng SSO - Nhập mã PIN cũ/PIN không hợp lệ ===
+2026-05-26 15:14:22,771 [main] INFO : Using chromedriver 148.0.7778.178 (resolved driver for Chrome 148)
+2026-05-26 15:14:22,780 [main] INFO : Exporting webdriver.chrome.driver as C:\Users\PC\.cache\selenium\chromedriver\win64\148.0.7778.178\chromedriver.exe
+Step 01: navigate |  | https://beatchat.ai/
+Step 02: loginwithmicrosoft |  | ***
+Step 03: entermicrosoftotp |  | ***
+]]></system-out>
+    <system-err><![CDATA[May 26, 2026 3:14:23 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 148
+May 26, 2026 3:14:23 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 148.0.7778.179. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.21.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="runLoginTestCase[Login_TC.xlsx :: PK-012](12)" classname="runner.TestRunner" time="0.0">
+    <skipped message="Run is not Y in TestCases sheet"/>
+    <system-out><![CDATA[
+=== RUNNING Login_TC.xlsx :: PK-012 - Đăng nhập tài khoản đã có Mã Bảo mật - Kiểm tra Giới hạn nhập mã PIN ===
+]]></system-out>
+    <system-err><![CDATA[org.openqa.selenium.NoSuchSessionException: invalid session id
+Build info: version: '4.21.0', revision: '79ed462ef4'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.19'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [33e66fdd2883e1bca7a19650a23a839a, screenshot {}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 148.0.7778.179, chrome: {chromedriverVersion: 148.0.7778.178 (d096af1c9e9..., userDataDir: C:\Users\PC\AppData\Local\T...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:61837}, goog:processID: 1864, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:61837/devtoo..., se:cdpVersion: 148.0.7778.179, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 33e66fdd2883e1bca7a19650a23a839a
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:518)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:591)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:595)
+	at org.openqa.selenium.remote.RemoteWebDriver.getScreenshotAs(RemoteWebDriver.java:321)
+	at utils.AllureListener.saveScreenshot(AllureListener.java:18)
+	at utils.AllureListener.onTestFailure(AllureListener.java:29)
+	at org.testng.internal.TestListenerHelper.runTestListeners(TestListenerHelper.java:115)
+	at org.testng.internal.invokers.TestInvoker.runTestResultListener(TestInvoker.java:285)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:774)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:739)
+	at org.testng.TestRunner.run(TestRunner.java:614)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:308)
+	at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:71)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:113)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+]]></system-err>
+  </testcase>
+  <testcase name="runLoginTestCase[Login_TC.xlsx :: PK-013](13)" classname="runner.TestRunner" time="0.0">
+    <skipped message="Run is not Y in TestCases sheet"/>
+    <system-out><![CDATA[
+=== RUNNING Login_TC.xlsx :: PK-013 - Đăng nhập tài khoản đã có Mã Bảo mật - Đăng nhập bằng SSO - Upload mã QR Pin thành công ===
+]]></system-out>
+  </testcase>
+  <testcase name="runLoginTestCase[Login_TC.xlsx :: PK-014](14)" classname="runner.TestRunner" time="0.0">
+    <skipped message="Run is not Y in TestCases sheet"/>
+    <system-out><![CDATA[
+=== RUNNING Login_TC.xlsx :: PK-014 - Đăng nhập tài khoản đã có Mã Bảo mật - Đăng nhập bằng SSO - Upload mã QR Pin cũ/không hợp lệ ===
+]]></system-out>
+  </testcase>
+  <testcase name="runLoginTestCase[Login_TC.xlsx :: PK-015](15)" classname="runner.TestRunner" time="0.0">
+    <skipped message="Run is not Y in TestCases sheet"/>
+    <system-out><![CDATA[
+=== RUNNING Login_TC.xlsx :: PK-015 - Đăng nhập tài khoản đã có Mã Bảo mật - Kiểm tra Giới hạn upload PIN QR ===
+]]></system-out>
+  </testcase>
+  <testcase name="runLoginTestCase[Login_TC.xlsx :: PK-016](16)" classname="runner.TestRunner" time="0.0">
+    <skipped message="Run is not Y in TestCases sheet"/>
+    <system-out><![CDATA[
+=== RUNNING Login_TC.xlsx :: PK-016 - Đăng nhập tài khoản đã có Mã Bảo mật - Đăng nhập bằng SSO - Quên mã - Quay lại: Huỷ thay đổi mã Pin và đăng nhập bằng Mã PIN đúng ===
+]]></system-out>
+  </testcase>
+  <testcase name="runLoginTestCase[Login_TC.xlsx :: PK-017](17)" classname="runner.TestRunner" time="0.0">
+    <skipped message="Run is not Y in TestCases sheet"/>
+    <system-out><![CDATA[
+=== RUNNING Login_TC.xlsx :: PK-017 - Đặt lại mã bảo mật - Đăng nhập bằng SSO - Quên mã - Thay đổi mã PIN: nhập mã Pin và kiểm tra thay đổi tại màn hình ===
+]]></system-out>
+  </testcase>
+  <testcase name="runLoginTestCase[Login_TC.xlsx :: PK-018](18)" classname="runner.TestRunner" time="0.0">
+    <skipped message="Run is not Y in TestCases sheet"/>
+    <system-out><![CDATA[
+=== RUNNING Login_TC.xlsx :: PK-018 - Đặt lại mã bảo mật - Đăng nhập bằng SSO - Quên mã - Thay đổi mã PIN: nhập mã PIN hợp lệ và kiểm tra gửi nhận email OTP ===
+]]></system-out>
+  </testcase>
+  <testcase name="runLoginTestCase[Login_TC.xlsx :: PK-019](19)" classname="runner.TestRunner" time="0.0">
+    <skipped message="Run is not Y in TestCases sheet"/>
+    <system-out><![CDATA[
+=== RUNNING Login_TC.xlsx :: PK-019 - Đặt lại mã bảo mật - Kiểm tra quy tắc gửi nhận OTP [BE check] ===
+]]></system-out>
+  </testcase>
+  <testcase name="runLoginTestCase[Login_TC.xlsx :: PK-020](20)" classname="runner.TestRunner" time="0.0">
+    <skipped message="Run is not Y in TestCases sheet"/>
+    <system-out><![CDATA[
+=== RUNNING Login_TC.xlsx :: PK-020 - Đặt lại mã bảo mật - Kiểm tra quy tắc nhập sai OTP [BE check] ===
+]]></system-out>
+  </testcase>
+  <testcase name="runLoginTestCase[Login_TC.xlsx :: PK-021](21)" classname="runner.TestRunner" time="0.0">
+    <skipped message="Run is not Y in TestCases sheet"/>
+    <system-out><![CDATA[
+=== RUNNING Login_TC.xlsx :: PK-021 - Đặt lại mã bảo mật - Đăng nhập bằng SSO - Quên mã - Thay đổi mã PIN: Nhập mã OTP hết hạn/Không khả dụng ===
+]]></system-out>
+  </testcase>
+  <testcase name="runLoginTestCase[Login_TC.xlsx :: PK-022](22)" classname="runner.TestRunner" time="0.0">
+    <skipped message="Run is not Y in TestCases sheet"/>
+    <system-out><![CDATA[
+=== RUNNING Login_TC.xlsx :: PK-022 - Đặt lại mã bảo mật - Đăng nhập bằng SSO - Quên mã - Thay đổi mã PIN: Nhập mã OTP xác nhận thành công ===
+]]></system-out>
+  </testcase>
+  <testcase name="runLoginTestCase[Login_TC.xlsx :: PK-023](23)" classname="runner.TestRunner" time="0.0">
+    <skipped message="Run is not Y in TestCases sheet"/>
+    <system-out><![CDATA[
+=== RUNNING Login_TC.xlsx :: PK-023 - Đặt lại mã bảo mật - Đăng nhập SSO - Thay đổi mã thành công: Terminate các phiên đăng nhập khác (BE check) ===
+]]></system-out>
+  </testcase>
+  <testcase name="runLoginTestCase[Login_TC.xlsx :: PK-024](24)" classname="runner.TestRunner" time="0.0">
+    <skipped message="Run is not Y in TestCases sheet"/>
+    <system-out><![CDATA[
+=== RUNNING Login_TC.xlsx :: PK-024 - Kiểm tra direct screen khi chưa hoàn thành luồng đăng nhập - Đăng nhập SSO thành công, chưa nhập mã PIN: Đóng trình duyệt và mở lại ===
+]]></system-out>
+  </testcase>
+  <testcase name="runLoginTestCase[Login_TC.xlsx :: PK-025](25)" classname="runner.TestRunner" time="0.0">
+    <skipped message="Run is not Y in TestCases sheet"/>
+    <system-out><![CDATA[
+=== RUNNING Login_TC.xlsx :: PK-025 - Kiểm tra direct screen khi chưa hoàn thành luồng đăng nhập - Đăng nhập SSO thành công, Thay đổi mã PIN, Xác thực OTP: Chưa hoàn thành xác thực Đóng app/trình duyệt và mở lại ===
+]]></system-out>
+  </testcase>
+  <testcase name="runLoginTestCase[Login_TC.xlsx :: PK-026](26)" classname="runner.TestRunner" time="0.0">
+    <skipped message="Run is not Y in TestCases sheet"/>
+    <system-out><![CDATA[
+=== RUNNING Login_TC.xlsx :: PK-026 - Kiểm tra direct screen khi chưa hoàn thành luồng đăng nhập - Đăng nhập SSO thành công, Thay đổi mã PIN, Xác thực OTP: Đã xác thực (chưa xác nhận), Đóng trình duyệt/ứng dụng và mở lại ===
+]]></system-out>
+  </testcase>
+  <testcase name="runLoginTestCase[Login_TC.xlsx :: PK-027](27)" classname="runner.TestRunner" time="0.0">
+    <skipped message="Run is not Y in TestCases sheet"/>
+    <system-out><![CDATA[
+=== RUNNING Login_TC.xlsx :: PK-027 - Kiểm tra generate mã QR Passphase - Mã QR được generate từ Android ===
+]]></system-out>
+  </testcase>
+  <testcase name="runLoginTestCase[Login_TC.xlsx :: PK-028](28)" classname="runner.TestRunner" time="0.0">
+    <skipped message="Run is not Y in TestCases sheet"/>
+    <system-out><![CDATA[
+=== RUNNING Login_TC.xlsx :: PK-028 - Kiểm tra generate mã QR Passphase - Mã QR được generate từ iOS ===
+]]></system-out>
+  </testcase>
+  <testcase name="runLoginTestCase[Login_TC.xlsx :: PK-029](29)" classname="runner.TestRunner" time="0.0">
+    <skipped message="Run is not Y in TestCases sheet"/>
+    <system-out><![CDATA[
+=== RUNNING Login_TC.xlsx :: PK-029 - Kiểm tra generate mã QR Passphase - Mã QR được generate từ Web ===
+]]></system-out>
+  </testcase>
+  <testcase name="runLoginTestCase[Login_TC.xlsx :: PK-031](30)" classname="runner.TestRunner" time="0.0">
+    <skipped message="Run is not Y in TestCases sheet"/>
+    <system-out><![CDATA[
+=== RUNNING Login_TC.xlsx :: PK-031 - Kiểm tra Gửi nhận tin nhắn: Người dùng chưa tạo key - Người dùng chưa tạo key: Hội thoại 1-1 ===
+]]></system-out>
+  </testcase>
+  <testcase name="runLoginTestCase[Login_TC.xlsx :: PK-032](31)" classname="runner.TestRunner" time="0.0">
+    <skipped message="Run is not Y in TestCases sheet"/>
+    <system-out><![CDATA[
+=== RUNNING Login_TC.xlsx :: PK-032 - Kiểm tra Gửi nhận tin nhắn: Người dùng chưa tạo key - Người dùng chưa tạo key: Hội thoại Public, private ===
+]]></system-out>
+  </testcase>
+  <testcase name="runLoginTestCase[Login_TC.xlsx :: PK-033](32)" classname="runner.TestRunner" time="0.0">
+    <skipped message="Run is not Y in TestCases sheet"/>
+    <system-out><![CDATA[
+=== RUNNING Login_TC.xlsx :: PK-033 - Kiểm tra Gửi nhận tin nhắn: Người dùng chưa tạo key - Người dùng chưa tạo key: Hội thoại E2EE ===
+]]></system-out>
+  </testcase>
+  <testcase name="runLoginTestCase[Login_TC.xlsx :: PK-034](33)" classname="runner.TestRunner" time="0.0">
+    <skipped message="Run is not Y in TestCases sheet"/>
+    <system-out><![CDATA[
+=== RUNNING Login_TC.xlsx :: PK-034 - Kiểm tra Gửi nhận tin nhắn: Người dùng chưa tạo key - Người dùng chưa tạo key: Hội thoại E2EE - Kiểm tra forward message ===
+]]></system-out>
+  </testcase>
+  <testcase name="runLoginTestCase[Login_TC.xlsx :: PK-035](34)" classname="runner.TestRunner" time="0.0">
+    <skipped message="Run is not Y in TestCases sheet"/>
+    <system-out><![CDATA[
+=== RUNNING Login_TC.xlsx :: PK-035 - Kiểm tra Gửi nhận tin nhắn: Người dùng chưa tạo key - Chat - Tạo key - Người dùng mới tạo key: Hội thoại 1-1 cũ ===
+]]></system-out>
+  </testcase>
+  <testcase name="runLoginTestCase[Login_TC.xlsx :: PK-036](35)" classname="runner.TestRunner" time="0.0">
+    <skipped message="Run is not Y in TestCases sheet"/>
+    <system-out><![CDATA[
+=== RUNNING Login_TC.xlsx :: PK-036 - Kiểm tra Gửi nhận tin nhắn: Người dùng chưa tạo key - Chat - Tạo key - Người dùng mới tạo key: Hội thoại Public, private cũ ===
+]]></system-out>
+  </testcase>
+  <testcase name="runLoginTestCase[Login_TC.xlsx :: PK-037](36)" classname="runner.TestRunner" time="0.0">
+    <skipped message="Run is not Y in TestCases sheet"/>
+    <system-out><![CDATA[
+=== RUNNING Login_TC.xlsx :: PK-037 - Kiểm tra Gửi nhận tin nhắn: Người dùng chưa tạo key - Chat - Tạo key - Người dùng mới tạo key: Hội thoại e2ee cũ ===
+]]></system-out>
+  </testcase>
+  <testcase name="runLoginTestCase[Login_TC.xlsx :: PK-038](37)" classname="runner.TestRunner" time="0.0">
+    <skipped message="Run is not Y in TestCases sheet"/>
+    <system-out><![CDATA[
+=== RUNNING Login_TC.xlsx :: PK-038 - Kiểm tra gửi nhận tin nhắn: Người dùng đã tạo key - Tạo hội thoại 1-1 với người dùng có key khác ===
+]]></system-out>
+  </testcase>
+  <testcase name="runLoginTestCase[Login_TC.xlsx :: PK-039](38)" classname="runner.TestRunner" time="0.0">
+    <skipped message="Run is not Y in TestCases sheet"/>
+    <system-out><![CDATA[
+=== RUNNING Login_TC.xlsx :: PK-039 - Kiểm tra gửi nhận tin nhắn: Người dùng đã tạo key - Tạo hội thoại Bảo mật ===
+]]></system-out>
+  </testcase>
+  <testcase name="runLoginTestCase[Login_TC.xlsx :: PK-040](39)" classname="runner.TestRunner" time="0.0">
+    <skipped message="Run is not Y in TestCases sheet"/>
+    <system-out><![CDATA[
+=== RUNNING Login_TC.xlsx :: PK-040 - Kiểm tra gửi nhận tin nhắn: Người dùng đã tạo key - Gửi nhận tin nhắn tại hội thoại bảo mật ===
+]]></system-out>
+  </testcase>
+  <testcase name="runLoginTestCase[Login_TC.xlsx :: PK-041](40)" classname="runner.TestRunner" time="0.0">
+    <skipped message="Run is not Y in TestCases sheet"/>
+    <system-out><![CDATA[
+=== RUNNING Login_TC.xlsx :: PK-041 - Quét mã Transfer Key Đăng nhập tại web - Người dùng chưa cài đặt Passphase ===
+]]></system-out>
+  </testcase>
+  <testcase name="runLoginTestCase[Login_TC.xlsx :: PK-042](41)" classname="runner.TestRunner" time="0.0">
+    <skipped message="Run is not Y in TestCases sheet"/>
+    <system-out><![CDATA[
+=== RUNNING Login_TC.xlsx :: PK-042 - Quét mã Transfer Key Đăng nhập tại web - Người dùng đã cài đặt Passphase ===
+]]></system-out>
+  </testcase>
+  <testcase name="runLoginTestCase[Login_TC.xlsx :: PK-043](42)" classname="runner.TestRunner" time="0.0">
+    <skipped message="Run is not Y in TestCases sheet"/>
+    <system-out><![CDATA[
+=== RUNNING Login_TC.xlsx :: PK-043 - Logged in Thay đổi mã bảo mật - Thay đổi mã bảo mật: Nhập OTP ===
+]]></system-out>
+  </testcase>
+  <testcase name="runLoginTestCase[Login_TC.xlsx :: PK-044](43)" classname="runner.TestRunner" time="0.0">
+    <skipped message="Run is not Y in TestCases sheet"/>
+    <system-out><![CDATA[
+=== RUNNING Login_TC.xlsx :: PK-044 - Logged in Thay đổi mã bảo mật - Kiểm tra giới hạn gửi nhận OTP ===
+]]></system-out>
+  </testcase>
+  <testcase name="runLoginTestCase[Login_TC.xlsx :: PK-045](44)" classname="runner.TestRunner" time="0.0">
+    <skipped message="Run is not Y in TestCases sheet"/>
+    <system-out><![CDATA[
+=== RUNNING Login_TC.xlsx :: PK-045 - Logged in Thay đổi mã bảo mật - Hoàn thành thay đổi mã bảo mật ===
+]]></system-out>
+  </testcase>
+  <testcase name="runLoginTestCase[Login_TC.xlsx :: PK-046](45)" classname="runner.TestRunner" time="0.0">
+    <skipped message="Run is not Y in TestCases sheet"/>
+    <system-out><![CDATA[
+=== RUNNING Login_TC.xlsx :: PK-046 - Đăng nhập tài khoản - Đăng nhập tài khoản có passphase - Đăng xuất - Đăng nhập lại ===
+]]></system-out>
+  </testcase>
+  <testcase name="runLoginTestCase[Login_TC.xlsx :: PK-047](46)" classname="runner.TestRunner" time="0.0">
+    <skipped message="Run is not Y in TestCases sheet"/>
+    <system-out><![CDATA[
+=== RUNNING Login_TC.xlsx :: PK-047 - Đăng nhập tài khoản - Đăng nhập tài khoản có passphase - Đăng xuất - Đặt lại PassKEY ở Tài khoản khác - Đăng nhập lại ===
+]]></system-out>
+  </testcase>
+  <testcase name="runLoginTestCase[Login_TC.xlsx :: PK-048](47)" classname="runner.TestRunner" time="0.0">
+    <skipped message="Run is not Y in TestCases sheet"/>
+    <system-out><![CDATA[
+=== RUNNING Login_TC.xlsx :: PK-048 - Đăng nhập tài khoản - Đăng nhập tài khoản có passphase - Đăng xuất - Đăng nhập bằng tài khoản khác ===
+]]></system-out>
+  </testcase>
+  <testcase name="runLoginTestCase[Login_TC.xlsx :: PK-049](48)" classname="runner.TestRunner" time="0.0">
+    <skipped message="Run is not Y in TestCases sheet"/>
+    <system-out><![CDATA[
+=== RUNNING Login_TC.xlsx :: PK-049 - Check tin nhắn tại hội thoại e2e sau khi đã đổi key ( Passphase) đối với tài khoản đã có passphase - Quên passphase của tài khoản thành công - Reset và đăng nhập với passphase mới -->  check tin nhắn cũ ở hội thoại e2e ===
+]]></system-out>
+  </testcase>
+  <testcase name="runLoginTestCase[Login_TC.xlsx :: PK-050](49)" classname="runner.TestRunner" time="0.0">
+    <skipped message="Run is not Y in TestCases sheet"/>
+    <system-out><![CDATA[
+=== RUNNING Login_TC.xlsx :: PK-050 - Check tin nhắn tại hội thoại e2e sau khi đã đổi key ( Passphase) đối với tài khoản đã có passphase - Quên passphase của tài khoản thành công - Reset và đăng nhập với passphase mới -->  check tin nhắn cũ ở hội thoại thường không mã hóa e2e ===
+]]></system-out>
   </testcase>
 </testsuite>

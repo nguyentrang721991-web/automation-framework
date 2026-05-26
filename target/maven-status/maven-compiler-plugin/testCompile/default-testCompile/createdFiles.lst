@@ -1,5 +1,6 @@
 base\BaseTest.class
-tests\LoginTest.class
 utils\AllureListener.class
-runner\TestRunner.class
 utils\RetryAnalyzer.class
+tests\LoginTest.class
+runner\TestRunner.class
+runner\TestRunner$ExcelTestCase.class

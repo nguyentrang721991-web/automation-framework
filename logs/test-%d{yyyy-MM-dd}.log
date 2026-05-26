@@ -1,0 +1,14 @@
+2026-05-26 15:09:13,745 INFO  org.testng.internal.Utils - [TestNG] Running:
+  C:\Users\PC\AppData\Local\JetBrains\IntelliJIdea2026.1\temp-testng-customsuite.xml
+
+2026-05-26 15:09:15,281 INFO  io.github.bonigarcia.wdm.WebDriverManager - Using chromedriver 148.0.7778.178 (resolved driver for Chrome 148)
+2026-05-26 15:09:15,297 INFO  io.github.bonigarcia.wdm.WebDriverManager - Exporting webdriver.chrome.driver as C:\Users\PC\.cache\selenium\chromedriver\win64\148.0.7778.178\chromedriver.exe
+2026-05-26 15:10:05,665 INFO  io.github.bonigarcia.wdm.WebDriverManager - Using chromedriver 148.0.7778.178 (resolved driver for Chrome 148)
+2026-05-26 15:10:05,774 INFO  io.github.bonigarcia.wdm.WebDriverManager - Exporting webdriver.chrome.driver as C:\Users\PC\.cache\selenium\chromedriver\win64\148.0.7778.178\chromedriver.exe
+2026-05-26 15:13:31,352 WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2026-05-26 15:13:31,355 WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2026-05-26 15:13:31,355 WARN  org.testng.TestNG - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+2026-05-26 15:13:33,022 INFO  io.github.bonigarcia.wdm.WebDriverManager - Using chromedriver 148.0.7778.178 (resolved driver for Chrome 148)
+2026-05-26 15:13:33,044 INFO  io.github.bonigarcia.wdm.WebDriverManager - Exporting webdriver.chrome.driver as C:\Users\PC\.cache\selenium\chromedriver\win64\148.0.7778.178\chromedriver.exe
+2026-05-26 15:14:22,771 INFO  io.github.bonigarcia.wdm.WebDriverManager - Using chromedriver 148.0.7778.178 (resolved driver for Chrome 148)
+2026-05-26 15:14:22,780 INFO  io.github.bonigarcia.wdm.WebDriverManager - Exporting webdriver.chrome.driver as C:\Users\PC\.cache\selenium\chromedriver\win64\148.0.7778.178\chromedriver.exe

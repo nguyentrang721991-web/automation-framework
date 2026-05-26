@@ -13,6 +13,8 @@
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
+        <allure.version>2.25.0</allure.version>
+        <log4j.version>2.23.1</log4j.version>
     </properties>
 
     <dependencies>
@@ -32,7 +34,7 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- Excel -->
+        <!-- Excel (Apache POI) -->
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi-ooxml</artifactId>
@@ -46,23 +48,59 @@
             <version>5.8.0</version>
         </dependency>
 
-        <!-- Allure -->
+        <!-- ================= ALLURE ================= -->
         <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-testng</artifactId>
-            <version>2.25.0</version>
+            <version>${allure.version}</version>
         </dependency>
+
+        <!-- ================= LOGGING ================= -->
+        <!-- Log4j core -->
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
-            <version>2.23.1</version>
+            <version>${log4j.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-api</artifactId>
-            <version>2.23.1</version>
+            <version>${log4j.version}</version>
         </dependency>
+
+        <!-- FIX SLF4J WARNING -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-slf4j-impl</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
+
     </dependencies>
+
+    <build>
+        <plugins>
+
+            <!-- Maven Surefire để chạy TestNG -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.2.5</version>
+                <configuration>
+                    <suiteXmlFiles>
+                        <suiteXmlFile>testng.xml</suiteXmlFile>
+                    </suiteXmlFiles>
+                </configuration>
+            </plugin>
+
+            <!-- Allure Maven Plugin -->
+            <plugin>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-maven</artifactId>
+                <version>2.12.0</version>
+            </plugin>
+
+        </plugins>
+    </build>
 
 </project>
