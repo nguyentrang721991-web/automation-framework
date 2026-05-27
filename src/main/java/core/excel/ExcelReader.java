@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -196,30 +197,99 @@ public class ExcelReader implements AutoCloseable {
             return data;
         }
 
-        readTestDataRows(sheet, data, testCaseId, true);
-        readTestDataRows(sheet, data, testCaseId, false);
+        Row header = sheet.getRow(0);
+        if (header == null) {
+            return data;
+        }
+
+        Map<String, Integer> columns = indexColumns(header);
+        Integer keyColumn = firstExisting(columns, "key", "locatorvalue", "locator_value", "name");
+        Integer valueColumn = firstExisting(columns, "value", "data");
+        Integer tcColumn = firstExisting(columns, "testcaseid", "tc_id", "tcid");
+        if (keyColumn == null || valueColumn == null) {
+            return data;
+        }
+
+        if (tcColumn == null) {
+            readKeyValueTestDataRows(sheet, data, testCaseId, keyColumn, valueColumn, false);
+            readKeyValueTestDataRows(sheet, data, testCaseId, keyColumn, valueColumn, true);
+        } else {
+            readLegacyTestDataRows(sheet, data, testCaseId, tcColumn, keyColumn, valueColumn, true);
+            readLegacyTestDataRows(sheet, data, testCaseId, tcColumn, keyColumn, valueColumn, false);
+        }
         return data;
     }
 
-    private void readTestDataRows(Sheet sheet, Map<String, String> data, String testCaseId, boolean globalRows) {
+    private void readKeyValueTestDataRows(Sheet sheet, Map<String, String> data, String testCaseId,
+                                           int keyColumn, int valueColumn, boolean scopedRows) {
         for (Row row : sheet) {
             if (row == null || row.getRowNum() == 0) {
                 continue;
             }
 
-            String tcId = getCellValue(row.getCell(0));
+            String key = getCellValue(row.getCell(keyColumn));
+            if (key.isEmpty()) {
+                continue;
+            }
+
+            String scopedKey = unscopedTestDataKey(key, testCaseId);
+            boolean matchesScope = scopedKey != null;
+            if (scopedRows != matchesScope) {
+                continue;
+            }
+
+            if (!scopedRows && isAnyScopedTestDataKey(key)) {
+                continue;
+            }
+
+            String value = getCellValue(row.getCell(valueColumn));
+            if (matchesScope) {
+                data.put(scopedKey, value);
+            }
+            data.put(key, value);
+        }
+    }
+
+    private void readLegacyTestDataRows(Sheet sheet, Map<String, String> data, String testCaseId,
+                                        int tcColumn, int keyColumn, int valueColumn, boolean globalRows) {
+        for (Row row : sheet) {
+            if (row == null || row.getRowNum() == 0) {
+                continue;
+            }
+
+            String tcId = getCellValue(row.getCell(tcColumn));
             boolean matchesGlobal = isGlobalTestDataId(tcId);
             boolean matchesTestCase = tcId.equalsIgnoreCase(testCaseId);
             if (globalRows != matchesGlobal || (!matchesGlobal && !matchesTestCase)) {
                 continue;
             }
 
-            String key = getCellValue(row.getCell(1));
-            String value = getCellValue(row.getCell(2));
+            String key = getCellValue(row.getCell(keyColumn));
+            String value = getCellValue(row.getCell(valueColumn));
             if (!key.isEmpty()) {
                 data.put(key, value);
             }
         }
+    }
+
+    private String unscopedTestDataKey(String key, String testCaseId) {
+        if (key == null || testCaseId == null || testCaseId.isBlank()) {
+            return null;
+        }
+
+        String normalizedKey = key.trim();
+        for (String delimiter : List.of(".", ":")) {
+            String prefix = testCaseId + delimiter;
+            if (normalizedKey.regionMatches(true, 0, prefix, 0, prefix.length())) {
+                String scopedKey = normalizedKey.substring(prefix.length()).trim();
+                return scopedKey.isEmpty() ? null : scopedKey;
+            }
+        }
+        return null;
+    }
+
+    private boolean isAnyScopedTestDataKey(String key) {
+        return key != null && key.trim().matches("(?i)^PK-\\d{3}[.:].+");
     }
 
     public boolean hasRequiredLoginData(String testCaseId) {
@@ -244,11 +314,7 @@ public class ExcelReader implements AutoCloseable {
             return "";
         }
 
-        if (!hasRequiredLoginData(tcId)) {
-            return "Missing TestData email/password or TestSteps for " + tcId;
-        }
-
-        return "";
+        return "Missing TestSteps for " + tcId;
     }
 
     private boolean hasValue(Map<String, String> data, String key) {
@@ -274,11 +340,7 @@ public class ExcelReader implements AutoCloseable {
     }
 
     public List<Map<String, String>> getTestStepsForLoginTC(String tcId) {
-        List<Map<String, String>> customSteps = readCustomSteps(tcId);
-        if (!customSteps.isEmpty()) {
-            return customSteps;
-        }
-        return defaultLoginSteps(tcId);
+        return readCustomSteps(tcId);
     }
 
     private List<Map<String, String>> readCustomSteps(String testCaseId) {
@@ -287,24 +349,36 @@ public class ExcelReader implements AutoCloseable {
             return Collections.emptyList();
         }
 
-        Row header = sheet.getRow(0);
+        int headerRowIndex = findHeaderRow(sheet, "TC_ID");
+        if (headerRowIndex < 0) {
+            headerRowIndex = findHeaderRow(sheet, "TestCaseID");
+        }
+        if (headerRowIndex < 0) {
+            headerRowIndex = 0;
+        }
+
+        Row header = sheet.getRow(headerRowIndex);
         if (header == null) {
             return Collections.emptyList();
         }
 
         Map<String, Integer> columns = indexColumns(header);
         Integer tcColumn = firstExisting(columns, "testcaseid", "tc_id", "tcid");
-        Integer keywordColumn = firstExisting(columns, "keyword", "action");
-        if (tcColumn == null || keywordColumn == null) {
-            return Collections.emptyList();
+        Integer actionColumn = firstExisting(columns, "action", "keyword");
+        if (tcColumn == null || actionColumn == null) {
+            throw new RuntimeException("Cannot find TC_ID/Action columns in sheet: " + TEST_STEPS_SHEET);
         }
 
         Integer runColumn = firstExisting(columns, "run", "execute");
-        Integer objectColumn = firstExisting(columns, "object", "locator");
-        Integer dataColumn = firstExisting(columns, "data", "value", "input");
+        Integer stepColumn = firstExisting(columns, "step", "stepno", "no");
+        Integer targetColumn = firstExisting(columns, "target", "object", "locator");
+        Integer inputColumn = firstExisting(columns, "input", "data", "value");
+        Integer expectedColumn = firstExisting(columns, "expected", "expect");
+        Integer assertionColumn = firstExisting(columns, "assertion", "assert");
+        Integer descriptionColumn = firstExisting(columns, "description", "note");
 
         List<Map<String, String>> steps = new ArrayList<>();
-        for (int i = 1; i <= sheet.getLastRowNum(); i++) {
+        for (int i = headerRowIndex + 1; i <= sheet.getLastRowNum(); i++) {
             Row row = sheet.getRow(i);
             if (row == null) {
                 continue;
@@ -319,17 +393,30 @@ public class ExcelReader implements AutoCloseable {
                 continue;
             }
 
-            String keyword = getCellValue(row.getCell(keywordColumn));
-            if (keyword.isEmpty()) {
+            String action = getCellValue(row.getCell(actionColumn));
+            if (action.isEmpty()) {
                 continue;
             }
 
             Map<String, String> step = new LinkedHashMap<>();
-            step.put("keyword", keyword);
-            step.put("object", objectColumn == null ? "" : getCellValue(row.getCell(objectColumn)));
-            step.put("data", dataColumn == null ? "" : getCellValue(row.getCell(dataColumn)));
+            String target = targetColumn == null ? "" : getCellValue(row.getCell(targetColumn));
+            String input = inputColumn == null ? "" : getCellValue(row.getCell(inputColumn));
+            String stepNumber = stepColumn == null ? String.valueOf(steps.size() + 1) : getCellValue(row.getCell(stepColumn));
+            step.put("tc_id", rowTcId);
+            step.put("step", stepNumber);
+            step.put("action", action);
+            step.put("keyword", action);
+            step.put("target", target);
+            step.put("object", target);
+            step.put("input", input);
+            step.put("data", input);
+            step.put("expected", expectedColumn == null ? "" : getCellValue(row.getCell(expectedColumn)));
+            step.put("assertion", assertionColumn == null ? "" : getCellValue(row.getCell(assertionColumn)));
+            step.put("description", descriptionColumn == null ? "" : getCellValue(row.getCell(descriptionColumn)));
             steps.add(step);
         }
+
+        steps.sort(Comparator.comparingInt(step -> parseInt(step.get("step"), Integer.MAX_VALUE)));
         return steps;
     }
 
@@ -356,37 +443,6 @@ public class ExcelReader implements AutoCloseable {
 
     private String normalizeHeader(String value) {
         return value == null ? "" : value.toLowerCase(Locale.ROOT).replaceAll("[^a-z0-9_]", "");
-    }
-
-    private List<Map<String, String>> defaultLoginSteps(String tcId) {
-        List<Map<String, String>> steps = new ArrayList<>();
-        steps.add(step("navigate", "", "${base.url}"));
-        steps.add(step("loginwithmicrosoft", "", "${email}|${password}"));
-        steps.add(step("entermicrosoftotp", "", "${microsoftOtp}"));
-
-        if ("PK-001".equalsIgnoreCase(tcId)) {
-            steps.add(step("assertanytext", "", "B\u1ecf qua|C\u00e0i \u0111\u1eb7t|M\u00e3 b\u1ea3o m\u1eadt|Security"));
-        } else if ("PK-002".equalsIgnoreCase(tcId)) {
-            steps.add(step("skipsecuritykeysetup", "", ""));
-            steps.add(step("assertanytext", "", "H\u1ed9i tho\u1ea1i|Tin nh\u1eafn|Chat|Conversation"));
-        } else if ("PK-003".equalsIgnoreCase(tcId)) {
-            steps.add(step("skipsecuritykeysetup", "", ""));
-            steps.add(step("opencreategroupchat", "", ""));
-            steps.add(step("clicksecuritylock", "", ""));
-            steps.add(step("assertmessagevisible", "", ""));
-        } else {
-            steps.add(step("assertanytext", "", "H\u1ed9i tho\u1ea1i|Tin nh\u1eafn|Chat|M\u00e3 PIN|M\u00e3 b\u1ea3o m\u1eadt"));
-        }
-
-        return steps;
-    }
-
-    private Map<String, String> step(String keyword, String object, String data) {
-        Map<String, String> step = new LinkedHashMap<>();
-        step.put("keyword", keyword);
-        step.put("object", object);
-        step.put("data", data);
-        return step;
     }
 
     public List<String> getRunnableTestCases() {
@@ -417,9 +473,9 @@ public class ExcelReader implements AutoCloseable {
         }
 
         Map<String, Integer> columns = indexColumns(header);
-        Integer nameColumn = firstExisting(columns, "objectname", "object", "name");
-        Integer typeColumn = firstExisting(columns, "locatortype", "type", "by");
-        Integer valueColumn = firstExisting(columns, "locatorvalue", "value", "locator");
+        Integer nameColumn = firstExisting(columns, "objectname", "object_name", "object", "name", "key");
+        Integer typeColumn = firstExisting(columns, "locatortype", "locator_type", "type", "by");
+        Integer valueColumn = firstExisting(columns, "locatorvalue", "locator_value", "value", "locator");
 
         if (nameColumn == null || valueColumn == null) {
             return objects;
@@ -448,10 +504,18 @@ public class ExcelReader implements AutoCloseable {
         if (type.isEmpty()) {
             return locatorValue;
         }
-        if (locatorValue.startsWith(type + "=")) {
+        if (locatorValue.toLowerCase(Locale.ROOT).startsWith(type + "=")) {
             return locatorValue;
         }
         return type + "=" + locatorValue;
+    }
+
+    private int parseInt(String value, int defaultValue) {
+        try {
+            return Integer.parseInt(value == null ? "" : value.trim());
+        } catch (Exception ignored) {
+            return defaultValue;
+        }
     }
 
     @Override

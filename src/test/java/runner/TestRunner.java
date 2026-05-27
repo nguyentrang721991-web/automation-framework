@@ -77,7 +77,6 @@ public class TestRunner {
             }
 
             Map<String, String> testData = new LinkedHashMap<>(excel.getTestData(tcId));
-            testData.putIfAbsent("base.url", ConfigReader.getProperty("base.url"));
             testData.putIfAbsent("excel.file", context.excelFile());
             testData.putIfAbsent("testcase.id", tcId);
 

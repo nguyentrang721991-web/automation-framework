@@ -34,7 +34,7 @@ public class Actions {
 
     public void navigate(String url) {
         if (url == null || url.trim().isEmpty()) {
-            url = ConfigReader.getProperty("base.url");
+            throw new IllegalArgumentException("OPEN_URL requires URL from TestSteps/Input and TestData");
         }
         driver.get(url);
     }
@@ -683,6 +683,24 @@ public class Actions {
         }
     }
 
+    public void assertUrlEquals(String expectedUrl) {
+        if (!wait.until(driver -> driver.getCurrentUrl().equals(expectedUrl))) {
+            throw new AssertionError("Current URL does not equal: " + expectedUrl + ". Actual: " + currentUrl());
+        }
+    }
+
+    public void assertTitleContains(String expectedPart) {
+        if (!wait.until(driver -> driver.getTitle().contains(expectedPart))) {
+            throw new AssertionError("Page title does not contain: " + expectedPart + ". Actual: " + driver.getTitle());
+        }
+    }
+
+    public void assertTitleEquals(String expectedTitle) {
+        if (!wait.until(driver -> driver.getTitle().equals(expectedTitle))) {
+            throw new AssertionError("Page title does not equal: " + expectedTitle + ". Actual: " + driver.getTitle());
+        }
+    }
+
     public void assertAnyText(String expectedTexts) {
         List<String> candidates = Arrays.stream(expectedTexts.split("\\|"))
                 .map(String::trim)
@@ -744,10 +762,31 @@ public class Actions {
     }
 
     public void assertTextContains(By by, String expectedText) {
+        assertText(by, expectedText, "CONTAINS");
+    }
+
+    public void assertText(By by, String expectedText, String assertion) {
         WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(by));
         String actual = element.getText();
-        if (!actual.contains(expectedText)) {
-            throw new AssertionError("Element text does not contain '" + expectedText + "'. Actual: " + actual);
+        String normalizedActual = normalizeForAssertion(actual);
+        List<String> candidates = Arrays.stream(expectedText.split("\\|"))
+                .map(String::trim)
+                .filter(text -> !text.isEmpty())
+                .toList();
+
+        if (candidates.isEmpty()) {
+            throw new IllegalArgumentException("Expected text is required");
+        }
+
+        boolean equalsAssertion = assertion != null
+                && List.of("equals", "equal", "eq", "=").contains(assertion.trim().toLowerCase(Locale.ROOT));
+        boolean matched = candidates.stream()
+                .map(this::normalizeForAssertion)
+                .anyMatch(candidate -> equalsAssertion ? normalizedActual.equals(candidate) : normalizedActual.contains(candidate));
+
+        if (!matched) {
+            String operator = equalsAssertion ? "equal" : "contain";
+            throw new AssertionError("Element text does not " + operator + " '" + expectedText + "'. Actual: " + actual);
         }
     }
 
