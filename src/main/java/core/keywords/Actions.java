@@ -48,11 +48,7 @@ public class Actions {
     }
 
     public boolean clickIfVisible(By by, int timeoutSeconds) {
-        WebElement element = findFirstVisible(timeoutSeconds, by);
-        if (element == null || !element.isEnabled()) {
-            return false;
-        }
-        return clickElement(element);
+        return clickVisibleAcrossWindows(by, timeoutSeconds);
     }
 
     public boolean clickIfInputPresent(By by, String input, int timeoutSeconds) {
@@ -63,13 +59,8 @@ public class Actions {
     }
 
     public void clickDeep(By by, int timeoutSeconds) {
-        WebElement element = findFirstVisibleAcrossWindows(timeoutSeconds, by);
-        if (element == null) {
+        if (!clickVisibleAcrossWindows(by, timeoutSeconds)) {
             throw new RuntimeException("Cannot find element to click: " + by);
-        }
-        scrollIntoView(element);
-        if (!clickElementDeep(element)) {
-            throw new RuntimeException("Cannot click element: " + by);
         }
     }
 
@@ -315,6 +306,26 @@ public class Actions {
         }
     }
 
+    private boolean clickVisibleAcrossWindows(By by, int timeoutSeconds) {
+        long deadline = System.currentTimeMillis() + timeoutSeconds * 1000L;
+        String originalWindow = safeWindowHandle();
+        while (System.currentTimeMillis() < deadline) {
+            WebElement element = findFirstVisibleAcrossWindows(1, by);
+            if (element != null) {
+                scrollIntoView(element);
+                if (isEnabled(element) && clickElementDeep(element)) {
+                    return true;
+                }
+            }
+            sleepMillis(250);
+        }
+
+        if (!isBlank(originalWindow) && safeWindowHandles().contains(originalWindow)) {
+            driver.switchTo().window(originalWindow);
+        }
+        return false;
+    }
+
     private boolean clickElementDeep(WebElement element) {
         if (clickElement(element)) {
             return true;
@@ -388,6 +399,14 @@ public class Actions {
     private boolean isDisplayed(WebElement element) {
         try {
             return element != null && element.isDisplayed();
+        } catch (Exception ignored) {
+            return false;
+        }
+    }
+
+    private boolean isEnabled(WebElement element) {
+        try {
+            return element != null && element.isEnabled();
         } catch (Exception ignored) {
             return false;
         }

@@ -68,6 +68,65 @@ public class ExcelReader implements AutoCloseable {
         throw exception;
     }
 
+    public List<Map<String, String>> getTestSuites(String sheetName) {
+        Sheet sheet = workbook.getSheet(sheetName);
+        if (sheet == null && workbook.getSheet("TestSuite") != null) {
+            sheet = workbook.getSheet("TestSuite");
+        }
+        if (sheet == null && workbook.getNumberOfSheets() > 0) {
+            sheet = workbook.getSheetAt(0);
+        }
+        if (sheet == null) {
+            throw new RuntimeException("Suite sheet not found: " + sheetName);
+        }
+
+        int headerRowIndex = findHeaderRow(sheet, "FEATURE_ID");
+        if (headerRowIndex < 0) {
+            headerRowIndex = findHeaderRow(sheet, "FeatureID");
+        }
+        if (headerRowIndex < 0) {
+            headerRowIndex = 0;
+        }
+
+        Row header = sheet.getRow(headerRowIndex);
+        if (header == null) {
+            return Collections.emptyList();
+        }
+
+        Map<String, Integer> columns = indexColumns(header);
+        Integer featureColumn = firstExisting(columns, "feature_id", "featureid", "feature", "suiteid", "suite_id");
+        Integer fileColumn = firstExisting(columns, "excel_file", "excelfile", "file", "filename", "path", "excelpath", "excel_path");
+        if (fileColumn == null) {
+            throw new RuntimeException("Cannot find EXCEL_FILE column in suite sheet: " + sheet.getSheetName());
+        }
+
+        Integer featureNameColumn = firstExisting(columns, "feature_name", "featurename", "name", "suite", "suitename", "suite_name");
+        Integer runColumn = firstExisting(columns, "run", "execute");
+        Integer descriptionColumn = firstExisting(columns, "description", "desc", "note");
+
+        List<Map<String, String>> suites = new ArrayList<>();
+        for (int i = headerRowIndex + 1; i <= sheet.getLastRowNum(); i++) {
+            Row row = sheet.getRow(i);
+            if (row == null) {
+                continue;
+            }
+
+            String excelFile = getCellValue(row.getCell(fileColumn));
+            if (excelFile.isEmpty()) {
+                continue;
+            }
+
+            Map<String, String> suite = new LinkedHashMap<>();
+            suite.put("FEATURE_ID", featureColumn == null ? "" : getCellValue(row.getCell(featureColumn)));
+            suite.put("FEATURE_NAME", featureNameColumn == null ? "" : getCellValue(row.getCell(featureNameColumn)));
+            suite.put("EXCEL_FILE", excelFile);
+            suite.put("RUN", runColumn == null ? "Y" : getCellValue(row.getCell(runColumn)));
+            suite.put("DESCRIPTION", descriptionColumn == null ? "" : getCellValue(row.getCell(descriptionColumn)));
+            suites.add(suite);
+        }
+        return suites;
+    }
+
     private String getCellValue(Cell cell) {
         if (cell == null) {
             return "";
@@ -133,6 +192,10 @@ public class ExcelReader implements AutoCloseable {
             testCases.add(tc);
         }
         return testCases;
+    }
+
+    public List<Map<String, String>> getTestCases(String sheetName) {
+        return getLoginTestCases(sheetName);
     }
 
     private List<Map<String, String>> readTemplateTestCases(Sheet sheet, int headerRowIndex) {
