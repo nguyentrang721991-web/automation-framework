@@ -76,6 +76,11 @@ public class KeywordEngine {
                     action.clickIfVisible(toBy(object), parseInt(value, 5));
                     break;
 
+                case "clickifinputpresent":
+                case "clickifdatapresent":
+                    action.clickIfInputPresent(toBy(object), value, 5);
+                    break;
+
                 case "input":
                 case "type":
                     if (object.isEmpty() && (value.startsWith("http://") || value.startsWith("https://"))) {
@@ -83,6 +88,11 @@ public class KeywordEngine {
                         break;
                     }
                     action.input(toBy(object), value);
+                    break;
+
+                case "inputifvisible":
+                case "optionalinput":
+                    action.inputIfVisible(toBy(object), value, 5);
                     break;
 
                 case "inputeditor":
@@ -101,53 +111,72 @@ public class KeywordEngine {
                     action.waitForSeconds(parseInt(value, 1));
                     break;
 
-                case "loginwithmicrosoft":
-                    String[] credentials = value.split("\\|", 2);
-                    if (credentials.length != 2) {
-                        throw new IllegalArgumentException("loginwithmicrosoft data must be: ${email}|${password}");
-                    }
-                    action.loginWithMicrosoft(credentials[0].trim(), credentials[1].trim());
+                case "waitvisible":
+                case "waituntilvisible":
+                    action.waitUntilVisible(toBy(object), parseInt(value, 30));
                     break;
+
+                case "waitnotvisible":
+                case "waituntilnotvisible":
+                    action.waitUntilNotVisible(toBy(object), parseInt(value, 30));
+                    break;
+
+                case "switchtonewwindow":
+                case "switchnewwindow":
+                    action.switchToNewWindowIfOpened(parseInt(value, 8));
+                    break;
+
+                case "switchtowindowwithvisible":
+                case "switchtowindowwithelement":
+                    action.switchToWindowWithVisibleElement(toBy(object), parseInt(value, 30));
+                    break;
+
+                case "switchtorootwindow":
+                case "switchtomainwindow":
+                    action.switchToRootWindow();
+                    break;
+
+                case "loginwithmicrosoft":
+                    throw new IllegalArgumentException("LOGIN_WITH_MICROSOFT is deprecated. Define SSO steps in Excel with CLICK/INPUT/SWITCH/WAIT actions.");
 
                 case "entermicrosoftotp":
                 case "enterotp":
                 case "entermicrosoftpin":
-                    action.enterMicrosoftOtp(value);
-                    break;
+                    throw new IllegalArgumentException("ENTER_MICROSOFT_OTP is deprecated. Define OTP input/submit steps in Excel.");
 
                 case "enterpin":
                 case "enterapppin":
                 case "enterpassphase":
-                    action.enterAppPin(value);
+                    action.input(toBy(object), value);
                     break;
 
                 case "skipsecuritykeysetup":
                 case "skipkeysetup":
                 case "skipsetupkey":
-                    action.skipSecurityKeySetup();
+                    action.clickIfVisible(toBy(object), parseInt(value, 10));
                     break;
 
                 case "searchandopenaccount":
                 case "openchatbyaccount":
                 case "searchaccount":
-                    action.searchAndOpenAccount(value);
+                    action.inputEditor(toBy(object), value);
                     break;
 
                 case "sendchatmessage":
                 case "sendmessage":
-                    action.sendChatMessage(value);
+                    action.inputEditor(toBy(object), value);
                     break;
 
                 case "opencreategroupchat":
                 case "creategroupchat":
                 case "clickcreategroup":
-                    action.openCreateGroupChat();
+                    action.clickDeep(toBy(object), parseInt(value, 10));
                     break;
 
                 case "clicksecuritylock":
                 case "togglesecuritylock":
                 case "enableencryptedchat":
-                    action.clickSecurityLockToggle();
+                    action.clickDeep(toBy(object), parseInt(value, 10));
                     break;
 
                 case "assertvisible":
@@ -181,7 +210,7 @@ public class KeywordEngine {
                 case "assertmessagevisible":
                 case "asserttoastvisible":
                 case "assertnotificationvisible":
-                    action.assertMessageVisible();
+                    action.assertElementVisible(toBy(object));
                     break;
 
                 case "asserturlcontains":
