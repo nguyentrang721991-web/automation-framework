@@ -1,0 +1,51 @@
+name: Run Tests + Extent Report
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Setup Chrome
+        uses: browser-actions/setup-chrome@v1
+
+      - name: Clean generated files
+        run: |
+          rm -rf reports
+          rm -rf screenshots
+          rm -rf target
+
+      - name: Run tests
+        run: mvn clean test
+
+      - name: Verify Extent report
+        run: |
+          ls -R reports
+          test -f reports/report.html
+
+      - name: Deploy report to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: reports
+          publish_branch: gh-pages
+          force_orphan: true
+          commit_message: "Deploy Extent Report"

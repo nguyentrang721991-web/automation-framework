@@ -1,0 +1,14 @@
+target/
+test-output/
+allure-results/
+allure-report/
+reports/
+screenshots/
+logs/
+
+.idea/workspace.xml
+*.iml
+
+*.log
+*.tmp
+~$*.xlsx

@@ -1,6 +1,7 @@
 package core.engine;
 
 import core.keywords.Actions;
+import core.report.ReportContext;
 import core.utils.ScreenshotUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -51,207 +52,219 @@ public class KeywordEngine {
             System.out.printf("Step %s: %s | %s | %s%n",
                     displayStep, keyword, object, maskIfSensitive(normalizedKeyword, object, value));
 
-            switch (normalizedKeyword) {
-                case "navigate":
-                case "open":
-                case "goto":
-                case "openurl":
-                    action.navigate(value);
-                    break;
+            String reportTitle = "Step " + displayStep + ": " + keyword;
+            String reportDetail = "Target: " + object
+                    + " | Value: " + maskIfSensitive(normalizedKeyword, object, value)
+                    + " | Description: " + valueOf(step.get("description"));
+            ReportContext.logStep("INFO", reportTitle, reportDetail);
 
-                case "openbrowser":
-                    // Driver lifecycle is controlled by TestRunner/DriverFactory. Keep this keyword for Template_TC compatibility.
-                    break;
-
-                case "click":
-                    action.click(toBy(object));
-                    break;
-
-                case "clickjs":
-                case "clickdeep":
-                    action.clickDeep(toBy(object), parseInt(value, 10));
-                    break;
-
-                case "clickifvisible":
-                    action.clickIfVisible(toBy(object), parseInt(value, 5));
-                    break;
-
-                case "clickifinputpresent":
-                case "clickifdatapresent":
-                    action.clickIfInputPresent(toBy(object), value, 5);
-                    break;
-
-                case "input":
-                case "type":
-                    if (object.isEmpty() && (value.startsWith("http://") || value.startsWith("https://"))) {
+            try {
+                switch (normalizedKeyword) {
+                    case "navigate":
+                    case "open":
+                    case "goto":
+                    case "openurl":
                         action.navigate(value);
                         break;
-                    }
-                    action.input(toBy(object), value);
-                    break;
 
-                case "inputifvisible":
-                case "optionalinput":
-                    action.inputIfVisible(toBy(object), value, 5);
-                    break;
+                    case "openbrowser":
+                        // Driver lifecycle is controlled by TestRunner/DriverFactory. Keep this keyword for Template_TC compatibility.
+                        break;
 
-                case "inputeditor":
-                case "typeeditor":
-                    action.inputEditor(toBy(object), value);
-                    break;
+                    case "click":
+                        action.click(toBy(object));
+                        break;
 
-                case "uploadfile":
-                case "upload":
-                case "choosefile":
-                    action.uploadFile(toBy(object), value);
-                    break;
+                    case "clickjs":
+                    case "clickdeep":
+                        action.clickDeep(toBy(object), parseInt(value, 10));
+                        break;
 
-                case "wait":
-                case "sleep":
-                    action.waitForSeconds(parseInt(value, 1));
-                    break;
+                    case "clickifvisible":
+                        action.clickIfVisible(toBy(object), parseInt(value, 5));
+                        break;
 
-                case "waitvisible":
-                case "waituntilvisible":
-                    action.waitUntilVisible(toBy(object), parseInt(value, 30));
-                    break;
+                    case "clickifinputpresent":
+                    case "clickifdatapresent":
+                        action.clickIfInputPresent(toBy(object), value, 5);
+                        break;
 
-                case "waitnotvisible":
-                case "waituntilnotvisible":
-                    action.waitUntilNotVisible(toBy(object), parseInt(value, 30));
-                    break;
+                    case "input":
+                    case "type":
+                        if (object.isEmpty() && (value.startsWith("http://") || value.startsWith("https://"))) {
+                            action.navigate(value);
+                            break;
+                        }
+                        action.input(toBy(object), value);
+                        break;
 
-                case "switchtonewwindow":
-                case "switchnewwindow":
-                    action.switchToNewWindowIfOpened(parseInt(value, 8));
-                    break;
+                    case "inputifvisible":
+                    case "optionalinput":
+                        action.inputIfVisible(toBy(object), value, 5);
+                        break;
 
-                case "switchtowindowwithvisible":
-                case "switchtowindowwithelement":
-                    action.switchToWindowWithVisibleElement(toBy(object), parseInt(value, 30));
-                    break;
+                    case "inputeditor":
+                    case "typeeditor":
+                        action.inputEditor(toBy(object), value);
+                        break;
 
-                case "switchtorootwindow":
-                case "switchtomainwindow":
-                    action.switchToRootWindow();
-                    break;
+                    case "uploadfile":
+                    case "upload":
+                    case "choosefile":
+                        action.uploadFile(toBy(object), value);
+                        break;
 
-                case "loginwithmicrosoft":
-                    throw new IllegalArgumentException("LOGIN_WITH_MICROSOFT is deprecated. Define SSO steps in Excel with CLICK/INPUT/SWITCH/WAIT actions.");
+                    case "wait":
+                    case "sleep":
+                        action.waitForSeconds(parseInt(value, 1));
+                        break;
 
-                case "entermicrosoftotp":
-                case "enterotp":
-                case "entermicrosoftpin":
-                    throw new IllegalArgumentException("ENTER_MICROSOFT_OTP is deprecated. Define OTP input/submit steps in Excel.");
+                    case "waitvisible":
+                    case "waituntilvisible":
+                        action.waitUntilVisible(toBy(object), parseInt(value, 30));
+                        break;
 
-                case "enterpin":
-                case "enterapppin":
-                case "enterpassphase":
-                    action.input(toBy(object), value);
-                    break;
+                    case "waitnotvisible":
+                    case "waituntilnotvisible":
+                        action.waitUntilNotVisible(toBy(object), parseInt(value, 30));
+                        break;
 
-                case "skipsecuritykeysetup":
-                case "skipkeysetup":
-                case "skipsetupkey":
-                    action.clickIfVisible(toBy(object), parseInt(value, 10));
-                    break;
+                    case "switchtonewwindow":
+                    case "switchnewwindow":
+                        action.switchToNewWindowIfOpened(parseInt(value, 8));
+                        break;
 
-                case "searchandopenaccount":
-                case "openchatbyaccount":
-                case "searchaccount":
-                    action.inputEditor(toBy(object), value);
-                    break;
+                    case "switchtowindowwithvisible":
+                    case "switchtowindowwithelement":
+                        action.switchToWindowWithVisibleElement(toBy(object), parseInt(value, 30));
+                        break;
 
-                case "sendchatmessage":
-                case "sendmessage":
-                    action.inputEditor(toBy(object), value);
-                    break;
+                    case "switchtorootwindow":
+                    case "switchtomainwindow":
+                        action.switchToRootWindow();
+                        break;
 
-                case "opencreategroupchat":
-                case "creategroupchat":
-                case "clickcreategroup":
-                    action.clickDeep(toBy(object), parseInt(value, 10));
-                    break;
+                    case "loginwithmicrosoft":
+                        throw new IllegalArgumentException("LOGIN_WITH_MICROSOFT is deprecated. Define SSO steps in Excel with CLICK/INPUT/SWITCH/WAIT actions.");
 
-                case "clicksecuritylock":
-                case "togglesecuritylock":
-                case "enableencryptedchat":
-                    action.clickDeep(toBy(object), parseInt(value, 10));
-                    break;
+                    case "entermicrosoftotp":
+                    case "enterotp":
+                    case "entermicrosoftpin":
+                        throw new IllegalArgumentException("ENTER_MICROSOFT_OTP is deprecated. Define OTP input/submit steps in Excel.");
 
-                case "assertvisible":
-                case "assertelementvisible":
-                case "verifyvisible":
-                case "verifyelementvisible":
-                    action.assertElementVisible(toBy(object));
-                    break;
+                    case "enterpin":
+                    case "enterapppin":
+                    case "enterpassphase":
+                        action.input(toBy(object), value);
+                        break;
 
-                case "asserttextcontains":
-                    action.assertText(toBy(object), value, "CONTAINS");
-                    break;
+                    case "skipsecuritykeysetup":
+                    case "skipkeysetup":
+                    case "skipsetupkey":
+                        action.clickIfVisible(toBy(object), parseInt(value, 10));
+                        break;
 
-                case "asserttextequals":
-                    action.assertText(toBy(object), value, "EQUALS");
-                    break;
+                    case "searchandopenaccount":
+                    case "openchatbyaccount":
+                    case "searchaccount":
+                        action.inputEditor(toBy(object), value);
+                        break;
 
-                case "verifytext":
-                    if (object.isEmpty()) {
+                    case "sendchatmessage":
+                    case "sendmessage":
+                        action.inputEditor(toBy(object), value);
+                        break;
+
+                    case "opencreategroupchat":
+                    case "creategroupchat":
+                    case "clickcreategroup":
+                        action.clickDeep(toBy(object), parseInt(value, 10));
+                        break;
+
+                    case "clicksecuritylock":
+                    case "togglesecuritylock":
+                    case "enableencryptedchat":
+                        action.clickDeep(toBy(object), parseInt(value, 10));
+                        break;
+
+                    case "assertvisible":
+                    case "assertelementvisible":
+                    case "verifyvisible":
+                    case "verifyelementvisible":
+                        action.assertElementVisible(toBy(object));
+                        break;
+
+                    case "asserttextcontains":
+                        action.assertText(toBy(object), value, "CONTAINS");
+                        break;
+
+                    case "asserttextequals":
+                        action.assertText(toBy(object), value, "EQUALS");
+                        break;
+
+                    case "verifytext":
+                        if (object.isEmpty()) {
+                            action.assertAnyText(value);
+                        } else {
+                            action.assertText(toBy(object), value, assertion);
+                        }
+                        break;
+
+                    case "assertanytext":
+                    case "verifypagetext":
                         action.assertAnyText(value);
-                    } else {
-                        action.assertText(toBy(object), value, assertion);
-                    }
-                    break;
+                        break;
 
-                case "assertanytext":
-                case "verifypagetext":
-                    action.assertAnyText(value);
-                    break;
+                    case "assertmessagevisible":
+                    case "asserttoastvisible":
+                    case "assertnotificationvisible":
+                        action.assertElementVisible(toBy(object));
+                        break;
 
-                case "assertmessagevisible":
-                case "asserttoastvisible":
-                case "assertnotificationvisible":
-                    action.assertElementVisible(toBy(object));
-                    break;
-
-                case "asserturlcontains":
-                    action.assertUrlContains(value);
-                    break;
-
-                case "asserturlequals":
-                    action.assertUrlEquals(value);
-                    break;
-
-                case "verifyurl":
-                    if (isEqualsAssertion(assertion)) {
-                        action.assertUrlEquals(value);
-                    } else {
+                    case "asserturlcontains":
                         action.assertUrlContains(value);
-                    }
-                    break;
+                        break;
 
-                case "verifytitle":
-                    if (isEqualsAssertion(assertion)) {
-                        action.assertTitleEquals(value);
-                    } else {
+                    case "asserturlequals":
+                        action.assertUrlEquals(value);
+                        break;
+
+                    case "verifyurl":
+                        if (isEqualsAssertion(assertion)) {
+                            action.assertUrlEquals(value);
+                        } else {
+                            action.assertUrlContains(value);
+                        }
+                        break;
+
+                    case "verifytitle":
+                        if (isEqualsAssertion(assertion)) {
+                            action.assertTitleEquals(value);
+                        } else {
+                            action.assertTitleContains(value);
+                        }
+                        break;
+
+                    case "asserttitlecontains":
                         action.assertTitleContains(value);
-                    }
-                    break;
+                        break;
 
-                case "asserttitlecontains":
-                    action.assertTitleContains(value);
-                    break;
+                    case "asserttitleequals":
+                        action.assertTitleEquals(value);
+                        break;
 
-                case "asserttitleequals":
-                    action.assertTitleEquals(value);
-                    break;
+                    case "screenshot":
+                    case "capturescreenshot":
+                        ScreenshotUtils.capture(driver, value.isEmpty() ? "step_" + displayStep : value);
+                        break;
 
-                case "screenshot":
-                case "capturescreenshot":
-                    ScreenshotUtils.capture(driver, value.isEmpty() ? "step_" + displayStep : value);
-                    break;
-
-                default:
-                    throw new IllegalArgumentException("Unsupported keyword: " + keyword);
+                    default:
+                        throw new IllegalArgumentException("Unsupported keyword: " + keyword);
+                }
+                ReportContext.logStep("PASS", reportTitle, "Completed");
+            } catch (RuntimeException | Error e) {
+                ReportContext.logStep("FAIL", reportTitle, e.getClass().getSimpleName() + ": " + valueOf(e.getMessage()));
+                throw e;
             }
         }
     }

@@ -6,9 +6,9 @@ import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
-import utils.AllureListener;
+import utils.ExtentReportListener;
 
-@Listeners(AllureListener.class)
+@Listeners(ExtentReportListener.class)
 public class BaseTest {
 
     protected WebDriver driver;

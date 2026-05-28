@@ -10,7 +10,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-import utils.AllureListener;
+import utils.ExtentReportListener;
 
 import java.io.IOException;
 import java.nio.file.FileSystems;
@@ -29,7 +29,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-@Listeners(AllureListener.class)
+@Listeners(ExtentReportListener.class)
 public class TestRunner {
 
     private WebDriver driver;
